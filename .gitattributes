@@ -1,0 +1,2 @@
+# Do not convert LF to CRLF for some specific files:
+.vimrc text eol=lf
