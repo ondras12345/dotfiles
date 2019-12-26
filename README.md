@@ -36,6 +36,9 @@ git clone --bare <git-repo-url> $HOME/.dotfiles-repo
 
 dotfiles config --local status.showUntrackedFiles no
 
+# Prevents 'files would be overwritten' error
+rm .gitignore
+
 dotfiles checkout
 ```
 
