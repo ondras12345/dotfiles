@@ -92,7 +92,7 @@ language en_US.utf8
 set nu
 
 " DOS line endings
-set ffs=dos,unix
+"set ffs=dos,unix
 
 " Block cursor in normal mode
 " Originally added because of git bash, but it also appears to work on linux
