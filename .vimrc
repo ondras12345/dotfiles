@@ -85,7 +85,10 @@ set ffs=dos,unix
 " Block cursor in normal mode
 " Originally added because of git bash, but it also appears to work on linux
 " It uses xterm escape sequences
+" https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
 " https://superuser.com/questions/634326/how-can-i-get-a-block-cursor-in-vim-in-the-cygwin-terminal
+" "\e[2 q" instead of "\e[1 q" for non-blinking block cursor
+" "\e[6 q" instead of "\e[5 q" for non-blinking bar cursor
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
