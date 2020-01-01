@@ -39,9 +39,21 @@ augroup vimrcEx
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
+
   " # Ondra
   " Do the same thing for markdown
   autocmd BufRead,BufNewFile *.md setlocal textwidth=78
+
+  " https://realpython.com/vim-and-python-a-match-made-in-heaven/
+  au BufNewFile,BufRead *.py
+    \ setlocal tabstop=4 |
+    \ setlocal softtabstop=4 |
+    \ setlocal shiftwidth=4 |
+    \ setlocal textwidth=78 |
+    \ setlocal expandtab |
+    \ setlocal autoindent |
+    \ setlocal fileformat=unix
+
 augroup END
 
 " Add optional packages.
