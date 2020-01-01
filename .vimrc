@@ -127,3 +127,9 @@ cnoremap ;; <c-f>
 set list
 set listchars=nbsp:␣,trail:•,tab:>▸
 ",eol:¶,precedes:«,extends:»
+
+" Mouse support
+" Just testing this, maybe I'll disable it later. Commit separately!
+if has('mouse')
+  set mouse=a
+endif
