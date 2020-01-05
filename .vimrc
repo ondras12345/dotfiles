@@ -133,3 +133,7 @@ set listchars=nbsp:␣,trail:•,tab:>▸
 if has('mouse')
   set mouse=a
 endif
+
+" Smart case search
+set ignorecase
+set smartcase
