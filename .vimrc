@@ -41,8 +41,13 @@ augroup vimrcEx
   autocmd FileType text setlocal textwidth=78
 
   " # Ondra
-  " Do the same thing for markdown
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=78
+  autocmd filetype markdown
+    \ setlocal textwidth=78 |
+    \ setlocal spell
+
+  au filetype gitcommit
+    \ setlocal spell
+
 
   " https://realpython.com/vim-and-python-a-match-made-in-heaven/
   au BufNewFile,BufRead *.py
@@ -89,7 +94,7 @@ set confirm
 language en_US.utf8
 
 " Line numbers
-set nu
+set number
 
 " DOS line endings
 set ffs=dos,unix
@@ -99,11 +104,11 @@ set ffs=dos,unix
 " It uses xterm escape sequences
 " https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
 " https://superuser.com/questions/634326/how-can-i-get-a-block-cursor-in-vim-in-the-cygwin-terminal
-" "\e[2 q" instead of "\e[1 q" for non-blinking block cursor
-" "\e[6 q" instead of "\e[5 q" for non-blinking bar cursor
-let &t_ti.="\e[1 q"
+" Use "\e[2 q" instead of "\e[1 q" for non-blinking block cursor
+" Use "\e[6 q" instead of "\e[5 q" for non-blinking bar cursor
+let &t_ti.="\e[2 q"
 let &t_SI.="\e[5 q"
-let &t_EI.="\e[1 q"
+let &t_EI.="\e[2 q"
 let &t_te.="\e[0 q"
 
 " Ceska jmena souboru
@@ -137,3 +142,11 @@ endif
 " Smart case search
 set ignorecase
 set smartcase
+
+" Nbsp C-S-Space
+"imap <C-S-Space> <C-V>u00a0
+imap <C-S-Space>  
+
+" Ceske uvozovky (UTF-8)
+imap "" „
+imap """ “
