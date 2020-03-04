@@ -1,0 +1,8 @@
+[user]
+	email = ondras12345@gmail.com
+	name = Ondřej Sluka
+[log]
+	date = iso8601
+[alias]
+	olog = log --decorate --oneline --graph
+	alog = log --all --decorate --oneline --graph
