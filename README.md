@@ -50,3 +50,17 @@ dotfiles push
 ```
 **WARNING**: Do not do things such as `dotfiles add .`. I haven't tested it,
 but I think it would start adding the whole ~ (home) directory recursively.
+
+## Operating systems
+I use different branches for different operating systems (and devices):
+```
+master - Windows (Git bash)
+linux - Linux
+```
+Some files (like .tmux.conf) are only present in the `linux` branch, since the
+software isn't part of Git bash on Windows.
+
+
+## Branching
+Rebase is probably not a good idea because it would require me to force push
+after changing something. Merge and/or cherry-pick should be better.
