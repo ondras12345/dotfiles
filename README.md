@@ -13,11 +13,20 @@ git init --bare $HOME/.dotfiles-repo
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 
-echo "\
-alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'" \
->> $HOME/.bashrc
-
 dotfiles config --local status.showUntrackedFiles no
+
+
+echo "test -f ~/scripts/aliases.sh && . ~/scripts/aliases.sh" >> $HOME/.bashrc
+
+echo "test -f ~/scripts/environment-vars.sh && .  ~/scripts/environment-vars.sh" >> $HOME/.profile
+
+echo "test -f ~/scripts/bash-config.sh && . ~/scripts/bash-config.sh" >> $HOME/.bashrc
+
+############################
+# Only run this on Windows #
+############################
+echo "test -f ~/scripts/git-bash-agent.sh && . ~/scripts/git-bash-agent.sh" >> $HOME/.bashrc
+
 
 # commit, add remote, push
 ```
@@ -25,10 +34,6 @@ dotfiles config --local status.showUntrackedFiles no
 ## Cloning
 ```
 alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
-
-echo "\
-alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'" \
->> $HOME/.bashrc
 
 echo ".dotfiles-repo" >> .gitignore
 
@@ -40,6 +45,18 @@ dotfiles config --local status.showUntrackedFiles no
 rm .gitignore
 
 dotfiles checkout
+
+
+echo "test -f ~/scripts/aliases.sh && . ~/scripts/aliases.sh" >> $HOME/.bashrc
+
+echo "test -f ~/scripts/environment-vars.sh && .  ~/scripts/environment-vars.sh" >> $HOME/.profile
+
+echo "test -f ~/scripts/bash-config.sh && . ~/scripts/bash-config.sh" >> $HOME/.bashrc
+
+############################
+# Only run this on Windows #
+############################
+echo "test -f ~/scripts/git-bash-agent.sh && . ~/scripts/git-bash-agent.sh" >> $HOME/.bashrc
 ```
 
 ## Adding files
