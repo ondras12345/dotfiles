@@ -28,6 +28,12 @@ echo "test -f ~/scripts/bash-config.sh && . ~/scripts/bash-config.sh" >> $HOME/.
 echo "test -f ~/scripts/git-bash-agent.sh && . ~/scripts/git-bash-agent.sh" >> $HOME/.bashrc
 
 
+########################
+# Only run this on WSL #
+########################
+echo "test -f ~/scripts/WSL-agent.sh && . ~/scripts/WSL-agent.sh" >> $HOME/.bashrc
+
+
 # commit, add remote, push
 ```
 
@@ -57,6 +63,12 @@ echo "test -f ~/scripts/bash-config.sh && . ~/scripts/bash-config.sh" >> $HOME/.
 # Only run this on Windows #
 ############################
 echo "test -f ~/scripts/git-bash-agent.sh && . ~/scripts/git-bash-agent.sh" >> $HOME/.bashrc
+
+
+########################
+# Only run this on WSL #
+########################
+echo "test -f ~/scripts/WSL-agent.sh && . ~/scripts/WSL-agent.sh" >> $HOME/.bashrc
 ```
 
 ## Adding files
