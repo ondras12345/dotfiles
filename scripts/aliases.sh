@@ -5,6 +5,9 @@
 alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 alias ll='ls -la'
 
+# https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+alias sudo='sudo '
+
 # Colors
 #alias grep='grep --color=auto'
 
@@ -17,4 +20,12 @@ clone () {
 
 clonemy() {
     clone "ondras12345/$1"
+}
+
+ssh-add() {
+    if [[ -z $1 ]] ; then
+        command ssh-add -t 1h
+    else
+        command ssh-add "$@"
+    fi
 }
