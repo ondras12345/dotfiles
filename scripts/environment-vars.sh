@@ -4,3 +4,4 @@
 export VISUAL="vim"
 export EDITOR="$VISUAL"
 export LESS="-i -R -W"
+export TIME_STYLE=long-iso
