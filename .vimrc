@@ -1,14 +1,8 @@
-
-" An example for a vimrc file.
+" My .vimrc
+" Ondřej Sluka https://github.com/ondras12345
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2019 Jan 26
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" Based on 'An example for a vimrc file.'
+" Maintainer:  Bram Moolenaar <Bram@vim.org>
 
 " When started as "evim", evim.vim will already have done these settings, bail
 " out.
@@ -19,6 +13,8 @@ endif
 
 
 set nocompatible
+
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     filetype off " required by Vundle
@@ -35,6 +31,7 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
 
     Plugin 'tpope/vim-fugitive'
     Plugin 'nvie/vim-flake8'
+    Plugin 'xxdavid/bez-diakritiky.vim'
 
     " Color schemes
     Plugin 'dracula/vim'
@@ -57,15 +54,16 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
 endif
 
 
+
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
 if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
+  set nobackup  " do not keep a backup file, use versions instead
 else
-  set backup		" keep a backup file (restore to previous version)
+  set backup  " keep a backup file (restore to previous version)
   if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
+    set undofile  " keep an undo file (undo changes after closing)
   endif
 endif
 
@@ -78,17 +76,20 @@ endif
 augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
   " # Ondra
-  autocmd filetype markdown
+  autocmd FileType markdown,text
     \ setlocal textwidth=78 |
-    \ setlocal spell
+    \ setlocal spell |
+    \ setlocal spelllang=en,cs,csa
 
-  au filetype gitcommit
-    \ setlocal spell
+  " Ceske uvozovky (UTF-8)
+  autocmd FileType markdown,text
+    \ imap <buffer> "" „|
+    \ imap <buffer> """ “
 
+  au FileType gitcommit
+    \ setlocal spell |
+    \ setlocal spelllang=en
 
   " https://realpython.com/vim-and-python-a-match-made-in-heaven/
   au BufNewFile,BufRead *.py
@@ -120,7 +121,8 @@ endif
 " set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
+set expandtab " disable me if you want hard tabs
+set smarttab
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
@@ -128,7 +130,7 @@ set cmdheight=2
 
 " Instead of failing a command because of unsaved changes, instead raise a
 " dialogue asking if you wish to save changed files.
-set confirm
+"set confirm
 
 
 " English
@@ -160,7 +162,6 @@ set enc=utf8
 " 80 chars mark
 " https://superuser.com/questions/249779/how-to-setup-a-line-length-marker-in-vim-gvim
 if exists('+colorcolumn')
-    highlight ColorColumn ctermbg=gray
     set colorcolumn=80
 endif
 
@@ -188,6 +189,10 @@ set smartcase
 "imap <C-S-Space> <C-V>u00a0
 imap <C-S-Space>  
 
-" Ceske uvozovky (UTF-8)
-imap "" „
-imap """ “
+" Disable search wrap
+" This should make it easier for me to do replace with confirm
+set nowrapscan
+
+
+" Source the machine-specific vimrc (does not need to exist)
+silent! source $HOME/.vimrc-local
