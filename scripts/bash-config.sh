@@ -4,4 +4,4 @@
 
 # https://sanctum.geek.nz/arabesque/vi-mode-in-bash/
 # Add `set editing-mode vi` to .inputrc for use in all tools using GNU Readline
-set -o vi
+#set -o vi
