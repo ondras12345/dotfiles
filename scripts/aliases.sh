@@ -5,8 +5,12 @@
 alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 alias ll='ls -la'
 
+alias mv='mv -i'  # ask for confirmation for overwrites
+alias cp='cp -i'
+
 # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo='sudo '
+alias watch='watch '
 
 # Colors
 #alias grep='grep --color=auto'

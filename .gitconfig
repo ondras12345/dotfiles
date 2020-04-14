@@ -6,3 +6,4 @@
 [alias]
 	olog = log --decorate --oneline --graph
 	alog = log --all --decorate --oneline --graph
+	sdiff = diff --staged
