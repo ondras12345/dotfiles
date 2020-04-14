@@ -134,7 +134,12 @@ set cmdheight=2
 
 
 " English
-language en_US.utf8
+" TODO further investigate why I need this if statement
+if has("gui_running")
+    language en_US
+else
+    language en_US.utf8
+endif
 
 " Line numbers
 set number
@@ -142,17 +147,21 @@ set number
 " DOS line endings
 "set ffs=dos,unix
 
-" Block cursor in normal mode
-" Originally added because of git bash, but it also appears to work on linux
-" It uses xterm escape sequences
-" https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
-" https://superuser.com/questions/634326/how-can-i-get-a-block-cursor-in-vim-in-the-cygwin-terminal
-" Use "\e[2 q" instead of "\e[1 q" for non-blinking block cursor
-" Use "\e[6 q" instead of "\e[5 q" for non-blinking bar cursor
-let &t_ti.="\e[2 q"
-let &t_SI.="\e[5 q"
-let &t_EI.="\e[2 q"
-let &t_te.="\e[0 q"
+if !has("gui_running")
+    " Block cursor in normal mode
+    " Originally added because of git bash, but it also appears to work on linux
+    " It uses xterm escape sequences
+    " https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
+    " https://superuser.com/questions/634326/how-can-i-get-a-block-cursor-in-vim-in-the-cygwin-terminal
+    " Use "\e[2 q" instead of "\e[1 q" for non-blinking block cursor
+    " Use "\e[6 q" instead of "\e[5 q" for non-blinking bar cursor
+    let &t_ti.="\e[2 q"
+    let &t_SI.="\e[5 q"
+    let &t_EI.="\e[2 q"
+    let &t_te.="\e[0 q"
+else
+    set guicursor+=n:blinkon0
+endif
 
 " Ceska jmena souboru
 set enc=utf8
@@ -192,6 +201,38 @@ imap <C-S-Space>  
 " Disable search wrap
 " This should make it easier for me to do replace with confirm
 set nowrapscan
+
+" Leader y and p system clipboard
+" Windows only?? - commit for now, fix in case of issues
+if has("gui_running")
+    nmap <leader>p "*p
+    vmap <leader>p "*p
+    nmap <leader>P "*P
+    vmap <leader>P "*P
+    nmap <leader>y "*y
+    vmap <leader>y "*y
+endif
+
+
+" netrw tree
+let g:netrw_liststyle = 3
+
+if has("gui_running")
+    set guioptions-=T  " hide the toolbar
+    set viminfofile=$HOME/.viminfo  " share .viminfo
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h10
+    set lines=84 columns=160
+    color dracula
+
+    " unzip on Windows
+    " Add Git/path to path and create symlinks to Git/usr/bin to make it work
+    " (unzip.exe)
+    "
+    " This does not work:
+    "let g:zip_unzipcmd="C:\Program Files\Git\usr\bin\unzip.exe"
+
+    " TODO scp://
+endif
 
 
 " Source the machine-specific vimrc (does not need to exist)
