@@ -1,5 +1,11 @@
 # dotfiles
-This is my personal dotfiles repo.
+This is my personal dotfiles repo. I only made this repo public to make it
+easier for me to clone it on other computers. It is not really intended to be
+used by other people, therefore there is no license file. But feel free to use
+it if you want. The other reason for not having a license file is that it
+would have to be located in the root of my home directory. Also, I'm not sure
+if I can license configuration files and what license they should be licensed
+under.
 
 https://www.atlassian.com/git/tutorials/dotfiles
 
