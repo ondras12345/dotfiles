@@ -1,5 +1,7 @@
 # This is the .gitignore file of my dotfiles repo
 .dotfiles-repo
+# Use git add --force to add files
+*
 
 # vi
 ## Swap
