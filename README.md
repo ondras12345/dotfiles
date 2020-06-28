@@ -73,12 +73,13 @@ echo "test -f ~/scripts/WSL-agent.sh && . ~/scripts/WSL-agent.sh" >> $HOME/.bash
 
 ## Adding files
 ```
-dotfiles add .virmc
+dotfiles add --force virmc
 dotfiles commit
 dotfiles push
 ```
-**WARNING**: Do not do things such as `dotfiles add .`. I haven't tested it,
-but I think it would start adding the whole ~ (home) directory recursively.
+.gitignore is set to ignore everything. This is to prevent things such as
+`dotfiles add .`. It would start adding the whole ~ (home) directory
+recursively. To add a file, use `git add --force file`.
 
 ## Operating systems
 I use different branches for different operating systems (and devices):
