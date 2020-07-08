@@ -145,10 +145,11 @@ endif
 set number
 
 " DOS line endings
+" WARNING Windows ONLY
 set ffs=dos,unix
 
+" Block cursor in normal mode
 if !has("gui_running")
-    " Block cursor in normal mode
     " Originally added because of git bash, but it also appears to work on linux
     " It uses xterm escape sequences
     " https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
@@ -177,6 +178,9 @@ endif
 " :;; to enter q: command line history
 " https://superuser.com/questions/470727/how-to-paste-yanked-text-to-vim-command-line
 cnoremap ;; <c-f>
+
+" :bb lists buffers and types :b
+cmap bb buffers<CR>:b
 
 " Highlight no break space
 " https://stackoverflow.com/questions/12814647/showing-single-space-invisible-character-in-vim
