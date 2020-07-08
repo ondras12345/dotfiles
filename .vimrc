@@ -239,5 +239,18 @@ if has("gui_running")
 endif
 
 
+"""""""""""""""""""""""""
+" WINDOW SPLITS
+"""""""""""""""""""""""""
+" https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/nvim/init.vim
+set splitbelow splitright
+
+" Remap splits navigation to just CTRL + hjkl
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+
 " Source the machine-specific vimrc (does not need to exist)
 silent! source $HOME/.vimrc-local
