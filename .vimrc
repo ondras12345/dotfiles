@@ -14,6 +14,12 @@ endif
 
 set nocompatible
 
+
+" https://stackoverflow.com/questions/446269/can-i-use-space-as-mapleader-in-vim
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
@@ -101,6 +107,17 @@ augroup vimrcEx
     \ setlocal autoindent |
     \ setlocal fileformat=unix
 
+
+  au FileType arduino,cpp
+    \ setlocal spell |
+    \ setlocal spelllang=en
+
+
+  " Arduino and cpp - switch to header / cpp file
+  " https://vim.fandom.com/wiki/Easily_switch_between_source_and_header_file
+  au FileType arduino,cpp
+    \ nnoremap <buffer> <Leader>oo :if expand('%:e') == "h" \| e %<.cpp \| else \| e %<.h \| endif<CR> |
+    \ nnoremap <buffer> <Leader>oO :if expand('%:e') == "h" \| vs %<.cpp \| else \| vs %<.h \| endif<CR>
 augroup END
 
 " Add optional packages.
