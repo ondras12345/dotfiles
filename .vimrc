@@ -36,8 +36,16 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     Plugin 'VundleVim/Vundle.vim'
 
     Plugin 'tpope/vim-fugitive'
+    Plugin 'tpope/vim-surround'
     Plugin 'nvie/vim-flake8'
     Plugin 'xxdavid/bez-diakritiky.vim'
+    Plugin 'ap/vim-css-color'
+    "Plugin 'Yggdroot/indentLine'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'airblade/vim-gitgutter'
+    " This plugin causes problems when I open a python file from vim in Git
+    " bash on Windows
+    "Plugin 'dbeniamine/cheat.sh-vim'
 
     " Color schemes
     Plugin 'dracula/vim'
@@ -189,11 +197,12 @@ set enc=utf8
 " 80 chars mark
 " https://superuser.com/questions/249779/how-to-setup-a-line-length-marker-in-vim-gvim
 if exists('+colorcolumn')
-    set colorcolumn=80
+    set colorcolumn=80,100,120
 endif
 
 " :;; to enter q: command line history
 " https://superuser.com/questions/470727/how-to-paste-yanked-text-to-vim-command-line
+"nnoremap ; :
 cnoremap ;; <c-f>
 
 " :bb lists buffers and types :b
@@ -235,12 +244,10 @@ if has("gui_running")
 endif
 
 
-" netrw tree
-let g:netrw_liststyle = 3
-
 if has("gui_running")
     set guioptions-=T  " hide the toolbar
     set viminfofile=$HOME/.viminfo  " share .viminfo
+    " TODO change - powerline fonts may not be installed
     set guifont=DejaVu_Sans_Mono_for_Powerline:h10
     set lines=84 columns=160
     color dracula
@@ -256,6 +263,10 @@ if has("gui_running")
 endif
 
 
+" space-space goes down
+nmap <leader><leader> <C-F>
+
+
 """""""""""""""""""""""""
 " WINDOW SPLITS
 """""""""""""""""""""""""
@@ -267,6 +278,34 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap <leader>w <C-w>
+
+command Czmap :source ~/scripts/cz-mappings.vim
+
+
+"""""""""""""""""""""""""
+" PLUGIN CONFIG
+"""""""""""""""""""""""""
+" airline
+set laststatus=2
+
+" gitgutter
+"let g:gitgutter_git_executable = 'C:\Program Files\Git\bin\git.exe'
+
+" netrw tree
+let g:netrw_liststyle = 3
+
+"" indentLine
+"let g:indentLine_fileTypeExclude = ['markdown,tex']
+
+" syntax for amsmath in LaTeX:
+" http://www.drchip.org/astronaut/vim/vbafiles/amsmath.vba.gz
+
+" Disable syntax highlight in lstlisting environment in LaTeX
+" (solves problems with '$' characters, etc.)
+" http://www.drchip.org/astronaut/vim/vbafiles/lstlisting.vba.gz
+"
 
 
 " Source the machine-specific vimrc (does not need to exist)
