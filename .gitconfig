@@ -4,6 +4,10 @@
 [log]
 	date = iso8601
 [alias]
+	st = status
 	olog = log --decorate --oneline --graph
 	alog = log --all --decorate --oneline --graph
 	sdiff = diff --staged
+	sd = sdiff
+	d = diff
+	bak = !git remote | grep backup- | xargs --no-run-if-empty -L1 git push
