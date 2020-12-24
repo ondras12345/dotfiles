@@ -1,4 +1,0 @@
-# This is the .gitignore file of my dotfiles repo
-
-# Do not convert LF to CRLF for some specific files:
-.vimrc text eol=lf
