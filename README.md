@@ -31,11 +31,6 @@ echo "test -f ~/scripts/environment-vars.sh && .  ~/scripts/environment-vars.sh"
 
 echo "test -f ~/scripts/bash-config.sh && . ~/scripts/bash-config.sh" >> $HOME/.bashrc
 
-############################
-# Only run this on Windows #
-############################
-echo "test -f ~/scripts/git-bash-agent.sh && . ~/scripts/git-bash-agent.sh" >> $HOME/.bashrc
-
 
 ########################
 # Only run this on WSL #
@@ -67,11 +62,6 @@ echo "test -f ~/scripts/aliases.sh && . ~/scripts/aliases.sh" >> $HOME/.bashrc
 echo "test -f ~/scripts/environment-vars.sh && .  ~/scripts/environment-vars.sh" >> $HOME/.profile
 
 echo "test -f ~/scripts/bash-config.sh && . ~/scripts/bash-config.sh" >> $HOME/.bashrc
-
-############################
-# Only run this on Windows #
-############################
-echo "test -f ~/scripts/git-bash-agent.sh && . ~/scripts/git-bash-agent.sh" >> $HOME/.bashrc
 
 
 ########################
