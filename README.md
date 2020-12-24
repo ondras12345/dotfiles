@@ -7,6 +7,9 @@ would have to be located in the root of my home directory. Also, I'm not sure
 if I can license configuration files and what license they should be licensed
 under.
 
+The `linux` branch is the new default branch. `master` is the old Windows
+stuff and will most likely not be updated at all.
+
 https://www.atlassian.com/git/tutorials/dotfiles
 
 ## Setup
