@@ -33,3 +33,5 @@ ssh-add() {
         command ssh-add "$@"
     fi
 }
+
+test -f ~/scripts/aliases-local.sh && . ~/scripts/aliases-local.sh
