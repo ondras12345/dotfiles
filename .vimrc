@@ -37,12 +37,15 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
 
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-repeat'
     Plugin 'nvie/vim-flake8'
     Plugin 'xxdavid/bez-diakritiky.vim'
     Plugin 'ap/vim-css-color'
     "Plugin 'Yggdroot/indentLine'
     Plugin 'vim-airline/vim-airline'
     Plugin 'airblade/vim-gitgutter'
+    Plugin 'mhinz/vim-startify'
+    Plugin 'ericcurtin/CurtineIncSw.vim'
     " This plugin causes problems when I open a python file from vim in Git
     " bash on Windows
     "Plugin 'dbeniamine/cheat.sh-vim'
@@ -116,16 +119,18 @@ augroup vimrcEx
     \ setlocal fileformat=unix
 
 
-  au FileType arduino,cpp
+  au FileType arduino,cpp,c
     \ setlocal spell |
     \ setlocal spelllang=en
 
 
   " Arduino and cpp - switch to header / cpp file
   " https://vim.fandom.com/wiki/Easily_switch_between_source_and_header_file
-  au FileType arduino,cpp
-    \ nnoremap <buffer> <Leader>oo :if expand('%:e') == "h" \| e %<.cpp \| else \| e %<.h \| endif<CR> |
+  au FileType arduino,cpp,c
+    \ nnoremap <buffer> <Leader>oo :call CurtineIncSw()<CR> |
     \ nnoremap <buffer> <Leader>oO :if expand('%:e') == "h" \| vs %<.cpp \| else \| vs %<.h \| endif<CR>
+    "\ nnoremap <buffer> <Leader>oo :if expand('%:e') == "h" \| e %<.cpp \| else \| e %<.h \| endif<CR> |
+
 augroup END
 
 " Add optional packages.
@@ -138,7 +143,10 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
+
 " # Ondra
+set nojoinspaces " french spacing
+
 " https://vim.fandom.com/wiki/Example_vimrc
 "
 " Indentation settings for using 4 spaces instead of tabs.
@@ -160,11 +168,11 @@ set cmdheight=2
 
 " English
 " TODO further investigate why I need this if statement
-if has("gui_running")
-    language en_US
-else
+"if has("gui_running")
+"    language en_US
+"else
     language en_US.utf8
-endif
+"endif
 
 " Line numbers
 set number
@@ -233,22 +241,22 @@ imap <C-S-Space>  
 set nowrapscan
 
 " Leader y and p system clipboard
-" Windows only?? - commit for now, fix in case of issues
-if has("gui_running")
-    nmap <leader>p "*p
-    vmap <leader>p "*p
-    nmap <leader>P "*P
-    vmap <leader>P "*P
-    nmap <leader>y "*y
-    vmap <leader>y "*y
-endif
+" Windows only?? - commit for now, fix in case of issues - probably not
+"if has("gui_running")
+    nmap <leader>p "+p
+    vmap <leader>p "+p
+    nmap <leader>P "+P
+    vmap <leader>P "+P
+    nmap <leader>y "+y
+    vmap <leader>y "+y
+"endif
 
 
 if has("gui_running")
     set guioptions-=T  " hide the toolbar
-    set viminfofile=$HOME/.viminfo  " share .viminfo
-    " TODO change - powerline fonts may not be installed
-    set guifont=DejaVu_Sans_Mono_for_Powerline:h10
+    "set viminfofile=$HOME/.viminfo  " share .viminfo
+    set guifont=Ubuntu\ Mono\ 12
+
     set lines=84 columns=160
     color dracula
 
@@ -281,7 +289,7 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <leader>w <C-w>
 
-command Czmap :source ~/scripts/cz-mappings.vim
+command Czmap :source ~/scripts/cz-mappings-local.vim
 
 
 """""""""""""""""""""""""
@@ -306,6 +314,14 @@ let g:netrw_liststyle = 3
 " (solves problems with '$' characters, etc.)
 " http://www.drchip.org/astronaut/vim/vbafiles/lstlisting.vba.gz
 "
+"
+let g:startify_bookmarks = [
+    \ {'V': '~/.vimrc'},
+    \ {'I': '~/source/repos/ondra-HP/install'},
+    \ {'R': '~/Documents/LAB/IT/rpi-lab/rpi-lab.sh'},
+    \ {'L': '~/Documents/LAB/IT/pc1.lab-config.sh'},
+    \ {'K': '~/source/repos/KOTEL/src/KOTEL_non-blocking/KOTEL_non-blocking.ino'}
+    \ ]
 
 
 " Source the machine-specific vimrc (does not need to exist)
