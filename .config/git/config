@@ -11,3 +11,5 @@
 	sd = sdiff
 	d = diff
 	bak = !git remote | grep backup- | xargs --no-run-if-empty -L1 git push
+[core]
+	excludesfile = /home/ondra/.config/git/gitignore_global
