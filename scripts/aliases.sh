@@ -4,16 +4,29 @@
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 alias ll='ls -la'
+alias la='ls -A'
+#alias fscp='pscp -sftp' # does not seem to use .ssh/config
 
-alias mv='mv -i'  # ask for confirmation for overwrites
+alias bat='batcat'
+
+# Prevent credentials from leaking trough vim swap and backup files
+alias pass='EDITOR=ed pass'
+
+# ask for confirmation before overwriting stuff
+alias mv='mv -i'
 alias cp='cp -i'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo='sudo '
 alias watch='watch '
 
 # Colors
-#alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 
 
 # Functions
