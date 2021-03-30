@@ -6,7 +6,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
-setopt autocd nomatch EXTENDED_HISTORY HIST_IGNORE_SPACE
+setopt autocd nomatch EXTENDED_HISTORY HIST_IGNORE_SPACE HIST_IGNORE_DUPS interactive_comments
 
 bindkey -v
 # 10ms for key sequences - DO NOT COMMIT me yet
