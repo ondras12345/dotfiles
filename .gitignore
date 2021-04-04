@@ -15,3 +15,9 @@
 .config/zsh/*
 !.config/zsh/plugins
 !.config/zsh/plugins/*
+
+!.vim
+.vim/*
+!.vim/bundle
+.vim/bundle/*
+!.vim/bundle/Vundle.vim

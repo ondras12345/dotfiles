@@ -20,6 +20,7 @@ nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 
+" This should be handled by a git submodule in my dotfiles repo:
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
