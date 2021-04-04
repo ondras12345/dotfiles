@@ -1,0 +1,3 @@
+[submodule ".config/zathura"]
+	path = .config/zathura
+	url = https://github.com/dracula/zathura

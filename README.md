@@ -12,6 +12,7 @@ stuff and will most likely not be updated at all.
 
 https://www.atlassian.com/git/tutorials/dotfiles
 
+
 ## Setup
 This is how I should be able to recreate the repo. (I was creating it while
 reinstalling Windows, so I did it a bit different in order to not have to
@@ -24,6 +25,12 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 
 dotfiles config --local status.showUntrackedFiles no
 
+# You will need to update .gitignore to successfuly add a submodule
+#dotfiles submodule add whatever .config/whatever
+# Do NOT use this:
+#dotfiles submodule add whatever ~/.config/whatever  # incorrect
+# or you'll have to manually edit .gitmodules and change the absolute path
+# to a relative one.
 
 echo "test -f ~/scripts/aliases.sh && . ~/scripts/aliases.sh" >> $HOME/.bashrc
 
@@ -41,21 +48,23 @@ echo "test -f ~/scripts/WSL-agent.sh && . ~/scripts/WSL-agent.sh" >> $HOME/.bash
 # commit, add remote, push
 ```
 
+
 ## Cloning
 ```
 alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 
 echo ".dotfiles-repo" >> .gitignore
 
-git clone --bare <git-repo-url> $HOME/.dotfiles-repo
+git clone --bare https://github.com/ondras12345/dotfiles.git $HOME/.dotfiles-repo
 
 dotfiles config --local status.showUntrackedFiles no
 
 # Prevents 'files would be overwritten' error
 rm .gitignore
 
-dotfiles checkout
+dotfiles checkout linux
 
+dotfiles submodule update --init --recursive
 
 echo "test -f ~/scripts/aliases.sh && . ~/scripts/aliases.sh" >> $HOME/.bashrc
 
@@ -69,6 +78,14 @@ echo "test -f ~/scripts/bash-config.sh && . ~/scripts/bash-config.sh" >> $HOME/.
 ########################
 echo "test -f ~/scripts/WSL-agent.sh && . ~/scripts/WSL-agent.sh" >> $HOME/.bashrc
 ```
+
+
+## Updating
+```
+dotfiles pull
+dotfiles submodule update
+```
+
 
 ## Adding files
 ```
