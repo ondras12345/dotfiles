@@ -10,3 +10,8 @@
 .config/*
 
 !.config/zathura
+
+!.config/zsh
+.config/zsh/*
+!.config/zsh/plugins
+!.config/zsh/plugins/*
