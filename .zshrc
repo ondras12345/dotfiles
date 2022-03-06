@@ -1,8 +1,8 @@
 # chsh -s $(which zsh)
 
 HISTFILE=~/.histfile
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=50000
+SAVEHIST=50000
 setopt autocd nomatch EXTENDED_HISTORY HIST_IGNORE_SPACE HIST_IGNORE_DUPS interactive_comments
 
 bindkey -v
