@@ -1,5 +1,6 @@
 " TODO carka/hacek zvlast
 " ů vs ;
+setlocal spelllang=cs
 
 
 "inoremap <buffer> 1 +
@@ -25,7 +26,7 @@ nnoremap <buffer> r9 rí
 nnoremap <buffer> r0 ré
 
 
-nnoremap <buffer> f1 f+
+"nnoremap <buffer> f1 f+
 nnoremap <buffer> f2 fě
 nnoremap <buffer> f3 fš
 nnoremap <buffer> f4 fč
@@ -35,6 +36,17 @@ nnoremap <buffer> f7 fý
 nnoremap <buffer> f8 fá
 nnoremap <buffer> f9 fí
 nnoremap <buffer> f0 fé
+
+"nnoremap <buffer> F1 F+
+nnoremap <buffer> F2 Fě
+nnoremap <buffer> F3 Fš
+nnoremap <buffer> F4 Fč
+nnoremap <buffer> F5 Fř
+nnoremap <buffer> F6 Fž
+nnoremap <buffer> F7 Fý
+nnoremap <buffer> F8 Fá
+nnoremap <buffer> F9 Fí
+nnoremap <buffer> F0 Fé
 
 " ctrl+alt+number works normally thanks to the keyboard layout
 "inoremap <buffer> + 1
@@ -69,3 +81,14 @@ nnoremap <buffer> fý f7
 nnoremap <buffer> fá f8
 nnoremap <buffer> fí f9
 nnoremap <buffer> fé f0
+
+nnoremap <buffer> F+ F1
+nnoremap <buffer> Fě F2
+nnoremap <buffer> Fš F3
+nnoremap <buffer> Fč F4
+nnoremap <buffer> Fř F5
+nnoremap <buffer> Fž F6
+nnoremap <buffer> Fý F7
+nnoremap <buffer> Fá F8
+nnoremap <buffer> Fí F9
+nnoremap <buffer> Fé F0
