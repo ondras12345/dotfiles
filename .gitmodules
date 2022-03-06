@@ -1,5 +1,5 @@
 [submodule ".config/zathura"]
-	path = .config/zathura
+	path = .config/zathura/dracula
 	url = https://github.com/dracula/zathura
 [submodule ".config/zsh/plugins/zsh-autosuggestions"]
 	path = .config/zsh/plugins/zsh-autosuggestions

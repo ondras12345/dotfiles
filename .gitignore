@@ -9,7 +9,7 @@
 !.config
 .config/*
 
-!.config/zathura
+!.config/zathura/dracula
 
 !.config/zsh
 .config/zsh/*
