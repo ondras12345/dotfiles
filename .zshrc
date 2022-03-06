@@ -17,8 +17,14 @@ compinit
 # End of lines added by compinstall
 
 autoload -U colors && colors
-# TODO $pipestatus[@]
-PS1="%B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%(?.. %{$fg[red]%}[%?])%{$reset_color%}$%b "
+
+# $pipestatus[@] -- check if any of the exit codes is nonzero
+# [ ${(j::)pipestatus} -ne 0 ]
+#
+# Old prompt:
+#PS1="%B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%(?.. %{$fg[red]%}[%?])%{$reset_color%}$%b "
+setopt PROMPT_SUBST
+PS1='%B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~$( stat=($pipestatus); [ ${(j::)stat} -ne 0 ] && echo " %{$fg[red]%}[${(j:|:)stat}]")%{$reset_color%}$%b '
 
 zstyle ':completion:*' menu select
 #zstyle ':completion:*' completer _complete  # I don't seem to need this TODO
