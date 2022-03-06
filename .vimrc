@@ -117,7 +117,9 @@ augroup vimrcEx
     \ setlocal textwidth=78 |
     \ setlocal expandtab |
     \ setlocal autoindent |
-    \ setlocal fileformat=unix
+    \ setlocal fileformat=unix |
+    \ setlocal spell |
+    \ setlocal spelllang=en
 
 
   au FileType arduino,cpp,c
@@ -129,8 +131,19 @@ augroup vimrcEx
   " https://vim.fandom.com/wiki/Easily_switch_between_source_and_header_file
   au FileType arduino,cpp,c
     \ nnoremap <buffer> <Leader>oo :call CurtineIncSw()<CR> |
-    \ nnoremap <buffer> <Leader>oO :if expand('%:e') == "h" \| vs %<.cpp \| else \| vs %<.h \| endif<CR>
+    \ nnoremap <buffer> <Leader>oO :if expand('%:e') == "h" \| vs %<.cpp \| else \| vs %<.h \| endif<CR> |
+    \ nmap <buffer> <Leader>OO <Leader>oO
     "\ nnoremap <buffer> <Leader>oo :if expand('%:e') == "h" \| e %<.cpp \| else \| e %<.h \| endif<CR> |
+
+
+  au FileType html,php
+    \ setlocal tabstop=2 |
+    \ setlocal softtabstop=2 |
+    \ setlocal shiftwidth=2 |
+    \ setlocal spell
+
+  au FileType man
+    \ setlocal nolist
 
 augroup END
 
@@ -191,7 +204,7 @@ if !has("gui_running")
     " Use "\e[2 q" instead of "\e[1 q" for non-blinking block cursor
     " Use "\e[6 q" instead of "\e[5 q" for non-blinking bar cursor
     let &t_ti.="\e[2 q"
-    let &t_SI.="\e[5 q"
+    let &t_SI.="\e[6 q"
     let &t_EI.="\e[2 q"
     let &t_te.="\e[0 q"
 else
@@ -274,6 +287,11 @@ endif
 
 " space-space goes down
 nmap <leader><leader> <C-F>
+vmap <leader><leader> <C-F>
+
+" better tab completion:
+set wildmode=longest,list,full
+set wildmenu
 
 
 """""""""""""""""""""""""
@@ -291,6 +309,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>w <C-w>
 
 command Czmap :source ~/scripts/cz-mappings-local.vim
+
+" Man pages
+runtime ftplugin/man.vim
 
 
 """""""""""""""""""""""""
