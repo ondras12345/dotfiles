@@ -95,7 +95,7 @@ dotfiles push
 ```
 .gitignore is set to ignore everything. This is to prevent things such as
 `dotfiles add .`. It would start adding the whole ~ (home) directory
-recursively. To add a file, use `git add --force file`.
+recursively. To add a file, use `doftiles add --force file`.
 
 ## Operating systems
 I use different branches for different operating systems (and devices):
