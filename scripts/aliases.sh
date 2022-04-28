@@ -3,7 +3,7 @@
 
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
-alias ll='ls -la'
+alias ll='ls -lFa'
 alias la='ls -A'
 #alias fscp='pscp -sftp' # does not seem to use .ssh/config
 

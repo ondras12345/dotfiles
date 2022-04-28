@@ -9,4 +9,6 @@ export LESS="-i -R -W"
 export XDG_CONFIG_HOME="$HOME/.config"
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 
+export PATH="$HOME/bin:$PATH"
+
 export TIME_STYLE=long-iso
