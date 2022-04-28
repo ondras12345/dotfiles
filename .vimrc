@@ -289,6 +289,14 @@ endif
 nmap <leader><leader> <C-F>
 vmap <leader><leader> <C-F>
 
+
+" Normal mode command for writing file.
+nmap <leader>u :up<CR>
+
+" :make with <leader>m
+nmap <leader>m :make<CR>
+
+
 " better tab completion:
 set wildmode=longest,list,full
 set wildmenu
@@ -307,6 +315,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 nnoremap <leader>w <C-w>
+cnoreabbrev vsv vert sv
 
 command Czmap :source ~/scripts/cz-mappings-local.vim
 
