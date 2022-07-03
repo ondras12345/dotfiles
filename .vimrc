@@ -47,13 +47,22 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     Plugin 'airblade/vim-gitgutter'
     Plugin 'mhinz/vim-startify'
     Plugin 'ericcurtin/CurtineIncSw.vim'
+    Plugin 'mattn/emmet-vim'
     " This plugin causes problems when I open a python file from vim in Git
     " bash on Windows
     "Plugin 'dbeniamine/cheat.sh-vim'
 
+    Plugin 'ycm-core/YouCompleteMe'
+    "cd ~/.vim/bundle/YouCompleteMe
+    "./install.py --clangd-completer --rust-completer
+    " Do NOT do this:
+    "sudo apt install vim-youcompleteme
+    "vim-addon-manager install youcompleteme
+
     " Color schemes
     Plugin 'dracula/vim'
     Plugin 'cormacrelf/vim-colors-github'
+
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -228,7 +237,8 @@ endif
 cnoremap ;; <c-f>
 
 " :bb lists buffers and types :b
-cmap bb buffers<CR>:b
+"cmap bb buffers<CR>:b
+nnoremap <leader>b :buffers<CR>:b
 
 " Highlight no break space
 " https://stackoverflow.com/questions/12814647/showing-single-space-invisible-character-in-vim
@@ -265,6 +275,13 @@ set nowrapscan
     vmap <leader>y "+y
 "endif
 
+
+" dracula
+" https://github.com/dracula/vim/pull/252
+augroup dracula_customization
+    au!
+    autocmd ColorScheme dracula hi! link SpecialKey DraculaSubtle
+augroup END
 
 if has("gui_running")
     set guioptions-=T  " hide the toolbar
@@ -316,6 +333,7 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <leader>w <C-w>
 cnoreabbrev vsv vert sv
+cnoreabbrev vterm vert term
 
 command Czmap :source ~/scripts/cz-mappings-local.vim
 
@@ -335,6 +353,10 @@ set laststatus=2
 " netrw tree
 let g:netrw_liststyle = 3
 
+" youcompleteme
+" Do not pop up when idle in normal mode
+let g:ycm_auto_hover=""
+
 "" indentLine
 "let g:indentLine_fileTypeExclude = ['markdown,tex']
 
@@ -344,14 +366,19 @@ let g:netrw_liststyle = 3
 " Disable syntax highlight in lstlisting environment in LaTeX
 " (solves problems with '$' characters, etc.)
 " http://www.drchip.org/astronaut/vim/vbafiles/lstlisting.vba.gz
-"
-"
+
+" syntax highlighting in markdown code blocks:
+" see this link for other config (no need to install tpope's version though)
+" https://github.com/tpope/vim-markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'sh']
+"let g:markdown_minlines = 100  " TODO does not seem to help
+
+
 let g:startify_bookmarks = [
     \ {'V': '~/.vimrc'},
-    \ {'I': '~/source/repos/ondra-HP/install'},
-    \ {'R': '~/Documents/LAB/IT/rpi-lab/rpi-lab.sh'},
-    \ {'L': '~/Documents/LAB/IT/pc1.lab-config.sh'},
-    \ {'K': '~/source/repos/KOTEL/src/KOTEL_non-blocking/KOTEL_non-blocking.ino'}
+    \ {'Z': '~/.zshrc'},
+    \ {'L': '~/Documents/LAB/'},
+    \ {'S': '~/source/repos/'},
     \ ]
 
 
