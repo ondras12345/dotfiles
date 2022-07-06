@@ -77,7 +77,7 @@ bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-if grep -q -- '--no-failure-msg' /etc/zsh_command_not_found ; then
+if grep -s -q -- '--no-failure-msg' /etc/zsh_command_not_found ; then
     # cp /etc/zsh_command_not_found ~/.config/zsh/
     # sed -i 's/--no-failure-msg //' ~/.config/zsh/zsh_command_not_found
     [ -f ~/.config/zsh/zsh_command_not_found ] &&
