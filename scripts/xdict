@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# I keybind this to ctrl+alt+w
+
+if [ -z "$1" ] ; then
+    xclip -o | xargs -0 dict | less
+else
+    dict "$1" | less
+fi
