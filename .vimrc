@@ -236,6 +236,9 @@ endif
 "nnoremap ; :
 cnoremap ;; <c-f>
 
+" see :h Y
+nnoremap Y y$
+
 " :bb lists buffers and types :b
 "cmap bb buffers<CR>:b
 nnoremap <leader>b :buffers<CR>:b
