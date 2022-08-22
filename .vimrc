@@ -276,6 +276,8 @@ set nowrapscan
     vmap <leader>P "+P
     nmap <leader>y "+y
     vmap <leader>y "+y
+    nmap <leader>Y "+Y
+    vmap <leader>Y "+Y
 "endif
 
 
