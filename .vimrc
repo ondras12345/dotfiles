@@ -55,7 +55,7 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
 
     Plugin 'ycm-core/YouCompleteMe'
     "cd ~/.vim/bundle/YouCompleteMe
-    "./install.py --clangd-completer --rust-completer
+    "./install.py --clangd-completer --rust-completer --java-completer
     " Do NOT do this:
     "sudo apt install vim-youcompleteme
     "vim-addon-manager install youcompleteme
