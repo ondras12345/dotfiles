@@ -60,6 +60,8 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     "sudo apt install vim-youcompleteme
     "vim-addon-manager install youcompleteme
 
+    Plugin 'lervag/vimtex'
+
     " Color schemes
     Plugin 'dracula/vim'
     Plugin 'cormacrelf/vim-colors-github'
@@ -386,6 +388,13 @@ let g:startify_bookmarks = [
     \ {'L': '~/Documents/LAB/'},
     \ {'S': '~/source/repos/'},
     \ ]
+
+
+" vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+let g:tex_conceal='abdmg'
 
 
 " Source the machine-specific vimrc (does not need to exist)
