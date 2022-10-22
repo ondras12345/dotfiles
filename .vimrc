@@ -18,6 +18,7 @@ set nocompatible
 " https://stackoverflow.com/questions/446269/can-i-use-space-as-mapleader-in-vim
 nnoremap <SPACE> <Nop>
 let mapleader=" "
+let maplocalleader = " "
 
 
 " This should be handled by a git submodule in my dotfiles repo:
