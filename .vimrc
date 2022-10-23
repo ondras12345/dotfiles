@@ -387,6 +387,8 @@ let g:startify_bookmarks = [
     \ {'Z': '~/.zshrc'},
     \ {'L': '~/Documents/LAB/'},
     \ {'S': '~/source/repos/'},
+    \ {'T': '~/Documents/notes/todo.txt'},
+    \ {'I': '~/Documents/notes/linux/install/$HOST.md'},
     \ ]
 
 
