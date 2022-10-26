@@ -148,7 +148,7 @@ augroup vimrcEx
     "\ nnoremap <buffer> <Leader>oo :if expand('%:e') == "h" \| e %<.cpp \| else \| e %<.h \| endif<CR> |
 
 
-  au FileType html,php
+  au FileType html,php,markdown
     \ setlocal tabstop=2 |
     \ setlocal softtabstop=2 |
     \ setlocal shiftwidth=2 |
