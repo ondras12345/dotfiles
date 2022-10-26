@@ -381,6 +381,8 @@ let g:netrw_liststyle = 3
 " youcompleteme
 " Do not pop up when idle in normal mode
 let g:ycm_auto_hover=""
+nmap <leader>K <plug>(YCMHover)
+nmap <leader>gd :YcmCompleter GoTo<CR>
 
 "" indentLine
 "let g:indentLine_fileTypeExclude = ['markdown,tex']
