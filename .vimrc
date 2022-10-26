@@ -66,6 +66,7 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     Plugin 'dracula/vim'
     Plugin 'cormacrelf/vim-colors-github'
 
+    Plugin 'https://gitlab.com/dbeniamine/todo.txt-vim'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -156,6 +157,22 @@ augroup vimrcEx
 
   au FileType man
     \ setlocal nolist
+
+  " fix todo.txt mappings conflicting with paste shortcut
+  " (these are used for changing the due date; I have prefixed them with
+  " <localleader>t
+  "
+  " Omnifunc - <C-x><C-o>
+  au FileType todo
+    \ nunmap <buffer> <localleader>p|
+    \ nmap <silent> <buffer> <localleader>tp <Plug>TodotxtIncrementDueDateNormal|
+    \ vunmap <buffer> <localleader>p|
+    \ vmap <silent> <buffer> <localleader>tp <Plug>TodotxtIncrementDueDateVisual|
+    \ nunmap <buffer> <localleader><S-P>|
+    \ nmap <buffer> <localleader>tP <Plug>TodotxtDecrementDueDateNormal|
+    \ vunmap <buffer> <localleader><S-P>|
+    \ vmap <buffer> <localleader>tP <Plug>TodotxtDecrementDueDateVisual|
+    \ setlocal omnifunc=todo#Complete
 
 augroup END
 
