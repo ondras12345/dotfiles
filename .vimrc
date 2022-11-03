@@ -377,6 +377,7 @@ set laststatus=2
 
 " netrw tree
 let g:netrw_liststyle = 3
+let g:netrw_list_hide='.*\.un\~$,^\..*\.swp$,\..*\~$'
 
 " youcompleteme
 " Do not pop up when idle in normal mode
