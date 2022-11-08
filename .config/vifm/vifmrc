@@ -497,3 +497,37 @@ nnoremap <c-u> <c-w>x
 "     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
 "
 " let $VIFM_SERVER_NAME = v:servername
+
+
+
+
+" Ondra
+
+" https://wiki.archlinux.org/index.php/Vifm
+nnoremap J 5j
+nnoremap K 5k
+
+" https://superuser.com/questions/113855/creating-symbolic-links
+command ln ln -s %f:p %D
+
+nnoremap ,t :!gnome-terminal &<cr>
+
+
+" run programs in the background
+
+filextype *.svg
+        \ {Open with Inkscape}
+        \ inkscape &,
+
+filextype *.xoj xournal %c &
+
+filextype */
+        \ {View in Nautilus}
+        \ nautilus --new-window %f &,
+
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+        \ {View in shotwell}
+        \ shotwell &,
+
+" missing filetypes for libreoffice:
+filextype *.ods,*.ppt libreoffice %f &
