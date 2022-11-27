@@ -61,6 +61,7 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     "vim-addon-manager install youcompleteme
 
     Plugin 'lervag/vimtex'
+    Plugin 'SirVer/ultisnips'
 
     " Color schemes
     Plugin 'dracula/vim'
@@ -417,6 +418,13 @@ let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let g:tex_conceal='abdmg'
+
+
+" ultisnips
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsJumpForwardTrigger="C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 
 " Source the machine-specific vimrc (does not need to exist)
