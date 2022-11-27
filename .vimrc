@@ -53,6 +53,8 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     " bash on Windows
     "Plugin 'dbeniamine/cheat.sh-vim'
 
+    Plugin 'preservim/vim-markdown'
+
     Plugin 'ycm-core/YouCompleteMe'
     "cd ~/.vim/bundle/YouCompleteMe
     "./install.py --clangd-completer --rust-completer --java-completer
@@ -396,13 +398,9 @@ nmap <leader>gd :YcmCompleter GoTo<CR>
 " (solves problems with '$' characters, etc.)
 " http://www.drchip.org/astronaut/vim/vbafiles/lstlisting.vba.gz
 
-" syntax highlighting in markdown code blocks:
-" see this link for other config (no need to install tpope's version though)
-" https://github.com/tpope/vim-markdown
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'sh']
-"let g:markdown_minlines = 100  " TODO does not seem to help
 
 
+" vim-startify
 let g:startify_bookmarks = [
     \ {'V': '~/.vimrc'},
     \ {'Z': '~/.zshrc'},
@@ -412,6 +410,15 @@ let g:startify_bookmarks = [
     \ {'I': '~/Documents/notes/linux/install/$HOST.md'},
     \ ]
 
+" vim-markdown
+" folding was too slow in insert mode
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_level = 2
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_auto_insert_bullets = 0
+"let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_new_list_item_indent = 0
 
 " vimtex
 let g:tex_flavor='latex'
