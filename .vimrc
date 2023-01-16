@@ -291,17 +291,14 @@ imap <C-S-Space>  
 set nowrapscan
 
 " Leader y and p system clipboard
-" Windows only?? - commit for now, fix in case of issues - probably not
-"if has("gui_running")
-    nmap <leader>p "+p
-    vmap <leader>p "+p
-    nmap <leader>P "+P
-    vmap <leader>P "+P
-    nmap <leader>y "+y
-    vmap <leader>y "+y
-    nmap <leader>Y "+Y
-    vmap <leader>Y "+Y
-"endif
+nmap <leader>p "+p
+vmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>P "+P
+nmap <leader>y "+y
+vmap <leader>y "+y
+nmap <leader>Y "+Y
+vmap <leader>Y "+Y
 
 
 " dracula
@@ -316,7 +313,9 @@ if has("gui_running")
     "set viminfofile=$HOME/.viminfo  " share .viminfo
     set guifont=Ubuntu\ Mono\ 12
 
-    set lines=84 columns=160
+    " Open on the left half of the screen
+    set lines=84 columns=157
+    winpos 0 0
     color dracula
 
     " unzip on Windows
@@ -380,7 +379,10 @@ set laststatus=2
 
 " netrw tree
 let g:netrw_liststyle = 3
-let g:netrw_list_hide='.*\.un\~$,^\..*\.swp$,\..*\~$'
+" All of ~, \~, and \\~ caused errors - probably bug somewhere in netrw logic
+" to invert regex rules (press a key to cycle through inverted modes)
+" [~] is a workaround
+let g:netrw_list_hide='.*\.un[~]$,^\..*\.swp$,\..*[~]$'
 
 " youcompleteme
 " Do not pop up when idle in normal mode
