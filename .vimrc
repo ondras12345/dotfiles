@@ -117,9 +117,9 @@ augroup vimrcEx
     \ setlocal spelllang=en,cs,csa
 
   " Ceske uvozovky (UTF-8)
-  autocmd FileType markdown,text
-    \ imap <buffer> "" „|
-    \ imap <buffer> """ “
+  "autocmd FileType markdown,text
+  "  \ imap <buffer> "" „|
+  "  \ imap <buffer> """ “
 
   au FileType gitcommit
     \ setlocal spell |
