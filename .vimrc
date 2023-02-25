@@ -10,15 +10,15 @@ if v:progname =~? "evim"
   finish
 endif
 
-
-
 set nocompatible
-
 
 " https://stackoverflow.com/questions/446269/can-i-use-space-as-mapleader-in-vim
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 let maplocalleader = " "
+
+
+let s:plugins_programming = 0
 
 
 " This should be handled by a git submodule in my dotfiles repo:
@@ -40,29 +40,43 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-repeat'
-    Plugin 'nvie/vim-flake8'
+
+    Plugin 'airblade/vim-gitgutter'
+
+    if (s:plugins_programming)
+        Plugin 'nvie/vim-flake8'
+        Plugin 'ericcurtin/CurtineIncSw.vim'
+        Plugin 'mattn/emmet-vim'
+        Plugin 'ap/vim-css-color'
+
+        Plugin 'ycm-core/YouCompleteMe'
+        "cd ~/.vim/bundle/YouCompleteMe
+        "./install.py --clangd-completer --rust-completer --java-completer
+        " Do NOT do this:
+        "sudo apt install vim-youcompleteme
+        "vim-addon-manager install youcompleteme
+
+        if executable("javac")
+            Plugin 'puremourning/vimspector'
+            " :VimspectorInstall!
+            " put config in ~/.vim/ftplubin/java.vim
+        endif
+    endif
+
     Plugin 'xxdavid/bez-diakritiky.vim'
-    Plugin 'ap/vim-css-color'
     "Plugin 'Yggdroot/indentLine'
     Plugin 'vim-airline/vim-airline'
-    Plugin 'airblade/vim-gitgutter'
     Plugin 'mhinz/vim-startify'
-    Plugin 'ericcurtin/CurtineIncSw.vim'
-    Plugin 'mattn/emmet-vim'
     " This plugin causes problems when I open a python file from vim in Git
     " bash on Windows
     "Plugin 'dbeniamine/cheat.sh-vim'
 
     Plugin 'preservim/vim-markdown'
 
-    Plugin 'ycm-core/YouCompleteMe'
-    "cd ~/.vim/bundle/YouCompleteMe
-    "./install.py --clangd-completer --rust-completer --java-completer
-    " Do NOT do this:
-    "sudo apt install vim-youcompleteme
-    "vim-addon-manager install youcompleteme
+    if executable("pdflatex")
+        Plugin 'lervag/vimtex'
+    endif
 
-    Plugin 'lervag/vimtex'
     Plugin 'SirVer/ultisnips'
 
     " Color schemes
@@ -389,6 +403,23 @@ let g:netrw_list_hide='.*\.un[~]$,^\..*\.swp$,\..*[~]$'
 let g:ycm_auto_hover=""
 nmap <leader>K <plug>(YCMHover)
 nmap <leader>gd :YcmCompleter GoTo<CR>
+
+" vimspector
+let g:vimspector_base_dir=$HOME.'/.vim/bundle/vimspector'
+" this didn't seem to work, needed to do this instead:
+" cd ~/.vim/bundle/vimspector
+" ./install_gadget.py --force-enable-java --update-gadget-config
+"let g:vimspector_install_gadgets = [ 'java-debug-adapter' ]
+
+let g:vimspector_enable_mappings='HUMAN'
+nmap <Leader>di <Plug>VimspectorBalloonEval
+xmap <Leader>di <Plug>VimspectorBalloonEval
+
+" Tell YCM where to find the plugin.
+let g:ycm_java_jdtls_extension_path = [
+  \ '~/.vim/bundle/vimspector/gadgets/linux'
+  \ ]
+
 
 "" indentLine
 "let g:indentLine_fileTypeExclude = ['markdown,tex']
