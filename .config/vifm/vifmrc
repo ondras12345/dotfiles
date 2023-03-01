@@ -511,6 +511,7 @@ nnoremap K 5k
 command ln ln -s %f:p %D
 
 nnoremap ,t :!gnome-terminal &<cr>
+nnoremap ,f :!xdg-open .<cr>
 
 
 " run programs in the background
