@@ -522,6 +522,8 @@ filextype *.svg
 
 filextype *.xoj xournal %c &
 
+filextype *.xopp xournalpp %c &
+
 filextype */
         \ {View in Nautilus}
         \ nautilus --new-window %f &,
