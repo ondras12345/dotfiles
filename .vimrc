@@ -440,6 +440,7 @@ let g:startify_bookmarks = [
     \ {'L': '~/Documents/LAB/'},
     \ {'S': '~/source/repos/'},
     \ {'T': '~/Documents/notes/todo.txt'},
+    \ {'N': '~/Documents/notes/index.md'},
     \ {'I': '~/Documents/notes/linux/install/$HOST.md'},
     \ ]
 
