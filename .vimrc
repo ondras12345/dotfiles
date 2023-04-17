@@ -468,6 +468,12 @@ let g:UltiSnipsExpandTrigger="<C-l>"
 let g:UltiSnipsJumpForwardTrigger="C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
+" noweb
+au BufRead,BufNewFile *.m.nw let noweb_language = "matlab"
+" cannot move to ~/.vim/ftdetect/nw.vim, need to set noweb_language first
+au BufRead,BufNewFile *.nw set filetype=noweb
+let noweb_backend = "tex"
+let noweb_fold_code = 1
 
 " Source the machine-specific vimrc (does not need to exist)
 silent! source $HOME/.vimrc-local
