@@ -172,6 +172,11 @@ augroup vimrcEx
     \ setlocal shiftwidth=2 |
     \ setlocal spell
 
+  au FileType yaml
+    \ setlocal tabstop=2 |
+    \ setlocal softtabstop=2 |
+    \ setlocal shiftwidth=2
+
   au FileType man
     \ setlocal nolist
 
@@ -313,6 +318,9 @@ nmap <leader>y "+y
 vmap <leader>y "+y
 nmap <leader>Y "+Y
 vmap <leader>Y "+Y
+nmap <leader>D "+D
+vmap <leader>D "+D
+
 
 
 " dracula
@@ -353,6 +361,13 @@ nmap <leader>u :up<CR>
 
 " :make with <leader>m
 nmap <leader>m :make<CR>
+command PioMake
+    \ nmap <lt>leader>mm :make<CR>|
+    \ nmap <lt>leader>mu :make! upload<CR>|
+    \ nmap <lt>leader>mc :make! check<CR>|
+    \ nmap <lt>leader>mt :make! test<CR>|
+    \ nunmap <lt>leader>m
+
 
 
 " better tab completion:
