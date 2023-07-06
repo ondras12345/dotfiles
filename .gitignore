@@ -16,6 +16,11 @@
 !.config/zsh/plugins
 !.config/zsh/plugins/*
 
+!.config/todo
+.config/todo/*
+!.config/todo/actions.d
+!.config/todo/actions.d/*
+
 !.vim
 .vim/*
 !.vim/bundle

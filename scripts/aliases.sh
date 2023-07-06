@@ -5,6 +5,8 @@
 alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 alias ll='ls -lFah'
 alias la='ls -A'
+alias t='todo-txt'
+alias ts='TODO_SCHOOL=true todo-txt'
 #alias fscp='pscp -sftp' # does not seem to use .ssh/config
 
 alias bat='batcat'
