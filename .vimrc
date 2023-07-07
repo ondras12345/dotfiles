@@ -318,6 +318,8 @@ nmap <leader>y "+y
 vmap <leader>y "+y
 nmap <leader>Y "+Y
 vmap <leader>Y "+Y
+nmap <leader>d "+d
+vmap <leader>d "+d
 nmap <leader>D "+D
 vmap <leader>D "+D
 
