@@ -110,3 +110,17 @@ software isn't part of Git bash on Windows.
 ## Branching
 Rebase is probably not a good idea because it would require me to force push
 after changing something. Merge and/or cherry-pick should be better.
+
+
+## Use with fugitive-vim
+```
+dotfiles config --local core.worktree $HOME
+dotfiles config --local core.bare false
+GIT_DIR=$HOME/.dotfiles-repo vim +G +only
+```
+
+## MISC notes
+TODO document this
+```
+fetch = +refs/heads/*:refs/remotes/origin/*
+```
