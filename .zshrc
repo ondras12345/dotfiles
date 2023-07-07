@@ -6,8 +6,11 @@ SAVEHIST=50000
 setopt autocd nomatch EXTENDED_HISTORY HIST_IGNORE_SPACE HIST_IGNORE_DUPS interactive_comments
 
 bindkey -v
-# 10ms for key sequences - DO NOT COMMIT me yet
+# 10ms for key sequences
 KEYTIMEOUT=1
+
+# load custom autocomplete definitions
+fpath[1,0]=~/.config/zsh/completion
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/ondra/.zshrc'
