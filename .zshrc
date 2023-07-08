@@ -4,13 +4,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+ZSH_CUSTOM=~/.config/zsh
+
 # fall back if oh-my-zsh is not installed
 if [ ! -f $ZSH/oh-my-zsh.sh ] ; then
-    source ~/.zshrc.orig
+    source $ZSH_CUSTOM/zshrc.orig
     return
 fi
-
-ZSH_CUSTOM=~/.config/zsh
 
 # load custom autocomplete definitions
 fpath[1,0]="$ZSH_CUSTOM/completion"
