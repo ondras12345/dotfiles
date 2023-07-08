@@ -3,6 +3,8 @@
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
 alias dotfilesvim='GIT_DIR=$HOME/.dotfiles-repo vim +G +only'
+alias dfg='dotfiles'
+alias dfv='dotfilesvim'
 alias ll='ls -lFah'
 alias la='ls -A'
 alias t='todo-txt'
