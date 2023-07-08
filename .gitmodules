@@ -25,3 +25,6 @@
 [submodule ".config/todo/actions.d/dorecur"]
 	path = .config/todo/actions.d/dorecur
 	url = https://github.com/owenh000/todo.txt-cli-dorecur
+[submodule ".config/todo/actions.d/revive"]
+	path = .config/todo/actions.d/revive
+	url = https://github.com/duncanje/todo.txt-revive.git
