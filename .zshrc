@@ -100,10 +100,10 @@ plugins=(
     #git-prompt  # TODO test
     # TODO https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vim-interaction
     # TODO tmux
-    # TODO https://github.com/zsh-users/zsh-syntax-highlighting
     timer
     zsh-autosuggestions
     zsh-history-substring-search
+    zsh-syntax-highlighting
 )
 
 TIMER_THRESHOLD=1
