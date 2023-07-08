@@ -83,6 +83,7 @@ export PRI_W=$LIGHT_GREY      # waiting
 # priority, context, and project.
 #
 # export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -f -k2'
+# export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -f -k1'  # sort by line number
 
 # TODOTXT_FINAL_FILTER will filter list output after colorization,
 # priority hiding, context hiding, and project hiding. That is,
