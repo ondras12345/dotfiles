@@ -71,6 +71,7 @@ case $state in
     "remdup:remove exact duplicates from todo.txt."
     "report:adds the number of open and done items to report.txt."
     "due:generates a list of tasks tude today or overdue."
+    "schedule:Set, modify or remove due date (also mv, rm)"
   )
   _describe -t todo-commands 'todo.sh command' cmdlist
   ;;
