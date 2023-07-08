@@ -15,6 +15,10 @@
 .config/zsh/*
 !.config/zsh/plugins
 !.config/zsh/plugins/*
+!.config/zsh/themes
+!.config/zsh/themes/*
+
+!.oh-my-zsh
 
 !.config/todo
 .config/todo/*

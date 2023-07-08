@@ -13,3 +13,9 @@
 [submodule ".config/todo/actions.d/due"]
 	path = .config/todo/actions.d/due
 	url = https://github.com/rebecca-owen/due.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule ".config/zsh/themes/dracula"]
+	path = .config/zsh/themes/dracula
+	url = https://github.com/dracula/zsh.git
