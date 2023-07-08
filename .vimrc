@@ -466,7 +466,7 @@ let g:startify_bookmarks = [
     \ {'I': '~/Documents/notes/linux/install/$HOST.md'},
     \ ]
 
-nnoremap <leader>s :Startify<CR>
+nnoremap <leader>S :Startify<CR>
 
 " vim-markdown
 " folding was too slow in insert mode
