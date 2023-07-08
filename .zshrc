@@ -97,9 +97,8 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
     vi-mode
     #git  # too many aliases...
-    #git-prompt  # TODO test
-    # TODO https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vim-interaction
     # TODO tmux
+    vim-interaction
     timer
     zsh-autosuggestions
     zsh-history-substring-search
