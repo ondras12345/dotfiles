@@ -73,6 +73,7 @@ case $state in
     "due:generates a list of tasks tude today or overdue."
     "schedule:Set, modify or remove t: date (also mv, rm)"
     "revive:Revive todos from done.txt"
+    "setdue:Set or change the due date of a set of tasks"
   )
   _describe -t todo-commands 'todo.sh command' cmdlist
   ;;
