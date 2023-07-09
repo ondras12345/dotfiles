@@ -107,6 +107,7 @@ plugins=(
 
 TIMER_THRESHOLD=1
 
+# vi-mode
 VI_MODE_SET_CURSOR=true
 
 bindkey '^ ' autosuggest-accept
@@ -174,6 +175,15 @@ fi
 #   export EDITOR='mvim'
 # fi
 
+# Override vi-mode cursor shapes.
+# Programs like htop & orpie would default to blinking block.
+# This changes it to solid line.
+function zle-line-finish() {
+    typeset -g VI_KEYMAP=main
+    (( ! ${+terminfo[rmkx]} )) || echoti rmkx
+    _vi-mode-set-cursor-shape-for-keymap viins  # was "default" (blinking block)
+}
+zle -N zle-line-finish
 
 test -f ~/scripts/aliases.sh && . ~/scripts/aliases.sh
 
