@@ -75,6 +75,7 @@ case $state in
     "revive:Revive todos from done.txt"
     "setdue:Set or change the due date of a set of tasks"
     "tedit:Edit a single task in \$EDITOR"
+    "nav:open URL in browser"
   )
   _describe -t todo-commands 'todo.sh command' cmdlist
   ;;
