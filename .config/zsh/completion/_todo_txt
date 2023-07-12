@@ -76,6 +76,7 @@ case $state in
     "setdue:Set or change the due date of a set of tasks"
     "tedit:Edit a single task in \$EDITOR"
     "nav:open URL in browser"
+    "addt:add TODO ITEM with due:today"
   )
   _describe -t todo-commands 'todo.sh command' cmdlist
   ;;

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+action=$1
+shift
+
+if [ "$action" = "usage" ] ; then
+    echo "  Add task with due:today"
+    echo ""
+    exit
+fi
+
+"$TODO_FULL_SH" command add "$@ due:$(date -I)"
