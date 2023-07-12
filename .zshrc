@@ -196,6 +196,4 @@ zle -N zle-line-finish
 
 test -f ~/scripts/aliases.sh && . ~/scripts/aliases.sh
 
-# Begin: PlatformIO Core completion support
-eval "$(_PIO_COMPLETE=zsh_source pio)"
-# End: PlatformIO Core completion support
+[ -f "$ZSH_CUSTOM/zshrc-local" ] && source "$ZSH_CUSTOM/zshrc-local"
