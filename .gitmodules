@@ -30,7 +30,7 @@
 	url = https://github.com/duncanje/todo.txt-revive.git
 [submodule ".config/todo/actions.d/setdue"]
 	path = .config/todo/actions.d/setdue
-	url = https://github.com/severoraz/todo.txt-cli-setdue.git
+	url = https://github.com/ondras12345/todo.txt-cli-setdue.git
 [submodule ".config/todo/actions.d/tedit"]
 	path = .config/todo/actions.d/tedit
 	url = https://github.com/severoraz/todotxt-cli-tedit.git

@@ -106,5 +106,3 @@ export TODO_TXT_DUE_HIDECOMPLETED=1
 # - https://github.com/todotxt/todo.txt-cli/wiki/Todo.sh-Add-on-Directory#donow-activity-time-tracker
 #   - this is a bit dangerous. If todo.txt changes while the timer is running,
 #     it will overwrite another line once stopped.
-
-# setdue add-on needs chmod+x, TODO https://github.com/severoraz/todo.txt-cli-setdue/pull/4
