@@ -12,7 +12,7 @@
 	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule ".config/todo/actions.d/due"]
 	path = .config/todo/actions.d/due
-	url = https://github.com/rebecca-owen/due.git
+	url = https://github.com/ondras12345/todo.txt-cli-due.git
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git

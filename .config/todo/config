@@ -90,9 +90,17 @@ export PRI_W=$LIGHT_GREY      # waiting
 # just before the list output is displayed.
 #
 # export TODOTXT_FINAL_FILTER='cat'
+# Hide done tasks.
+# Regex does not start with `^` because there is an ansi escape sequence
+# between the start of the line and the three digit line number.
+# I thought I could use this with `due`, but it does not seem to use the
+# default function.
+#export TODOTXT_FINAL_FILTER='sed "/[0-9]\{3\} x /d"'
 
 export TODOTXT_AUTO_ARCHIVE=0
 export TODOTXT_PRESERVE_LINE_NUMBERS=1
+
+export TODO_TXT_DUE_HIDECOMPLETED=1
 
 # Interesting add-ons:
 # - https://github.com/todotxt/todo.txt-cli/wiki/Todo.sh-Add-on-Directory#donow-activity-time-tracker
