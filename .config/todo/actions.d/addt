@@ -3,8 +3,8 @@ action=$1
 shift
 
 if [ "$action" = "usage" ] ; then
-    echo "  $(basename "$0")"
-    echo "    Add task with due:today"
+    echo "  Add task with due:today"
+    echo "    $(basename "$0") \"TASK\""
     echo ""
     exit
 fi
