@@ -165,11 +165,13 @@ dracula_context() {
 if grep -s -q -- '--no-failure-msg' /etc/zsh_command_not_found ; then
     # cp /etc/zsh_command_not_found ~/.config/zsh/
     # sed -i 's/--no-failure-msg //' ~/.config/zsh/zsh_command_not_found
-    [ -f ~/.config/zsh/zsh_command_not_found ] &&
-        . ~/.config/zsh/zsh_command_not_found
+    if [ -f ~/.config/zsh/zsh_command_not_found ] ; then
+        source ~/.config/zsh/zsh_command_not_found
+    fi
 else
-    [ -f /etc/zsh_command_not_found ] &&
-        . /etc/zsh_command_not_found
+    if [ -f /etc/zsh_command_not_found ] ; then
+        source /etc/zsh_command_not_found
+    fi
 fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -194,6 +196,10 @@ function zle-line-finish() {
 }
 zle -N zle-line-finish
 
-test -f ~/scripts/aliases.sh && . ~/scripts/aliases.sh
+if [ -f ~/scripts/aliases.sh ] ; then
+    source ~/scripts/aliases.sh
+fi
 
-[ -f "$ZSH_CUSTOM/zshrc-local" ] && source "$ZSH_CUSTOM/zshrc-local"
+if [ -f "$ZSH_CUSTOM/zshrc-local" ] ; then
+   source "$ZSH_CUSTOM/zshrc-local"
+fi
