@@ -125,6 +125,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Longer history
 HISTFILE=~/.histfile
+# TODO move HISTFILE to a XDG directory ??
+# https://wiki.archlinux.org/title/XDG_Base_Directory
+# Would require adding an automatic migration to prevent loss of history.
 HISTSIZE=50000
 SAVEHIST=50000
 setopt EXTENDED_HISTORY
