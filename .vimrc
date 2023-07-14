@@ -15,8 +15,10 @@ nnoremap <SPACE> <Nop>
 let mapleader=" "
 let maplocalleader = " "
 
+silent! source $HOME/.vim/vimrc-local-pre
 
-let s:plugins_programming = 0
+" Set plugins_programming to 1 in vimrc-local-pre where needed.
+let g:plugins_programming = get(g:, 'plugins_programming', 0)
 
 " Vundle Plugins {{{1
 " This should be handled by a git submodule in my dotfiles repo:
@@ -53,7 +55,7 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     Plugin 'https://gitlab.com/dbeniamine/todo.txt-vim'
 
     " plugins_programming plugins {{{2
-    if (s:plugins_programming)
+    if (g:plugins_programming)
         Plugin 'nvie/vim-flake8'
         Plugin 'ericcurtin/CurtineIncSw.vim'
         Plugin 'mattn/emmet-vim'
@@ -492,6 +494,13 @@ let noweb_fold_code = 1
 " plugin config }}}1
 
 " Source the machine-specific vimrc (does not need to exist)
-silent! source $HOME/.vimrc-local
+" legacy
+let s:vimrc_local_legacy=$HOME.."/.vimrc-local"
+if filereadable(s:vimrc_local_legacy)
+    silent! execute "source " . s:vimrc_local_legacy
+    echoerr "You are using legacy .vimrc-local."
+endif
+" new
+silent! source $HOME/.vim/vimrc-local-post
 
 " vim: foldmethod=marker
