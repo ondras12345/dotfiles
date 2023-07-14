@@ -1,16 +1,14 @@
 " My .vimrc
 " Ondřej Sluka https://github.com/ondras12345
-"
-" Based on 'An example for a vimrc file.'
-" Maintainer:  Bram Moolenaar <Bram@vim.org>
 
-" When started as "evim", evim.vim will already have done these settings, bail
-" out.
 if v:progname =~? "evim"
-  finish
+  finish  " bail out
 endif
 
 set nocompatible
+
+" Get the defaults that most users want.
+source $VIMRUNTIME/defaults.vim
 
 " https://stackoverflow.com/questions/446269/can-i-use-space-as-mapleader-in-vim
 nnoremap <SPACE> <Nop>
@@ -20,29 +18,41 @@ let maplocalleader = " "
 
 let s:plugins_programming = 0
 
-
+" Vundle Plugins {{{1
 " This should be handled by a git submodule in my dotfiles repo:
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+" TODO Vundle is dead, switch to vim-plug or native packages
 if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     filetype off " required by Vundle
 
     " set the runtime path to include Vundle and initialize
     set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
+    call vundle#begin()  " Keep Plugin commands between vundle#begin/end.
     " alternatively, pass a path where Vundle should install plugins
     "call vundle#begin('~/some/path/here')
 
     " let Vundle manage Vundle, required
-    " Keep Plugin commands between vundle#begin/end.
+
     Plugin 'VundleVim/Vundle.vim'
 
     Plugin 'tpope/vim-fugitive'
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-repeat'
+    Plugin 'tpope/vim-eunuch'
 
     Plugin 'airblade/vim-gitgutter'
+    Plugin 'xxdavid/bez-diakritiky.vim'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'mhinz/vim-startify'
+    Plugin 'SirVer/ultisnips'
 
+    Plugin 'dbmrq/vim-ditto'
+
+    Plugin 'preservim/vim-markdown'
+    Plugin 'https://gitlab.com/dbeniamine/todo.txt-vim'
+
+    " plugins_programming plugins {{{2
     if (s:plugins_programming)
         Plugin 'nvie/vim-flake8'
         Plugin 'ericcurtin/CurtineIncSw.vim'
@@ -63,28 +73,28 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
         endif
     endif
 
-    Plugin 'xxdavid/bez-diakritiky.vim'
-    "Plugin 'Yggdroot/indentLine'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'mhinz/vim-startify'
-    " This plugin causes problems when I open a python file from vim in Git
-    " bash on Windows
-    "Plugin 'dbeniamine/cheat.sh-vim'
-
-    Plugin 'preservim/vim-markdown'
-
+    " LaTeX plugins {{{2
     if executable("pdflatex")
         Plugin 'lervag/vimtex'
     endif
 
-    Plugin 'SirVer/ultisnips'
-
-    " Color schemes
+    " Color schemes {{{2
     Plugin 'dracula/vim'
     Plugin 'cormacrelf/vim-colors-github'
 
-    Plugin 'https://gitlab.com/dbeniamine/todo.txt-vim'
+    " TODO take a look at these plugins {{{2
+    " TODO https://github.com/godlygeek/tabular
 
+    " This plugin causes problems when I open a python file from vim in Git
+    " bash on Windows
+    "Plugin 'dbeniamine/cheat.sh-vim'
+
+    "Plugin 'masukomi/vim-markdown-folding'  " folds badly
+
+    " This caused some trouble, but I can't remember what.
+    "Plugin 'Yggdroot/indentLine'
+
+    " Vundle post init {{{2
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
     filetype plugin indent on    " required
@@ -100,12 +110,59 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     " see :h vundle for more details or wiki for FAQ
     " Put your non-Plugin stuff after this line
 endif
+" }}}1
 
+" Add optional packages. {{{1
+" The matchit plugin makes the % command work better, but it is not backwards
+" compatible.
+" The ! means the package won't be loaded right away but when plugins are
+" loaded during initialization.
+if has('syntax') && has('eval')
+  packadd! matchit
+endif
+" }}}1
 
+" GENERAL CONFIG {{{1
+set nojoinspaces " french spacing
+language en_US.utf8
 
-" Get the defaults that most users want.
-source $VIMRUNTIME/defaults.vim
+" Set the command window height to 2 lines, to avoid many cases of having to
+" "press <Enter> to continue"
+set cmdheight=2
 
+set number  " line numbers
+
+set encoding=utf8
+
+if exists('+colorcolumn')
+    set colorcolumn=80,100,120
+endif
+
+" Show non-printing characters {{{2
+" https://stackoverflow.com/questions/12814647/showing-single-space-invisible-character-in-vim
+set list
+set listchars=nbsp:␣,trail:•,tab:>▸
+",eol:¶,precedes:«,extends:»
+
+" Mouse support {{{2
+if has('mouse')
+  set mouse=a
+endif
+
+" better tab completion {{{2
+set wildmode=longest,list,full
+set wildmenu
+
+" Search {{{2
+" Smart case search
+set ignorecase
+set smartcase
+
+" Disable search wrap
+" This should make it easier for me to do replace with confirm
+set nowrapscan
+
+" backup & undofile {{{2
 if has("vms")
   set nobackup  " do not keep a backup file, use versions instead
 else
@@ -115,106 +172,14 @@ else
   endif
 endif
 
+" hlsearch if available {{{2
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
 endif
 
-" Put these in an autocmd group, so that we can delete them easily.
-augroup vimrcEx
-  au!
-
-  " # Ondra
-  autocmd FileType markdown,text
-    \ setlocal textwidth=78 |
-    \ setlocal spell |
-    \ setlocal spelllang=en,cs,csa
-
-  " Ceske uvozovky (UTF-8)
-  "autocmd FileType markdown,text
-  "  \ imap <buffer> "" „|
-  "  \ imap <buffer> """ “
-
-  au FileType gitcommit
-    \ setlocal spell |
-    \ setlocal spelllang=en
-
-  " https://realpython.com/vim-and-python-a-match-made-in-heaven/
-  au BufNewFile,BufRead *.py
-    \ setlocal tabstop=4 |
-    \ setlocal softtabstop=4 |
-    \ setlocal shiftwidth=4 |
-    \ setlocal textwidth=78 |
-    \ setlocal expandtab |
-    \ setlocal autoindent |
-    \ setlocal fileformat=unix |
-    \ setlocal spell |
-    \ setlocal spelllang=en
-
-
-  au FileType arduino,cpp,c
-    \ setlocal spell |
-    \ setlocal spelllang=en
-
-
-  " Arduino and cpp - switch to header / cpp file
-  " https://vim.fandom.com/wiki/Easily_switch_between_source_and_header_file
-  au FileType arduino,cpp,c
-    \ nnoremap <buffer> <Leader>oo :call CurtineIncSw()<CR> |
-    \ nnoremap <buffer> <Leader>oO :if expand('%:e') == "h" \| vs %<.cpp \| else \| vs %<.h \| endif<CR> |
-    \ nmap <buffer> <Leader>OO <Leader>oO
-    "\ nnoremap <buffer> <Leader>oo :if expand('%:e') == "h" \| e %<.cpp \| else \| e %<.h \| endif<CR> |
-
-
-  au FileType html,php,markdown
-    \ setlocal tabstop=2 |
-    \ setlocal softtabstop=2 |
-    \ setlocal shiftwidth=2 |
-    \ setlocal spell
-
-  au FileType yaml
-    \ setlocal tabstop=2 |
-    \ setlocal softtabstop=2 |
-    \ setlocal shiftwidth=2
-
-  au FileType man
-    \ setlocal nolist
-
-  " fix todo.txt mappings conflicting with paste shortcut
-  " (these are used for changing the due date; I have prefixed them with
-  " <localleader>t
-  "
-  " Omnifunc - <C-x><C-o>
-  au FileType todo
-    \ nunmap <buffer> <localleader>p|
-    \ nmap <silent> <buffer> <localleader>tp <Plug>TodotxtIncrementDueDateNormal|
-    \ vunmap <buffer> <localleader>p|
-    \ vmap <silent> <buffer> <localleader>tp <Plug>TodotxtIncrementDueDateVisual|
-    \ nunmap <buffer> <localleader><S-P>|
-    \ nmap <buffer> <localleader>tP <Plug>TodotxtDecrementDueDateNormal|
-    \ vunmap <buffer> <localleader><S-P>|
-    \ vmap <buffer> <localleader>tP <Plug>TodotxtDecrementDueDateVisual|
-    \ setlocal omnifunc=todo#Complete
-
-augroup END
-
-" Add optional packages.
-"
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-" The ! means the package won't be loaded right away but when plugins are
-" loaded during initialization.
-if has('syntax') && has('eval')
-  packadd! matchit
-endif
-
-
-" # Ondra
-set nojoinspaces " french spacing
-
-" https://vim.fandom.com/wiki/Example_vimrc
-"
-" Indentation settings for using 4 spaces instead of tabs.
+" Indentation settings {{{2
+" Use 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
 " set tabstop=4
 set shiftwidth=4
@@ -222,31 +187,7 @@ set softtabstop=4
 set expandtab " disable me if you want hard tabs
 set smarttab
 
-" Set the command window height to 2 lines, to avoid many cases of having to
-" "press <Enter> to continue"
-set cmdheight=2
-
-" Instead of failing a command because of unsaved changes, instead raise a
-" dialogue asking if you wish to save changed files.
-"set confirm
-
-
-" English
-" TODO further investigate why I need this if statement
-"if has("gui_running")
-"    language en_US
-"else
-    language en_US.utf8
-"endif
-
-" Line numbers
-set number
-
-" DOS line endings
-" WARNING Windows ONLY
-"set ffs=dos,unix
-
-" Block cursor in normal mode
+" Block cursor in normal mode {{{2
 if !has("gui_running")
     " Originally added because of git bash, but it also appears to work on linux
     " It uses xterm escape sequences
@@ -262,17 +203,118 @@ else
     set guicursor+=n:blinkon0
 endif
 
-" Ceska jmena souboru
-set enc=utf8
-" https://blog.root.cz/petrkrcmar/jak-si-spravne-nastavit-vimrc/
-"set fileencodings=utf-8,latin2
+" Man pages {{{2
+runtime ftplugin/man.vim
+" GENERAL CONFIG }}}1
 
-" 80 chars mark
-" https://superuser.com/questions/249779/how-to-setup-a-line-length-marker-in-vim-gvim
-if exists('+colorcolumn')
-    set colorcolumn=80,100,120
+" GUI settings {{{
+if has("gui_running")
+    set guioptions-=T  " hide the toolbar
+    "set viminfofile=$HOME/.viminfo  " share .viminfo
+    set guifont=Ubuntu\ Mono\ 12
+
+    " Open on the left half of the screen
+    set lines=84 columns=157
+    winpos 0 0
+    color dracula
 endif
+" }}}
 
+" Autocmds {{{1
+augroup vimrcEx
+  au!
+
+  autocmd FileType markdown,text  " {{{2
+    \ setlocal textwidth=78 |
+    \ setlocal spell |
+    \ setlocal spelllang=en,cs,csa
+
+  " Ceske uvozovky (UTF-8) {{{2
+  "autocmd FileType markdown,text
+  "  \ imap <buffer> "" „|
+  "  \ imap <buffer> """ “
+
+  au FileType gitcommit  " {{{2
+    \ setlocal spell |
+    \ setlocal spelllang=en
+
+  " Python {{{2
+  " https://realpython.com/vim-and-python-a-match-made-in-heaven/
+  " TODO use FileType instead ?
+  au BufNewFile,BufRead *.py
+    \ setlocal tabstop=4 |
+    \ setlocal softtabstop=4 |
+    \ setlocal shiftwidth=4 |
+    \ setlocal textwidth=78 |
+    \ setlocal expandtab |
+    \ setlocal autoindent |
+    \ setlocal fileformat=unix |
+    \ setlocal spell |
+    \ setlocal spelllang=en
+
+  au FileType arduino,cpp,c  " {{{2
+    \ setlocal spell |
+    \ setlocal spelllang=en
+
+
+  " Arduino & cpp - switch to header / cpp file {{{2
+  " https://vim.fandom.com/wiki/Easily_switch_between_source_and_header_file
+  au FileType arduino,cpp,c
+    \ nnoremap <buffer> <Leader>oo :if expand('%:e') == "h" \| e %<.cpp \| else \| e %<.h \| endif<CR> |
+    \ nnoremap <buffer> <Leader>oO :if expand('%:e') == "h" \| vs %<.cpp \| else \| vs %<.h \| endif<CR> |
+    \ nmap <buffer> <Leader>OO <Leader>oO
+    "\ nnoremap <buffer> <Leader>oo :call CurtineIncSw()<CR> |
+
+
+  au FileType html,php,markdown  " {{{2
+    \ setlocal tabstop=2 |
+    \ setlocal softtabstop=2 |
+    \ setlocal shiftwidth=2 |
+    \ setlocal spell
+
+  au FileType yaml  " {{{2
+    \ setlocal tabstop=2 |
+    \ setlocal softtabstop=2 |
+    \ setlocal shiftwidth=2
+
+  au FileType man  " {{{2
+    \ setlocal nolist
+
+  " fix todo.txt mappings conflicting with paste shortcut {{{2
+  " (these are used for changing the due date; I have prefixed them with
+  " <localleader>t
+  "
+  " Omnifunc - <C-x><C-o>
+  au FileType todo
+    \ nunmap <buffer> <localleader>p|
+    \ nmap <silent> <buffer> <localleader>tp <Plug>TodotxtIncrementDueDateNormal|
+    \ vunmap <buffer> <localleader>p|
+    \ vmap <silent> <buffer> <localleader>tp <Plug>TodotxtIncrementDueDateVisual|
+    \ nunmap <buffer> <localleader><S-P>|
+    \ nmap <buffer> <localleader>tP <Plug>TodotxtDecrementDueDateNormal|
+    \ vunmap <buffer> <localleader><S-P>|
+    \ vmap <buffer> <localleader>tP <Plug>TodotxtDecrementDueDateVisual|
+    \ setlocal omnifunc=todo#Complete
+  " }}}2
+
+augroup END
+" }}}1
+
+" WINDOW SPLITS {{{
+set splitbelow splitright
+
+" Remap splits navigation to just CTRL + hjkl
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+nnoremap <leader>w <C-w>
+cnoreabbrev vsv vert sv
+cnoreabbrev vterm vert term
+" }}}
+
+" MISC mappings {{{1
 " :;; to enter q: command line history
 " https://superuser.com/questions/470727/how-to-paste-yanked-text-to-vim-command-line
 "nnoremap ; :
@@ -285,31 +327,24 @@ nnoremap Y y$
 "cmap bb buffers<CR>:b
 nnoremap <leader>b :buffers<CR>:b
 
-" Highlight no break space
-" https://stackoverflow.com/questions/12814647/showing-single-space-invisible-character-in-vim
-set list
-set listchars=nbsp:␣,trail:•,tab:>▸
-",eol:¶,precedes:«,extends:»
-
-" Mouse support
-" Just testing this, maybe I'll disable it later. Commit separately!
-if has('mouse')
-  set mouse=a
-endif
-
-" Smart case search
-set ignorecase
-set smartcase
-
 " Nbsp C-S-Space
 "imap <C-S-Space> <C-V>u00a0
 imap <C-S-Space>  
 
-" Disable search wrap
-" This should make it easier for me to do replace with confirm
-set nowrapscan
+" space-space goes down
+nmap <leader><leader> <C-F>
+vmap <leader><leader> <C-F>
 
-" Leader y and p system clipboard
+" Normal mode command to write file
+nmap <leader>u :up<CR>
+
+" Map <C-L> (redraw screen) to also turn off search highlighting until the
+" next search
+nnoremap <C-L> :nohl<CR><C-L>
+
+command Czmap :source ~/scripts/cz-mappings-local.vim
+
+" Leader y and p system clipboard {{{2
 nmap <leader>p "+p
 vmap <leader>p "+p
 nmap <leader>P "+P
@@ -323,45 +358,7 @@ vmap <leader>d "+d
 nmap <leader>D "+D
 vmap <leader>D "+D
 
-
-
-" dracula
-" https://github.com/dracula/vim/pull/252
-augroup dracula_customization
-    au!
-    autocmd ColorScheme dracula hi! link SpecialKey DraculaSubtle
-augroup END
-
-if has("gui_running")
-    set guioptions-=T  " hide the toolbar
-    "set viminfofile=$HOME/.viminfo  " share .viminfo
-    set guifont=Ubuntu\ Mono\ 12
-
-    " Open on the left half of the screen
-    set lines=84 columns=157
-    winpos 0 0
-    color dracula
-
-    " unzip on Windows
-    " Add Git/path to path and create symlinks to Git/usr/bin to make it work
-    " (unzip.exe)
-    "
-    " This does not work:
-    "let g:zip_unzipcmd="C:\Program Files\Git\usr\bin\unzip.exe"
-
-    " TODO scp://
-endif
-
-
-" space-space goes down
-nmap <leader><leader> <C-F>
-vmap <leader><leader> <C-F>
-
-
-" Normal mode command for writing file.
-nmap <leader>u :up<CR>
-
-" :make with <leader>m
+" :make with <leader>m {{{2
 nmap <leader>m :make<CR>
 command PioMake
     \ nmap <lt>leader>mm :make<CR>|
@@ -369,46 +366,24 @@ command PioMake
     \ nmap <lt>leader>mc :make! check<CR>|
     \ nmap <lt>leader>mt :make! test<CR>|
     \ nunmap <lt>leader>m
+" MISC mappings }}}1
+
+" PLUGIN CONFIG {{{1
+" dracula {{{2
+" https://github.com/dracula/vim/pull/252
+augroup dracula_customization
+    au!
+    autocmd ColorScheme dracula hi! link SpecialKey DraculaSubtle
+augroup END
 
 
-
-" better tab completion:
-set wildmode=longest,list,full
-set wildmenu
-
-
-"""""""""""""""""""""""""
-" WINDOW SPLITS
-"""""""""""""""""""""""""
-" https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/nvim/init.vim
-set splitbelow splitright
-
-" Remap splits navigation to just CTRL + hjkl
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-nnoremap <leader>w <C-w>
-cnoreabbrev vsv vert sv
-cnoreabbrev vterm vert term
-
-command Czmap :source ~/scripts/cz-mappings-local.vim
-
-" Man pages
-runtime ftplugin/man.vim
-
-
-"""""""""""""""""""""""""
-" PLUGIN CONFIG
-"""""""""""""""""""""""""
-" airline
+" airline {{{2
 set laststatus=2
 
-" gitgutter
+" gitgutter {{{2
 "let g:gitgutter_git_executable = 'C:\Program Files\Git\bin\git.exe'
 
-" netrw tree
+" netrw {{{2
 let g:netrw_liststyle = 3
 " All of ~, \~, and \\~ caused errors - probably bug somewhere in netrw logic
 " to invert regex rules (press a key to cycle through inverted modes)
@@ -426,7 +401,7 @@ let g:ycm_auto_hover=""
 nmap <leader>K <plug>(YCMHover)
 nmap <leader>gd :YcmCompleter GoTo<CR>
 
-" vimspector
+" vimspector {{{2
 let g:vimspector_base_dir=$HOME.'/.vim/bundle/vimspector'
 " this didn't seem to work, needed to do this instead:
 " cd ~/.vim/bundle/vimspector
@@ -443,19 +418,36 @@ let g:ycm_java_jdtls_extension_path = [
   \ ]
 
 
-"" indentLine
+"" indentLine {{{2
 "let g:indentLine_fileTypeExclude = ['markdown,tex']
 
-" syntax for amsmath in LaTeX:
+" syntax for amsmath in LaTeX {{{2
 " http://www.drchip.org/astronaut/vim/vbafiles/amsmath.vba.gz
+" do NOT install this, it seems to conflict with vimtex
 
-" Disable syntax highlight in lstlisting environment in LaTeX
+" Disable syntax highlight in lstlisting environment in LaTeX {{{2
 " (solves problems with '$' characters, etc.)
 " http://www.drchip.org/astronaut/vim/vbafiles/lstlisting.vba.gz
 
+" vim-ditto {{{2
+" Use autocmds to check your text automatically and keep the highlighting
+" up to date (easier):
+"au FileType markdown,text,tex DittoOn  " Turn on Ditto's autocmds
+nmap <leader>di <Plug>ToggleDitto      " Turn Ditto on and off
 
+" If you don't want the autocmds, you can also use an operator to check
+" specific parts of your text:
+" vmap <leader>d <Plug>Ditto           " Call Ditto on visual selection
+" nmap <leader>d <Plug>Ditto           " Call Ditto on operator movement
 
-" vim-startify
+nmap =d <Plug>DittoNext                " Jump to the next word
+nmap -d <Plug>DittoPrev                " Jump to the previous word
+nmap +d <Plug>DittoGood                " Ignore the word under the cursor
+"nmap _d <Plug>DittoBad                 " Stop ignoring the word under the cursor
+nmap ]d <Plug>DittoMore                " Show the next matches
+nmap [d <Plug>DittoLess                " Show the previous matches
+
+" vim-startify {{{2
 let g:startify_bookmarks = [
     \ {'V': '~/.vimrc'},
     \ {'Z': '~/.zshrc'},
@@ -468,7 +460,7 @@ let g:startify_bookmarks = [
 
 nnoremap <leader>S :Startify<CR>
 
-" vim-markdown
+" vim-markdown {{{2
 " folding was too slow in insert mode
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_level = 2
@@ -479,25 +471,27 @@ let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_math = 1
 
-" vimtex
+" vimtex {{{2
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let g:tex_conceal='abdmg'
 
-
-" ultisnips
+" ultisnips {{{2
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 let g:UltiSnipsExpandTrigger="<C-l>"
 let g:UltiSnipsJumpForwardTrigger="C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
-" noweb
+" noweb {{{2
 au BufRead,BufNewFile *.m.nw let noweb_language = "matlab"
 " cannot move to ~/.vim/ftdetect/nw.vim, need to set noweb_language first
 au BufRead,BufNewFile *.nw set filetype=noweb
 let noweb_backend = "tex"
 let noweb_fold_code = 1
+" plugin config }}}1
 
 " Source the machine-specific vimrc (does not need to exist)
 silent! source $HOME/.vimrc-local
+
+" vim: foldmethod=marker
