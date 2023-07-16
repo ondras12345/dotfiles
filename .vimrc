@@ -209,6 +209,16 @@ endif
 runtime ftplugin/man.vim
 " GENERAL CONFIG }}}1
 
+" Workarounds {{{1
+" dracula {{{2
+" listchars were pink. This needs to be done before setting colorscheme.
+" https://github.com/dracula/vim/pull/252
+augroup dracula_customization
+    au!
+    autocmd ColorScheme dracula hi! link SpecialKey DraculaSubtle
+augroup END
+" Workarounds }}}1
+
 " GUI settings {{{
 if has("gui_running")
     set guioptions-=T  " hide the toolbar
@@ -371,14 +381,6 @@ command PioMake
 " MISC mappings }}}1
 
 " PLUGIN CONFIG {{{1
-" dracula {{{2
-" https://github.com/dracula/vim/pull/252
-augroup dracula_customization
-    au!
-    autocmd ColorScheme dracula hi! link SpecialKey DraculaSubtle
-augroup END
-
-
 " airline {{{2
 set laststatus=2
 
