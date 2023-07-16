@@ -133,6 +133,9 @@ SAVEHIST=50000
 setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_SPACE
 setopt HIST_IGNORE_DUPS
+# Do not share history between sessions.
+# (set in ~/.oh-my-zsh/lib/history.zsh)
+unsetopt share_history
 
 # Reduce KEYTIMEOUT.
 # Without this, it would be impossible to quickly <esc>/ to enter search mode.
