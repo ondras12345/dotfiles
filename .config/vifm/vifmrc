@@ -522,7 +522,7 @@ filextype *.svg
 
 filextype *.xoj xournal %c &
 
-filextype *.xopp xournalpp %c &
+filextype *.xopp,*.pdf xournalpp %c &
 
 filextype */
         \ {View in Nautilus}
