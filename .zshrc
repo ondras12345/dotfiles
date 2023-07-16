@@ -153,12 +153,14 @@ DRACULA_DISPLAY_NEW_LINE=1
 DRACULA_ARROW_ICON="$ "
 
 # put pipestatus in prompt
-PIPESTATUS_PROMPT='$(stat=($PREV_PIPESTATUS); [ ${(j::)stat} -ne 0 ] && echo " %{$fg[red]%}[${(j:|:)stat}]")' #%{$reset_color%}'
-PROMPT=${PROMPT//\$DRACULA_GIT_STATUS/\$DRACULA_GIT_STATUS$PIPESTATUS_PROMPT}
-prompt_pipestatus() {
-    PREV_PIPESTATUS=("${pipestatus[@]}")
-}
-add-zsh-hook precmd prompt_pipestatus
+if [ "$ZSH_THEME" = "dracula" ] ; then
+    PIPESTATUS_PROMPT='$(stat=($PREV_PIPESTATUS); [ ${(j::)stat} -ne 0 ] && echo " %{$fg[red]%}[${(j:|:)stat}]")' #%{$reset_color%}'
+    PROMPT=${PROMPT//\$DRACULA_GIT_STATUS/\$DRACULA_GIT_STATUS$PIPESTATUS_PROMPT}
+    prompt_pipestatus() {
+        PREV_PIPESTATUS=("${pipestatus[@]}")
+    }
+    add-zsh-hook precmd prompt_pipestatus
+fi
 
 # override context - always display hostname
 dracula_context() {
