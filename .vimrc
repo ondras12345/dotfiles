@@ -342,7 +342,7 @@ nmap <leader>u :up<CR>
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <leader><C-L> :nohl<CR><C-L>
 
 command Czmap :source ~/scripts/cz-mappings-local.vim
 
