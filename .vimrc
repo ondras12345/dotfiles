@@ -236,7 +236,8 @@ endif
 augroup vimrcEx
   au!
 
-  autocmd FileType markdown,text  " {{{2
+  " spell & textwidth in markdown & text {{{2
+  autocmd FileType markdown,text
     \ setlocal textwidth=78 |
     \ setlocal spell |
     \ setlocal spelllang=en,cs,csa
@@ -246,7 +247,8 @@ augroup vimrcEx
   "  \ imap <buffer> "" „|
   "  \ imap <buffer> """ “
 
-  au FileType gitcommit  " {{{2
+  " spell in gitcommit {{{2
+  au FileType gitcommit
     \ setlocal spell |
     \ setlocal spelllang=en
 
@@ -264,7 +266,8 @@ augroup vimrcEx
     \ setlocal spell |
     \ setlocal spelllang=en
 
-  au FileType arduino,cpp,c  " {{{2
+  " c, cpp & arduino {{{2
+  au FileType arduino,cpp,c
     \ setlocal spell |
     \ setlocal spelllang=en
 
@@ -278,18 +281,21 @@ augroup vimrcEx
     "\ nnoremap <buffer> <Leader>oo :call CurtineIncSw()<CR> |
 
 
-  au FileType html,php,markdown  " {{{2
+  " html, php & markdown {{{2
+  au FileType html,php,markdown
     \ setlocal tabstop=2 |
     \ setlocal softtabstop=2 |
     \ setlocal shiftwidth=2 |
     \ setlocal spell
 
-  au FileType yaml  " {{{2
+  " yaml {{{2
+  au FileType yaml
     \ setlocal tabstop=2 |
     \ setlocal softtabstop=2 |
     \ setlocal shiftwidth=2
 
-  au FileType man  " {{{2
+  " manpages {{{2
+  au FileType man
     \ setlocal nolist
 
   " fix todo.txt mappings conflicting with paste shortcut {{{2
