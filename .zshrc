@@ -31,10 +31,11 @@ fpath[1,0]="$ZSH_CUSTOM/completion"
 #ZSH_THEME="dst"  # does not like timer, weird $? (FAIL)
 #ZSH_THEME="daveverwer"  # no clock, no $?
 #ZSH_THEME="aussiegeek"  # 12-hour clock, no $?
-ZSH_THEME="dracula"
-if [ ! -f $ZSH_CUSTOM/themes/dracula/dracula.zsh-theme ] ; then
-    ZSH_THEME="robbyrussell"
-fi
+#ZSH_THEME="dracula"
+#if [ ! -f $ZSH_CUSTOM/themes/dracula/dracula.zsh-theme ] ; then
+#    ZSH_THEME="robbyrussell"
+#fi
+ZSH_THEME="ondras12345"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
