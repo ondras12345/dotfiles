@@ -328,8 +328,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 nnoremap <leader>w <C-w>
-cnoreabbrev vsv vert sv
-cnoreabbrev vterm vert term
+cnoreabbrev <expr> vsv (getcmdtype() == ':') ? "vert sv" : "vsv"
+cnoreabbrev <expr> vterm (getcmdtype() == ':') ? "vert term" : "vterm"
 " }}}
 
 " MISC mappings {{{1
@@ -402,7 +402,6 @@ let g:netrw_list_hide='.*\.un[~]$,^\..*\.swp$,\..*[~]$'
 
 " open browser links (gx)
 " https://vi.stackexchange.com/questions/5032/gx-not-opening-url-in-gvim-but-works-in-terminal/5034#5034
-" TODO this is probably fixed in new netrw
 let g:netrw_browsex_viewer= "setsid xdg-open"
 
 " youcompleteme
