@@ -207,6 +207,10 @@ endif
 
 " Man pages {{{2
 runtime ftplugin/man.vim
+
+" Disable vimHints {{{2
+" You discovered the command-line window! You can close it with ":q".
+au! vimHints
 " GENERAL CONFIG }}}1
 
 " Workarounds {{{1
