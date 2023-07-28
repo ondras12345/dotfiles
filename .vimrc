@@ -210,7 +210,7 @@ runtime ftplugin/man.vim
 
 " Disable vimHints {{{2
 " You discovered the command-line window! You can close it with ":q".
-au! vimHints
+silent! au! vimHints
 " GENERAL CONFIG }}}1
 
 " Workarounds {{{1
