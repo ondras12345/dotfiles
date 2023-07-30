@@ -506,7 +506,7 @@ let noweb_fold_code = 1
 
 " Source the machine-specific vimrc (does not need to exist)
 " legacy
-let s:vimrc_local_legacy=$HOME.."/.vimrc-local"
+let s:vimrc_local_legacy=$HOME."/.vimrc-local"
 if filereadable(s:vimrc_local_legacy)
     silent! execute "source " . s:vimrc_local_legacy
     echoerr "You are using legacy .vimrc-local."
