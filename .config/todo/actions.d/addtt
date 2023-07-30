@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+action=$1
+shift
+
+if [ "$action" = "usage" ] ; then
+    echo "  Add task with due:tomorrow and t:tomorrow"
+    echo "    $(basename "$0") \"TASK\""
+    echo ""
+    exit
+fi
+
+DATE="$(date --date=tomorrow -I)"
+
+"$TODO_FULL_SH" command add "$@ due:$DATE t:$DATE"
