@@ -209,6 +209,15 @@ if [ -f ~/scripts/aliases.sh ] ; then
     source ~/scripts/aliases.sh
 fi
 
+if command -v register-python-argcomplete &> /dev/null ; then
+    eval "$(register-python-argcomplete pipx)"
+fi
+
+# PlatformIO Core completion
+if command -v pio &> /dev/null ; then
+    eval "$(_PIO_COMPLETE=zsh_source pio)"
+fi
+
 if [ -f "$ZSH_CUSTOM/zshrc-local" ] ; then
    source "$ZSH_CUSTOM/zshrc-local"
 fi
