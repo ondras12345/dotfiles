@@ -78,6 +78,7 @@ case $state in
     "nav:open URL in browser"
     "addt:add TODO ITEM with due:today"
     "top:list as many items as can fit in the terminal"
+    "clock:clock in or out of a task in hamster time tracker"
   )
   _describe -t todo-commands 'todo.sh command' cmdlist
   ;;
@@ -134,6 +135,10 @@ case $state in
     nextstate=pri
     ;;
 
+    (clock)
+    nextstate=clockaction
+    ;;
+
     (*)
     return 1
     ;;
@@ -177,5 +182,16 @@ case $nextstate in
   compset -P '*[[:space:]]'
   _wanted search expl $projmsg \
     compadd $(todo.sh lsprj) $(todo.sh lsc)
+  ;;
+
+  (clockaction)
+  local -a clock_actions
+  clock_actions=(
+      "cur:show current running clock"
+      "in:start a clock for ITEM"
+      "out:end the current running clock"
+      "report:show all clock totals for today"
+  )
+  _describe 'clock action' clock_actions
   ;;
 esac
