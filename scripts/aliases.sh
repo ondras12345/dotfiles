@@ -7,8 +7,15 @@ alias dfg='dotfiles'
 alias dfv='dotfilesvim'
 alias ll='ls -lFah'
 alias la='ls -A'
-alias t='todo-txt'
-alias ts='TODO_SCHOOL=true todo-txt'
+
+if command -v todo-txt &> /dev/null ; then
+    alias t='todo-txt'
+    alias ts='TODO_SCHOOL=true todo-txt'
+else
+    alias t='todo.sh'
+    alias ts='TODO_SCHOOL=true todo.sh'
+fi
+
 #alias fscp='pscp -sftp' # does not seem to use .ssh/config
 
 alias bat='batcat'
