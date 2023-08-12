@@ -77,6 +77,7 @@ case $state in
     "tedit:Edit a single task in \$EDITOR"
     "nav:open URL in browser"
     "addt:add TODO ITEM with due:today"
+    "top:list as many items as can fit in the terminal"
   )
   _describe -t todo-commands 'todo.sh command' cmdlist
   ;;
