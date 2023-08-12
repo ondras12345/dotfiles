@@ -34,6 +34,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo='sudo '
 alias watch='watch '
+# Do not do it for xargs, that would break if any options are given to xargs
+#alias xargs='xargs '
 
 # Colors
 alias ls='ls --color=auto'
