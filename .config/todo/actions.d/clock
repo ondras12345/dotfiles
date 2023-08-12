@@ -50,10 +50,10 @@ parseitem() {
     if ! [[ "$ITEM" =~ ^[0-9]+$ ]]; then
         errorusage "Error: ITEM is not a number."
     fi
-    # strip priority, due date, threshold,
+    # strip priority, due date, threshold, note,
     # context (would interfere with hamster category),
     # and trailing whitespace
-    TASK=$(sed "$ITEM"'!d;s/^([A-Z]) //;s/\(due\|t\):[0-9-]\+//g;s/@[^ ]*//g;s/[[:blank:]]*$//' "$TODO_FILE")
+    TASK=$(sed "$ITEM"'!d;s/^([A-Z]) //;s/\(due\|t\):[0-9-]\+//g;s/note:[^ ]*//g;s/@[^ ]*//g;s/[[:blank:]]*$//' "$TODO_FILE")
     PROJECT=$(echo "$TASK" | sed -n 's/^.*+\([^ ]*\).*$/\1/p')
 }
 
