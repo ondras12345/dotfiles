@@ -79,6 +79,7 @@ case $state in
     "addt:add TODO ITEM with due:today"
     "top:list as many items as can fit in the terminal"
     "clock:clock in or out of a task in hamster time tracker"
+    "note:keep notes attached to tasks"
   )
   _describe -t todo-commands 'todo.sh command' cmdlist
   ;;
@@ -139,6 +140,10 @@ case $state in
     nextstate=clockaction
     ;;
 
+    (note)
+    nextstate=noteaction
+    ;;
+
     (*)
     return 1
     ;;
@@ -193,5 +198,15 @@ case $nextstate in
       "report:show all clock totals for today"
   )
   _describe 'clock action' clock_actions
+  ;;
+
+  (noteaction)
+  local -a note_actions
+  note_actions=(
+      "add:add a new note"
+      "edit:edit an existing note"
+      "show:show an existing note"
+  )
+  _describe 'note action' note_actions
   ;;
 esac
