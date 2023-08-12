@@ -90,7 +90,7 @@ case "$TODO_NOTE_ACTION" in
     getnotenamefromnumber $1
 
     [ $notename ] && die "TODO: Task $item already has a note."
-    
+
     # Create notes directory if doesn't exist
     [ -d "$TODO_NOTES_DIR" ]  || mkdir -p "$TODO_NOTES_DIR" 2> /dev/null || die "Error: $TODO_NOTES_DIR is not a directory"
 
@@ -103,10 +103,9 @@ case "$TODO_NOTE_ACTION" in
     rm -f "${filename}"
 
     # Append note tag to task
-    sed -i.bak $item" s/$/ ${TODO_NOTE_TAG}:$notename/" "$TODO_FILE"
+    "$TODO_SH" command append "$item" "${TODO_NOTE_TAG}:$notename"
 
     getTodo "$item"
-    echo $item $todo
     echo TODO: Note added to task $item.
 
     echo "Edit note?  (y/n)"
@@ -142,7 +141,9 @@ case "$TODO_NOTE_ACTION" in
 
 "__rmfromtext")
     getnotenamefromtext "$*"
-    rm -f "$TODO_NOTES_DIR/$notename"
+    if [ -n "$notename" ] ; then
+        rm -f "$TODO_NOTES_DIR/$notename"
+    fi
     ;;
 
 *)
