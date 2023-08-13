@@ -206,6 +206,7 @@ case $nextstate in
       "add:add a new note"
       "edit:edit an existing note"
       "show:show an existing note"
+      "rm:remove an existing note"
   )
   _describe 'note action' note_actions
   ;;
