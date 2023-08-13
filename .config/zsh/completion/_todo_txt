@@ -1,4 +1,4 @@
-#compdef todo-txt todo.sh
+#compdef todo-txt todo.sh=todo-txt
 
 # See http://todotxt.com for todo.sh.
 #
