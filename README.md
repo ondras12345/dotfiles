@@ -83,7 +83,7 @@ echo "test -f ~/scripts/WSL-agent.sh && . ~/scripts/WSL-agent.sh" >> $HOME/.bash
 ## Updating
 ```
 dotfiles pull
-dotfiles submodule update
+dotfiles submodule update --init --recursive
 ```
 
 
