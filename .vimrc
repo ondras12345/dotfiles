@@ -96,6 +96,9 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     " This caused some trouble, but I can't remember what.
     "Plugin 'Yggdroot/indentLine'
 
+    " Nice, but Netrw is not all that bad
+    "Plugin 'vifm/vifm.vim'
+
     " Vundle post init {{{2
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
