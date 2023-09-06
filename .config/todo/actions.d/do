@@ -1,1 +1,9 @@
-dorecur/dorecur.py
+#!/usr/bin/env bash
+
+if [ "$1" != "usage" ] && [ -n "$2" ] ; then
+    # Try to clock out.
+    # If it fails, continue.
+    "$TODO_SH" clock out "$2"
+fi
+
+"$(dirname "$0")/dorecur/dorecur.py" "$@"
