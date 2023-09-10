@@ -209,12 +209,12 @@ if [ -f ~/scripts/aliases.sh ] ; then
     source ~/scripts/aliases.sh
 fi
 
-if command -v register-python-argcomplete &> /dev/null ; then
+if (( $+commands[register-python-argcomplete] )) ; then
     eval "$(register-python-argcomplete pipx)"
 fi
 
 # PlatformIO Core completion
-if command -v pio &> /dev/null ; then
+if (( $+commands[pio] )) ; then
     eval "$(_PIO_COMPLETE=zsh_source pio)"
 fi
 
