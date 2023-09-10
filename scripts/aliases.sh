@@ -6,6 +6,7 @@ alias dotfilesvim='GIT_DIR=$HOME/.dotfiles-repo vim +G +only'
 alias dfg='dotfiles'
 alias dfv='dotfilesvim'
 alias ll='ls -lFah'
+alias llh='ls -lFah --hyperlink=auto'
 alias la='ls -A'
 
 if command -v todo-txt &> /dev/null ; then
