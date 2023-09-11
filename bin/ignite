@@ -16,8 +16,8 @@ FIREFOX_WINDOW=`wmctrl -l | grep -Po "^0x[0-9a-f]+(?=[[:space:]]+ $WORKSPACE .* 
 if [ $? -eq 0 ]
 then
   wmctrl -i -a "$FIREFOX_WINDOW"
-  firefox --new-tab "$@"
+  exec firefox --new-tab "$@"
 else
   echo "no fox to ignite"
-  firefox --new-window "$@"
+  exec firefox --new-window "$@"
 fi
