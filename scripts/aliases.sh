@@ -62,4 +62,17 @@ ssh-add() {
     fi
 }
 
+vicd()
+{
+    if [ -z "$1" ] ; then
+        1="."
+    fi
+    local dst="$(command vifm --choose-dir - "$@")"
+    if [ -z "$dst" ]; then
+        echo 'Directory picking cancelled/failed'
+        return 1
+    fi
+    cd "$dst"
+}
+
 test -f ~/scripts/aliases-local.sh && . ~/scripts/aliases-local.sh
