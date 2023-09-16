@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
 if [ "$1" != "usage" ] && [ -n "$2" ] ; then
-    # Try to clock out.
-    # If it fails, continue.
-    "$TODO_SH" clock out "$2"
+    # If hamster time tracker is installed
+    if command -v hamster &> /dev/null ; then
+        # Try to clock out.
+        # If it fails, continue.
+        "$TODO_SH" clock out "$2"
+    fi
 fi
 
 "$(dirname "$0")/dorecur/dorecur.py" "$@"
