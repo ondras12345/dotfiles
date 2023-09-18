@@ -51,6 +51,8 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
 
     Plugin 'dbmrq/vim-ditto'
 
+    Plugin 'img-paste-devs/img-paste.vim'
+
     Plugin 'preservim/vim-markdown'
     Plugin 'https://gitlab.com/dbeniamine/todo.txt-vim'
 
@@ -505,6 +507,12 @@ au BufRead,BufNewFile *.m.nw let noweb_language = "matlab"
 au BufRead,BufNewFile *.nw set filetype=noweb
 let noweb_backend = "tex"
 let noweb_fold_code = 1
+
+" img-paste {{{2
+autocmd FileType markdown nmap <buffer><silent> <leader>ip :call mdip#MarkdownClipboardImage()<CR>
+" Defaults are fine:
+"let g:mdip_imgdir = 'img'
+"let g:mdip_imgname = 'image'
 " plugin config }}}1
 
 " Source the machine-specific vimrc (does not need to exist)
