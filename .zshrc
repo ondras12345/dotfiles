@@ -141,8 +141,8 @@ unsetopt share_history
 # Reduce KEYTIMEOUT.
 # Without this, it would be impossible to quickly <esc>/ to enter search mode.
 # This breaks vv (open Vim), but I think it still is worth it.
-# TODO https://github.com/ohmyzsh/ohmyzsh/tree/fe4b5659863c388786986d70fa6d1bb66b00afb6/plugins/vi-mode#low-keytimeout
 KEYTIMEOUT=1
+bindkey -M vicmd 'V' edit-command-line
 
 
 # Dracula theme config
