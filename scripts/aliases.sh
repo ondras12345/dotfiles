@@ -65,9 +65,10 @@ ssh-add() {
 vicd()
 {
     if [ -z "$1" ] ; then
-        1="."
+        set -- "."
     fi
-    local dst="$(command vifm --choose-dir - "$@")"
+    local dst
+    dst="$(command vifm --choose-dir - "$@")"
     if [ -z "$dst" ]; then
         echo 'Directory picking cancelled/failed'
         return 1
