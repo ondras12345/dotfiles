@@ -11,11 +11,18 @@ alias la='ls -A'
 
 if command -v todo-txt &> /dev/null ; then
     alias t='todo-txt'
-    alias ts='TODO_SCHOOL=true todo-txt'
+    # This needs to be a function rather than an alias to allow separate zsh
+    # autocomplete.
+    ts() {
+        TODO_SCHOOL=true todo-txt "$@"
+    }
 else
     alias t='todo.sh'
-    alias ts='TODO_SCHOOL=true todo.sh'
+    ts() {
+        TODO_SCHOOL=true todo.sh "$@"
+    }
 fi
+
 
 #alias fscp='pscp -sftp' # does not seem to use .ssh/config
 

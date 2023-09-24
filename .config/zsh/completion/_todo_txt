@@ -1,4 +1,4 @@
-#compdef todo-txt todo.sh=todo-txt
+#compdef todo-txt todo.sh=todo-txt ts=todo-txt
 
 # See http://todotxt.com for todo.sh.
 #
@@ -17,10 +17,15 @@ local -a cmdlist itemlist match mbegin mend
 integer NORMARG
 
 local TODO_SH
-if command -v todo-txt &> /dev/null ; then
-    TODO_SH='todo-txt'
+if (( $+commands[todo-txt] )) ; then
+    TODO_SH="todo-txt"
 else
-    TODO_SH='todo.sh'
+    TODO_SH="todo.sh"
+fi
+local TODO_SH_ENV
+TODO_SH_ENV=( "$TODO_SH" )
+if [ "${words[1]}" = "ts" ] ; then
+    TODO_SH_ENV=( "env" "TODO_SCHOOL=true" "$TODO_SH" )
 fi
 
 _arguments -s -n : \
@@ -112,7 +117,7 @@ case $state in
 	;;
 	(replace)
 	item=${words[CURRENT-1]##0##}
-	compadd -Q -- "${(qq)$($TODO_SH -p list "^[ 0]*$item " | sed '/^--/,$d')##<-> (\([A-Z]\) |)}"
+	compadd -Q -- "${(qq)$("${TODO_SH_ENV[@]}" -p list "^[ 0]*$item " | sed '/^--/,$d')##<-> (\([A-Z]\) |)}"
 	;;
       esac
     fi
@@ -257,7 +262,7 @@ case $nextstate in
   ;;
 
   (item)
-  itemlist=(${${(M)${(f)"$($TODO_SH -p list | sed '/^--/,$d')"}##<-> *}/(#b)(<->) (*)/${match[1]}:${match[2]}})
+  itemlist=(${${(M)${(f)"$("${TODO_SH_ENV[@]}" -p list | sed '/^--/,$d')"}##<-> *}/(#b)(<->) (*)/${match[1]}:${match[2]}})
   _describe -t todo-items 'todo item' itemlist
   ;;
 
@@ -286,6 +291,6 @@ case $nextstate in
   # the + or @ (which may not even be there yet).
   compset -P '*[[:space:]]'
   _wanted search expl $projmsg \
-    compadd $($TODO_SH lsprj) $($TODO_SH lsc)
+    compadd $("${TODO_SH_ENV[@]}" lsprj) $("${TODO_SH_ENV[@]}" lsc)
   ;;
 esac
