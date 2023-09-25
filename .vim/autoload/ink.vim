@@ -17,7 +17,7 @@ function! ink#Ink(image)
         echoerr 'no inkscape template'
         return
     endif
-    call append(line('.'), '![' . a:image . '](' . l:imgpath . ')')
+    call append(line('.'), '![' . a:image . '](' . substitute(fnamemodify(l:imgpath, ':p'), '^' . l:basepath . '/', '', '') . ')')
     normal jo
 
     call system('inkscape ' . l:imgpath . ' >/dev/null 2>&1 &')
