@@ -2,6 +2,8 @@
 # test -f ~/scripts/aliases.sh && . ~/scripts/aliases.sh
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
+# dfg config --local core.bare false
+# dfg config --local core.worktree "$HOME"
 alias dotfilesvim='GIT_DIR=$HOME/.dotfiles-repo vim +G +only'
 alias dfg='dotfiles'
 alias dfv='dotfilesvim'
