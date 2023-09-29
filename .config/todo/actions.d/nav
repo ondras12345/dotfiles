@@ -32,12 +32,12 @@ if [ "$URL" = "" ]; then
 fi
 
 # Trying to be smart...
-# on Debian alike:
-if $(which x-www-browser >/dev/null 2>&1); then
-    exec x-www-browser "$URL"
 # with freedesktop.org utils:
-elif $(which xdg-open >/dev/null 2>&1); then
+if $(which xdg-open >/dev/null 2>&1); then
     exec xdg-open "$URL"
+# on Debian alike:
+elif $(which x-www-browser >/dev/null 2>&1); then
+    exec x-www-browser "$URL"
 # if you have git:
 elif [ -x /usr/lib/git-core/git-web--browse ]; then
     cd /usr/lib/git-core && ./git-web--browse "$URL"
