@@ -523,7 +523,7 @@ filextype *.svg
 
 filextype *.xoj xournal %c &
 
-filextype *.xopp,*.pdf xournalpp %c &
+filextype *.xopp,*.pdf xournalpp %c 2>/dev/null &
 
 filextype */
         \ {View in Nautilus}
