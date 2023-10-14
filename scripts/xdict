@@ -3,7 +3,11 @@
 # I keybind this to ctrl+alt+w
 
 if [ -z "$1" ] ; then
-    xclip -o | xargs -0 dict | less
+    if [ "$XDG_SESSION_TYPE" = "wayland" ] ; then
+        wl-paste --primary | xargs dict -- 2>&1 | less
+    else
+        xclip -o | xargs dict -- 2>&1 | less
+    fi
 else
     dict "$1" | less
 fi
