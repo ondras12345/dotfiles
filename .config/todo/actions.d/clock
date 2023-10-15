@@ -46,20 +46,33 @@ errorusage() {
     exit 1
 }
 
+# strip priority, due date, threshold, note,
+# context (would interfere with hamster category),
+# and trailing whitespace
+TASK_SUBSTITUTIONS='s/^([A-Z]) //;s/\(due\|t\):[0-9-]\+//g;s/note:[^ ]*//g;s/@[^ ]*//g;s/[[:blank:]]*$//'
+
 parseitem() {
     if ! [[ "$ITEM" =~ ^[0-9]+$ ]]; then
         errorusage "Error: ITEM is not a number."
     fi
-    # strip priority, due date, threshold, note,
-    # context (would interfere with hamster category),
-    # and trailing whitespace
-    TASK=$(sed "$ITEM"'!d;s/^([A-Z]) //;s/\(due\|t\):[0-9-]\+//g;s/note:[^ ]*//g;s/@[^ ]*//g;s/[[:blank:]]*$//' "$TODO_FILE")
+    TASK=$(sed "$ITEM!d;$TASK_SUBSTITUTIONS" "$TODO_FILE")
     PROJECT=$(echo "$TASK" | sed -n 's/^.*+\([^ ]*\).*$/\1/p')
+}
+
+convert_hamster_task() {
+    # Drop times and category
+    # Hamster_current is not guaranteed to contain an at sign (@),
+    # hence the middle substitution.
+    echo "$hamster_current" | sed 's/^[0-9-]\+ [0-9:]\+ //;s/ [0-9]\{2\}:[0-9]\{2\}$//;s/@.*$//g'
 }
 
 case "$SECONDARY_CMD" in
     cur)
-        hamster current
+        hamster_current="$(hamster current)"
+        echo "$hamster_current"
+        hamster_task=$(convert_hamster_task "$hamster_current")
+        taskno=$(sed -n "$TASK_SUBSTITUTIONS;/$hamster_task/=" "$TODO_FILE")
+        echo "Task number: $taskno"
         ;;
 
     in)
@@ -75,10 +88,7 @@ case "$SECONDARY_CMD" in
             >&2 echo "No running clock."
             exit 0
         fi
-        # Drop times and category
-        # Hamster_current is not guaranteed to contain an at sign (@),
-        # hence the middle substitution.
-        hamster_task="$(echo "$hamster_current" | sed 's/^[0-9-]\+ [0-9:]\+ //;s/ [0-9]\{2\}:[0-9]\{2\}$//;s/@.*$//g')"
+        hamster_task=$(convert_hamster_task "$hamster_current")
 
         # There should either be a valid ITEM# or none at all.
         ITEM="$1"
