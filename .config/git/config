@@ -3,6 +3,7 @@
 	name = Ondřej Sluka
 [log]
 	date = iso8601
+	decorate = short
 [alias]
 	st = status
 	olog = log --decorate --oneline --graph
