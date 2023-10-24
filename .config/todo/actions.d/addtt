@@ -10,5 +10,11 @@ if [ "$action" = "usage" ] ; then
 fi
 
 DATE="$(date --date=tomorrow -I)"
+task="$@"
 
-"$TODO_FULL_SH" command add "$@ due:$DATE t:$DATE"
+if [[ "$task" == *" due:"* ]] || [[ "$task" == *" t:"* ]] ; then
+    >&2 echo "error: $(basename "$0") got extra due date or threshold date"
+    exit 1
+fi
+
+"$TODO_FULL_SH" command add "$task due:$DATE t:$DATE"

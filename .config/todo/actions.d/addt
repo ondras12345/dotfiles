@@ -9,4 +9,10 @@ if [ "$action" = "usage" ] ; then
     exit
 fi
 
-"$TODO_FULL_SH" command add "$@ due:$(date -I)"
+task="$@"
+if [[ "$task" == *" due:"* ]] ; then
+    >&2 echo "Warning: $(basename "$0") got duplicate due date"
+    "$TODO_FULL_SH" command add "$task"
+else
+    "$TODO_FULL_SH" command add "$task due:$(date -I)"
+fi
