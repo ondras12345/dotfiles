@@ -71,7 +71,7 @@ case "$SECONDARY_CMD" in
         hamster_current="$(hamster current)"
         echo "$hamster_current"
         hamster_task=$(convert_hamster_task "$hamster_current")
-        taskno=$(sed -n "$TASK_SUBSTITUTIONS;/$hamster_task/=" "$TODO_FILE")
+        taskno=$(sed -n "$TASK_SUBSTITUTIONS;/^$hamster_task\$/=" "$TODO_FILE")
         echo "Task number: $taskno"
         ;;
 
