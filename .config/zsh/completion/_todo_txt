@@ -92,6 +92,7 @@ case $state in
     "tedit:Edit a single task in \$EDITOR"
     "nav:open URL in browser"
     "addt:add TODO ITEM with due:today"
+    "addtt:add TODO ITEM with due:tomorrow"
     "top:list as many items as can fit in the terminal"
     "clock:clock in or out of a task in hamster time tracker"
     "note:keep notes attached to tasks"
@@ -127,6 +128,12 @@ case $state in
     nextstate=item
     ;;
 
+    (addt|addtt)
+    # TODO automatically add quotes and place cursor inside them
+    #compadd -P \' -S \' ''
+    nextstate=proj
+    ;;
+
     (a|add|addm|list|ls|listall|lsa)
     nextstate=proj
     ;;
@@ -156,6 +163,7 @@ case $state in
         local -a clock_actions
         clock_actions=(
             "cur:show current running clock"
+            "do:mark current item as done"
             "in:start a clock for ITEM"
             "out:end the current running clock"
             "report:show all clock totals for today"
