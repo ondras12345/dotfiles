@@ -29,6 +29,7 @@ fi
 #alias fscp='pscp -sftp' # does not seem to use .ssh/config
 
 alias bat='batcat'
+alias fd='fdfind'
 
 # Prevent credentials from leaking trough vim swap and backup files
 alias pass='EDITOR=ed pass'
