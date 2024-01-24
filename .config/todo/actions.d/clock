@@ -52,7 +52,7 @@ errorusage() {
 # strip priority, due date, threshold, note, recur,
 # context (would interfere with hamster category),
 # and trailing whitespace
-TASK_SUBSTITUTIONS='s/^([A-Z]) //;s/\(due\|t\):[0-9-]\+//g;s/note:[^ ]*//g;s/rec:[^ ]*//g;s/@[^ ]*//g;s/[[:blank:]]*$//'
+TASK_SUBSTITUTIONS='s/^([A-Z]) //;s/\(due\|t\):[0-9-]\+//g;s/note:[^ ]*//g;s/rec:[^ ]*//g;s/@[^ ]*//g;s/[[:blank:]]*$//;s/^[[:blank:]]*//'
 
 parseitem() {
     if ! [[ "$ITEM" =~ ^[0-9]+$ ]]; then
