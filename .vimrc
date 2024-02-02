@@ -47,7 +47,6 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     Plugin 'xxdavid/bez-diakritiky.vim'
     Plugin 'vim-airline/vim-airline'
     Plugin 'mhinz/vim-startify'
-    Plugin 'SirVer/ultisnips'
 
     Plugin 'dbmrq/vim-ditto'
 
@@ -61,6 +60,7 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
         Plugin 'nvie/vim-flake8'
         Plugin 'ericcurtin/CurtineIncSw.vim'
         Plugin 'mattn/emmet-vim'
+        Plugin 'SirVer/ultisnips'
         Plugin 'ap/vim-css-color'
 
         Plugin 'ycm-core/YouCompleteMe'
