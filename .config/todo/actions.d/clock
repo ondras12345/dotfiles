@@ -72,7 +72,7 @@ convert_hamster_task() {
 current_taskno() {
     hamster_current="$(hamster current)"
     hamster_task=$(convert_hamster_task "$hamster_current")
-    taskno=$(sed -n "$TASK_SUBSTITUTIONS;/^$hamster_task\$/=" "$TODO_FILE")
+    taskno=$(sed "$TASK_SUBSTITUTIONS" "$TODO_FILE" | grep -Fnx "${hamster_task}" | cut -d: -f1)
 }
 
 case "$SECONDARY_CMD" in
