@@ -90,12 +90,6 @@ export PRI_W=$LIGHT_GREY      # waiting
 # just before the list output is displayed.
 #
 # export TODOTXT_FINAL_FILTER='cat'
-# Hide done tasks.
-# Regex does not start with `^` because there is an ansi escape sequence
-# between the start of the line and the three digit line number.
-# I thought I could use this with `due`, but it does not seem to use the
-# default function.
-#export TODOTXT_FINAL_FILTER='sed "/[0-9]\{3\} x /d"'
 
 # I do not want to always filter out futureTasks (nor always run with -x)
 #export TODOTXT_FINAL_FILTER="$TODO_ACTIONS_DIR/futureTasks"
