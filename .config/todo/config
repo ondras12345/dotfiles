@@ -97,6 +97,9 @@ export PRI_W=$LIGHT_GREY      # waiting
 # default function.
 #export TODOTXT_FINAL_FILTER='sed "/[0-9]\{3\} x /d"'
 
+# I do not want to always filter out futureTasks (nor always run with -x)
+#export TODOTXT_FINAL_FILTER="$TODO_ACTIONS_DIR/futureTasks"
+
 export TODOTXT_AUTO_ARCHIVE=0
 export TODOTXT_PRESERVE_LINE_NUMBERS=1
 
@@ -107,6 +110,11 @@ export TODOTXT_DEFAULT_ACTION="top"
 export TODO_NOTE_EXT=.md
 export TODO_NOTES_DIR="$TODO_DIR/todonotes"
 export TODO_NOTE_PAGER=less
+
+# When safecheck is disabled, setdue does not print anything.
+# I don't like that.
+# TODO path setdue.
+#export TODOTXT_SETDUE_SAFECHECK=0
 
 # Interesting add-ons:
 # - https://github.com/todotxt/todo.txt-cli/wiki/Todo.sh-Add-on-Directory#donow-activity-time-tracker
