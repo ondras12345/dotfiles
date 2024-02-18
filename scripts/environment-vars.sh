@@ -18,3 +18,6 @@ export PATH="$HOME/bin:$PATH"
 # set in /etc/locale.conf
 # but it does not seem to work
 export TIME_STYLE=long-iso
+
+
+test -f ~/scripts/environment-vars-local.sh && . ~/scripts/environment-vars-local.sh
