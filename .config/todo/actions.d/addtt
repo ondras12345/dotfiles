@@ -3,18 +3,18 @@ action=$1
 shift
 
 if [ "$action" = "usage" ] ; then
-    echo "  Add task with due:tomorrow and t:tomorrow"
+    echo "  Add task with due:tomorrow"
     echo "    $(basename "$0") \"TASK\""
     echo ""
     exit
 fi
 
-DATE="$(date --date=tomorrow -I)"
+date="$(date --date=tomorrow -I)"
 task="$@"
 
-if [[ "$task" == *" due:"* ]] || [[ "$task" == *" t:"* ]] ; then
-    >&2 echo "error: $(basename "$0") got extra due date or threshold date"
+if [[ "$task" == *" due:"* ]] ; then
+    >&2 echo "error: $(basename "$0") got extra due date"
     exit 1
 fi
 
-"$TODO_FULL_SH" command add "$task due:$DATE t:$DATE"
+"$TODO_FULL_SH" command add "$task due:$date"
