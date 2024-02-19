@@ -16,6 +16,6 @@ TERMINAL_FIT_SUB="sed -e '$(expr $(tput lines) - 3),\$d' -e 's/\(^\x1B\[[0-9;]*[
 
 #export TODOTXT_FINAL_FILTER=$TODOTXT_FINAL_FILTER" | "$TERMINAL_FIT_SUB
 # filter out future tasks (based on threshold date)
-export TODOTXT_FINAL_FILTER=$TODOTXT_FINAL_FILTER" | "$TERMINAL_FIT_SUB" | "$TODO_ACTIONS_DIR/futureTasks
+export TODOTXT_FINAL_FILTER=$TODOTXT_FINAL_FILTER" | "$TERMINAL_FIT_SUB" | "$TODO_ACTIONS_DIR/../futureTasks
 
 _list "$TODO_FILE" "$@"

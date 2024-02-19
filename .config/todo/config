@@ -92,7 +92,7 @@ export PRI_W=$LIGHT_GREY      # waiting
 # export TODOTXT_FINAL_FILTER='cat'
 
 # I do not want to always filter out futureTasks (nor always run with -x)
-#export TODOTXT_FINAL_FILTER="$TODO_ACTIONS_DIR/futureTasks"
+#export TODOTXT_FINAL_FILTER="$TODO_ACTIONS_DIR/../futureTasks"
 
 export TODOTXT_AUTO_ARCHIVE=0
 export TODOTXT_PRESERVE_LINE_NUMBERS=1
