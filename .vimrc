@@ -373,6 +373,8 @@ command Czmap :source ~/scripts/cz-mappings-local.vim
 
 command Gterm :call system('x-terminal-emulator >/dev/null 2>&1 &')
 
+command Gittab :tabnew | :G | :only | :vert term
+
 " Leader y and p system clipboard {{{2
 nmap <leader>p "+p
 vmap <leader>p "+p
