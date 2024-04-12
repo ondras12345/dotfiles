@@ -169,6 +169,9 @@ set smartcase
 " This should make it easier for me to do replace with confirm
 set nowrapscan
 
+" search without diacritics match
+cnoremap ;d <C-\>e getcmdtype() =~ '[?/]' ? substitute(getcmdline(), '\a', '[[=\0=]]', 'g'): getcmdline()<CR>
+
 " backup & undofile {{{2
 if has("vms")
   set nobackup  " do not keep a backup file, use versions instead
