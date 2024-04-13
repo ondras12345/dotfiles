@@ -259,6 +259,11 @@ augroup vimrcEx
   "  \ imap <buffer> "" „|
   "  \ imap <buffer> """ “
 
+  " spell in LaTeX {{{2
+  autocmd FileType tex
+    \ setlocal spell |
+    \ setlocal spelllang=cs
+
   " spell in gitcommit {{{2
   au FileType gitcommit
     \ setlocal spell |
