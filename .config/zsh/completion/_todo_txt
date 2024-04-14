@@ -220,6 +220,7 @@ case $state in
             "$(date -I):full date"
             "--$(date +%m-%d):month and day"
             "---$(date +%d):day"
+            '-:remove due date'
         )
         _describe 'setdue date' setdue_dates
     else
