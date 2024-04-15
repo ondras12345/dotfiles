@@ -244,6 +244,19 @@ if has("gui_running")
 endif
 " }}}
 
+" Terminal settings {{{
+if $COLORTERM == 'truecolor'
+    set termguicolors
+
+    " underline misspelled words
+    let &t_Cs = "\e[4:3m"
+    let &t_Ce = "\e[4:0m"
+    autocmd ColorScheme * highlight SpellBad cterm=undercurl ctermbg=None
+
+    color dracula
+endif
+" }}}
+
 " Autocmds {{{1
 augroup vimrcEx
   au!
