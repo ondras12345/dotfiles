@@ -3,3 +3,21 @@ snippet \beg "begin{} / end{}" b
     $0
 \end{$1}
 endsnippet
+
+snippet fig
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{$1}
+    \caption{$0}
+    \label{fig:$2}
+\end{figure}
+endsnippet
+
+snippet tab
+\begin{table}[htbp]
+    \centering
+    \caption{$2}
+    \label{tab:$1}
+    $0
+\end{table}
+endsnippet
