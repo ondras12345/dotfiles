@@ -438,7 +438,7 @@ let g:netrw_list_hide='.*\.un[~]$,^\..*\.swp$,\..*[~]$'
 " https://vi.stackexchange.com/questions/5032/gx-not-opening-url-in-gvim-but-works-in-terminal/5034#5034
 let g:netrw_browsex_viewer= "setsid xdg-open"
 
-" youcompleteme
+" youcompleteme {{{2
 " Do not pop up when idle in normal mode
 let g:ycm_auto_hover=""
 nmap <leader>K <plug>(YCMHover)
