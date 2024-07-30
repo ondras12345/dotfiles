@@ -461,7 +461,7 @@ let g:ycm_java_jdtls_extension_path = [
   \ ]
 
 
-"" indentLine {{{2
+" indentLine {{{2
 "let g:indentLine_fileTypeExclude = ['markdown,tex']
 
 " syntax for amsmath in LaTeX {{{2
