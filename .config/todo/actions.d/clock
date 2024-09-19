@@ -19,6 +19,9 @@ usage() {
   echo "    clock do"
   echo "      Mark the item corresponding to current running clock as completed."
   echo ""
+  echo "    clock nav"
+  echo "      Navigate to URL corresponding to current running clock."
+  echo ""
   echo "    clock in ITEM#"
   echo "      Start a clock for ITEM, beginning now. This clock entry is"
   echo "      written to your GNOME hamster database."
@@ -85,6 +88,11 @@ case "$SECONDARY_CMD" in
     do)
         current_taskno
         "$TODO_FULL_SH" do "$taskno"
+        ;;
+
+    nav)
+        current_taskno
+        "$TODO_FULL_SH" nav "$taskno"
         ;;
 
     in)
