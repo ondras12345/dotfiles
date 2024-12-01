@@ -7,9 +7,6 @@
 [submodule ".config/zsh/plugins/zsh-history-substring-search"]
 	path = .config/zsh/plugins/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
-[submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule ".config/todo/actions.d/due"]
 	path = .config/todo/actions.d/due
 	url = https://github.com/ondras12345/todo.txt-cli-due.git

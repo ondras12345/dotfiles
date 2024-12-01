@@ -20,58 +20,48 @@ silent! source $HOME/.vim/vimrc-local-pre
 " Set plugins_programming to 1 in vimrc-local-pre where needed.
 let g:plugins_programming = get(g:, 'plugins_programming', 0)
 
-" Vundle Plugins {{{1
-" This should be handled by a git submodule in my dotfiles repo:
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" Plugins {{{1
 
-" TODO Vundle is dead, switch to vim-plug or native packages
-if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
-    filetype off " required by Vundle
+if filereadable($HOME . "/.vim/autoload/plug.vim")
+    call plug#begin()
+    " use :PlugUpgrade to upgrade vim-plug itself
+    " :PlugInstall / :PlugUpdate / :PlugClean manage plugins
 
-    " set the runtime path to include Vundle and initialize
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()  " Keep Plugin commands between vundle#begin/end.
-    " alternatively, pass a path where Vundle should install plugins
-    "call vundle#begin('~/some/path/here')
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-eunuch'
 
-    " let Vundle manage Vundle, required
+    Plug 'airblade/vim-gitgutter'
+    Plug 'xxdavid/bez-diakritiky.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'mhinz/vim-startify'
 
-    Plugin 'VundleVim/Vundle.vim'
+    Plug 'dbmrq/vim-ditto'
 
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-repeat'
-    Plugin 'tpope/vim-eunuch'
+    Plug 'img-paste-devs/img-paste.vim'
 
-    Plugin 'airblade/vim-gitgutter'
-    Plugin 'xxdavid/bez-diakritiky.vim'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'mhinz/vim-startify'
-
-    Plugin 'dbmrq/vim-ditto'
-
-    Plugin 'img-paste-devs/img-paste.vim'
-
-    Plugin 'preservim/vim-markdown'
-    Plugin 'https://gitlab.com/dbeniamine/todo.txt-vim'
+    Plug 'preservim/vim-markdown'
+    Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 
     " plugins_programming plugins {{{2
     if (g:plugins_programming)
-        Plugin 'nvie/vim-flake8'
-        Plugin 'ericcurtin/CurtineIncSw.vim'
-        Plugin 'mattn/emmet-vim'
-        Plugin 'SirVer/ultisnips'
-        Plugin 'ap/vim-css-color'
+        Plug 'nvie/vim-flake8'
+        Plug 'ericcurtin/CurtineIncSw.vim'
+        Plug 'mattn/emmet-vim'
+        Plug 'SirVer/ultisnips'
+        Plug 'ap/vim-css-color'
 
-        Plugin 'ycm-core/YouCompleteMe'
-        "cd ~/.vim/bundle/YouCompleteMe
+        if v:version < 901
+            Plug 'ycm-core/YouCompleteMe', { 'commit': 'b6e8c64' }
+        else
+            Plug 'ycm-core/YouCompleteMe'
+        endif
+        "cd ~/.vim/plugged/YouCompleteMe
         "./install.py --clangd-completer --rust-completer --java-completer
-        " Do NOT do this:
-        "sudo apt install vim-youcompleteme
-        "vim-addon-manager install youcompleteme
 
         if executable("javac")
-            Plugin 'puremourning/vimspector'
+            Plug 'puremourning/vimspector'
             " :VimspectorInstall!
             " put config in ~/.vim/ftplubin/java.vim
         endif
@@ -79,43 +69,30 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
 
     " LaTeX plugins {{{2
     if executable("pdflatex")
-        Plugin 'lervag/vimtex'
+        Plug 'lervag/vimtex'
     endif
 
     " Color schemes {{{2
-    Plugin 'dracula/vim'
-    Plugin 'cormacrelf/vim-colors-github'
+    Plug 'dracula/vim'
+    Plug 'cormacrelf/vim-colors-github'
 
     " TODO take a look at these plugins {{{2
     " TODO https://github.com/godlygeek/tabular
 
     " This plugin causes problems when I open a python file from vim in Git
     " bash on Windows
-    "Plugin 'dbeniamine/cheat.sh-vim'
+    "Plug 'dbeniamine/cheat.sh-vim'
 
-    "Plugin 'masukomi/vim-markdown-folding'  " folds badly
+    "Plug 'masukomi/vim-markdown-folding'  " folds badly
 
     " This caused some trouble, but I can't remember what.
-    "Plugin 'Yggdroot/indentLine'
+    "Plug 'Yggdroot/indentLine'
 
     " Nice, but Netrw is not all that bad
-    "Plugin 'vifm/vifm.vim'
+    "Plug 'vifm/vifm.vim'
 
-    " Vundle post init {{{2
-    " All of your Plugins must be added before the following line
-    call vundle#end()            " required
-    filetype plugin indent on    " required
-    " To ignore plugin indent changes, instead use:
-    "filetype plugin on
-    "
-    " Brief help
-    " :PluginList       - lists configured plugins
-    " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-    " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-    " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-    "
-    " see :h vundle for more details or wiki for FAQ
-    " Put your non-Plugin stuff after this line
+    " vim-plug end {{{2
+    call plug#end()
 endif
 " }}}1
 
