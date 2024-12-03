@@ -1,0 +1,35 @@
+#!/bin/bash
+
+action="$1"
+shift
+
+if [ "$action" == "usage" ]; then
+    echo "  Push tasks due yesterday to today"
+    echo "    $(basename "$0")"
+    echo "      Replace due:yesterday with due:today in tasks that are not done."
+    echo ""
+    exit
+fi
+
+if [ -z "$TODOTXT_SETDUE_SAFECHECK" ]; then
+    TODOTXT_SETDUE_SAFECHECK="1"
+fi
+
+# TODO ignore done tasks
+yesterday=$(date -Idate -d yesterday)
+today=$(date -Idate)
+PATTERN="/^[^x]/s/due:$yesterday/due:$today/g"
+
+if [ "$TODOTXT_SETDUE_SAFECHECK" = "1" ]; then
+    sed --silent "${PATTERN}p" "$TODO_FILE"
+    echo ""
+    echo "Proceed? [Y/n]"
+    read choice;
+fi
+
+if [ -n "$choice" ] && [ "$choice" == "n" ]; then
+    echo "Changes aborted."
+    exit 1
+fi
+
+sed -i.bak "$PATTERN" "$TODO_FILE"
