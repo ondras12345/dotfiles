@@ -96,6 +96,7 @@ case $state in
     "top:list as many items as can fit in the terminal"
     "clock:clock in or out of a task in hamster time tracker"
     "note:keep notes attached to tasks"
+    "pushback:replace due:yesterday with due:today in tasks that are not done"
   )
   _describe -t todo-commands "$TODO_SH command" cmdlist
   ;;
@@ -167,6 +168,7 @@ case $state in
             "in:start a clock for ITEM"
             "out:end the current running clock"
             "report:show all clock totals for today"
+            "nav:navigate to URL corresponding to current running clock"
         )
         _describe 'clock action' clock_actions
     else
