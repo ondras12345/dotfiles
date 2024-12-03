@@ -4,12 +4,19 @@ snippet \beg "begin{} / end{}" b
 \end{$1}
 endsnippet
 
+snippet \b "begin{} / end{}" b
+\begin{$1}
+    $0
+\end{$1}
+endsnippet
+
 snippet fig
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{$1}
+    \missingfigure{$1}
     \caption{$0}
     \label{fig:$2}
+    \todo[inline]{odkaz z textu}
 \end{figure}
 endsnippet
 
@@ -18,6 +25,30 @@ snippet tab
     \centering
     \caption{$2}
     \label{tab:$1}
+    \todo[inline]{odkaz z textu}
     $0
 \end{table}
+endsnippet
+
+snippet \includegraphics
+\includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{$0}
+endsnippet
+
+# either press backspace ^J for inkscapelatex=true
+snippet \includesvg "svg graphics" b
+\includesvg[width=\textwidth, height=\textheight, keepaspectratio${1:, inkscapelatex=false}]{$0}
+endsnippet
+
+# either press backspace ^J for no label
+# or ^J my_label ^J for specified label
+snippet eq "numbered equation" b
+\begin{equation}${1:\label{eq:${2:name}}}
+    $0
+\end{equation}
+endsnippet
+
+snippet eq*
+\begin{equation*}
+    $0
+\end{equation*}
 endsnippet
