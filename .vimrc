@@ -424,8 +424,8 @@ nmap <leader>gd :YcmCompleter GoTo<CR>
 " vimspector {{{2
 let g:vimspector_base_dir=$HOME.'/.vim/bundle/vimspector'
 " this didn't seem to work, needed to do this instead:
-" cd ~/.vim/bundle/vimspector
-" ./install_gadget.py --force-enable-java --update-gadget-config
+" cd ~/.vim/plugged/vimspector
+" ./install_gadget.py --force-enable-java --enable-cpp --update-gadget-config
 "let g:vimspector_install_gadgets = [ 'java-debug-adapter' ]
 
 let g:vimspector_enable_mappings='HUMAN'
