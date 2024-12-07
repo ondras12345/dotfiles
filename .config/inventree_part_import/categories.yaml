@@ -1,0 +1,529 @@
+Electronics:
+    _description: Electronic Components
+    Cables and Wires:
+        _aliases:
+            - Computer cables and adapters
+            - Power Cords
+    Connectors:
+        Battery Holders:
+            _parameters:
+                - Battery Type
+            _aliases:
+                - Batteries - Containers and Holders
+        IC Sockets:
+            _parameters:
+                - Mounting Type
+                - Connector Type
+            _aliases:
+                - Standard DIP sockets
+                - Precision sockets
+        Audio Connectors:
+            _aliases:
+                - RCA Phono Connectors
+                - Phone Connectors
+                - Audio-video connectors
+            _parameters:
+                - Mounting Type
+                - Connector Type
+                - Rated Current
+                - Rated Voltage
+        Barrel Connectors:
+            _aliases:
+                - Power Connectors
+                - AC/DC Power Connectors
+            _parameters:
+                - Mounting Type
+                - Connector Type
+                - Rated Current
+                - Rated Voltage
+        Mains Connectors:
+        Circular Connectors:
+            _aliases:
+                - Circular Connector Assemblies
+                - Industrial circular connectors
+            _parameters:
+                - Mounting Type
+                - Connector Type
+                - Number of Contacts
+                - Rated Current
+                - Rated Voltage
+        Connector Housings:
+            _aliases:
+                - Rectangular Connector Housings
+            _parameters:
+                - Connector Type
+                - Number of Contacts
+                - Number of Rows
+        Interface:
+            _aliases:
+                - USB, DVI, HDMI Connectors
+                - USB Connectors
+                - USB & IEEE1394 connectors
+            _description: Connectors for Digital Interfaces
+            _parameters:
+                - Mounting Type
+                - Number of Contacts
+            RJ Connectors:
+                _description: RJ Modular Connectors
+                _parameters:
+                    - Connector Type
+                    - Ethernet Category
+                    - Number of Contacts
+            D-Sub Connectors:
+                _parameters:
+                    - Number of Contacts
+        Jumpers:
+            _aliases:
+                - Shunts, Jumpers
+            _description: Jumpers, Shunts
+            _parameters:
+                - Number of Contacts
+                - Pitch
+                - Rated Current
+                - Rated Voltage
+        Rectangular:
+            _aliases:
+                - Raster signal connectors
+            _parameters:
+                - Mounting Type
+                - Connector Type
+                - Number of Contacts
+                - Number of Rows
+                - Pitch
+                - Rated Current
+                - Rated Voltage
+        Terminal Blocks:
+            _parameters:
+                - Connector Type
+                - Number of Contacts
+                - Mounting Type
+                - Pitch
+                - Rated Current
+                - Rated Voltage
+        Terminals:
+            _aliases:
+                - Push-on connectors and cable terminals
+    Crystals, Oscillators:
+        _parameters:
+            - Frequency
+            - Mounting Type
+            - Package Type
+            - Size
+        Crystals:
+            _parameters:
+                - ESR
+            _aliases:
+                - Quartz crystals
+        Oscillators:
+    Diodes:
+        _parameters:
+            - Mounting Type
+            - Package Type
+            - Forward Voltage
+        LEDs:
+            _parameters:
+                - Color
+        Schottky:
+            _description: Schottky Diodes
+            _parameters:
+                - Reverse Breakdown Voltage
+                - Rated Current
+            _aliases:
+                - Schottky Diodes
+        Standard:
+            _aliases:
+                - Single Diodes
+                - Diode Arrays
+            _description: Standard Rectifier Diodes, Small Signal Diodes
+            _parameters:
+                - Reverse Breakdown Voltage
+                - Rated Current
+        TVS:
+            _description: Transient-Voltage-Suppression Diodes
+            _parameters:
+                - Rated Current
+                - Leakage Current
+                - Rated Power
+                - Standoff Voltage
+                - Breakdown Voltage
+                - Semiconductor Structure
+            Unidirectional:
+                _aliases:
+                    - Unidirectional TVS SMD diodes
+                    - Unidirectional TVS THT diodes
+            Bidirectional:
+                _aliases:
+                    - Bidirectional TVS SMD diodes
+                    - Bidirectional TVS THT diodes
+        Zener:
+            _aliases:
+                - Zener Diodes
+            _description: Zener Diodes
+            _parameters:
+                - Reverse Breakdown Voltage
+                - Rated Power
+    Electromechanical:
+        _description: Electromechanical Components
+        Motors:
+        Potentiometers:
+            _aliases:
+                - Rotary Potentiometers, Rheostats
+                - Variable Resistors/Potentiometers
+            _parameters:
+                - Mounting Type
+                - Resistance
+                - Tolerance
+                - Rated Power
+        Relays:
+            _parameters:
+                - Mounting Type
+                - Rated Current
+                - Rated Voltage
+                - Coil Voltage
+                - Switch Type
+        Contactors:
+            _parameters:
+                - Mounting Type
+                - Rated Current
+                - Rated Voltage
+                - Coil Voltage
+                - Switch Type
+        Switches:
+            _parameters:
+                - Mounting Type
+                - Rated Current
+                - Rated Voltage
+            _aliases:
+                - Microswitches TACT
+                - DIP Switches/SIP Switches
+        Circuit Breakers:
+            _parameters:
+                - Characteristics
+                - Rated Current
+                - Rated Voltage
+        _aliases:
+            - Spínače, tlačítka, mikrospínače
+    Integrated Circuits:
+        _parameters:
+            - Mounting Type
+            - Package Type
+        Amplifiers:
+            _description: Amplifier ICs
+            _parameters:
+                - Supply Voltage
+            Operational Amplifiers:
+                _aliases:
+                    - Operational Amplifier
+                    - SMD operational amplifiers
+            Instrumentation Amplifiers:
+        Comparators:
+            _parameters:
+                - Supply Voltage
+        Audio:
+            _description: Audio ICs
+        Data Acquisition:
+            _description: Data Acquisition ICs
+            ADCs:
+                _aliases:
+                    - Analog to Digital Converters (ADC)
+                _description: Analog to Digital Converters
+            DACs:
+                _aliases:
+                    - Digital to Analog Converters (DAC)
+                _description: Digital to Analog Converters
+        Interface:
+            _description: Interface ICs
+            _parameters:
+                - Supply Voltage
+            Analog Switches:
+                _aliases:
+                    - Analog Switches, Multiplexers, Demultiplexers
+                    - Analog Switches / Multiplexers
+            Audio Codecs:
+            IO Expanders:
+                _aliases:
+                    - I/O Expanders
+                    - Interfaces others - integrated circuits
+            Transceivers:
+                _aliases:
+                    - Drivers, Receivers, Transceivers
+                    - RS232/422/485 interfaces - integr. circ.
+        Logic:
+            _description: Logic ICs
+            _parameters:
+                - Supply Voltage
+            Counters:
+                _aliases:
+                    - Counters, Dividers
+            Flip Flops:
+            Logic Gates:
+                _aliases:
+                    - Gates and Inverters
+            PLLs:
+                _aliases:
+                    - Clock Generators, PLLs, Frequency Synthesizers
+                _description: Phase-Locked Loops
+            Shift Registers:
+        Memory:
+            _description: Memory ICs
+            _aliases:
+                - Serial FLASH memories - integrated circ.
+                - Memories - integrated circuits
+                - EEPROM
+        Microcontrollers:
+            _parameters:
+                - Frequency
+                - Supply Voltage
+            _aliases:
+                - Microcontrollers and Microprocessors
+                - 8-bit Microcontrollers - MCU
+        Motor Drivers:
+            _aliases:
+                - Motor Drivers, Controllers
+            _parameters:
+                - Output Current
+                - Supply Voltage
+                - Rated Voltage
+        Optoisolators:
+            _aliases:
+                - Optocouplers - analog output
+                - Optocouplers - digital output
+        Power:
+            _description: Power ICs
+            Low Dropout Regulators:
+                _aliases:
+                    - Linear, Low Drop Out (LDO) Regulators
+                    - Linear Voltage Regulators (LDO)
+                    - LDO unregulated voltage regulators
+                _parameters:
+                    - Input Voltage
+                    - Output Voltage
+                    - Output Current
+                    - Output Polarity
+                    - Output Type
+            DC-DC Converters:
+                _aliases:
+                    - DC DC Converters
+                    - DC/DC Converters
+                _parameters:
+                    - Input Voltage
+                    - Output Voltage
+                    - Output Current
+                    - Rated Power
+            Switching Regulators:
+                _aliases:
+                    - DC DC Switching Regulators
+                    - Voltage regulators - DC/DC circuits
+                _parameters:
+                    - Input Voltage
+                    - Frequency
+                    - Type
+                    - Output Voltage
+                    - Output Current
+            Voltage References:
+                _aliases:
+                    - Voltage Reference
+                _parameters:
+                    - Input Voltage
+                    - Output Voltage
+                    - Output Current
+                    - Tolerance
+    Passives:
+        _description: Passive Components
+        _parameters:
+            - Mounting Type
+            - Package Type
+        Capacitors:
+            _parameters:
+                - Capacitance
+                - Tolerance
+                - Rated Voltage
+            Aluminum Electrolytic:
+                _aliases:
+                    - Aluminum Electrolytic Capacitors
+                    - Aluminum Electrolytic Capacitors - SMD
+                    - Aluminum Electrolytic Capacitors - Leaded
+                    - Electrolyte Capacitors
+                    - Electrolytic capacitors
+                _description: Aluminum Electrolytic Capacitors
+                _parameters:
+                    - ESR
+            Ceramic:
+                _aliases:
+                    - Ceramic Capacitors
+                    - Ceramic Disc Capacitors
+                    - Multilayer Ceramic Capacitors MLCC - SMD/SMT
+                    - Multilayer Ceramic Capacitors MLCC - Leaded
+                    - MLCC capacitors
+                _description: Ceramic Capacitors
+                _parameters:
+                    - Dielectric
+            Others:
+                _aliases:
+                    - Film Capacitors
+                _description: Various Capacitors
+        Ferrite Beads:
+            _aliases:
+                - Ferrite Beads and Chips
+            _parameters:
+                - Impedance
+                - Resistance
+                - Rated Current
+        Inductors:
+            _aliases:
+                - Fixed Inductors
+                - Color Ring Inductors/Through Hole Inductors
+                - Power Inductors - SMD
+            _parameters:
+                - Inductance
+                - Tolerance
+                - Rated Current
+                - Size
+        PTC Resettable Fuses:
+            _parameters:
+                - Rated Voltage
+                - Rated Current
+            _aliases:
+                - SMD Polymer Fuses
+                - THT Polymer Fuses
+        Resistors:
+            _parameters:
+                - Resistance
+                - Tolerance
+                - Rated Power
+    Transistors:
+        _parameters:
+            - Mounting Type
+            - Package Type
+        Bipolar:
+            _description: Bipolar Transistors
+            _parameters:
+                - Gain (hFE)
+                - Rated Voltage
+                - Rated Current
+                - Rated Power
+            NPN:
+                _description: Bipolar NPN Transistors
+            PNP:
+                _description: Bipolar PNP Transistors
+        JFETs:
+            _description: Junction-Gate Field-Effect Transistors
+            _parameters:
+                - Rated Voltage
+                - Rated Power
+            N-Channel JFETs:
+            P-Channel JFETs:
+        MOSFETs:
+            _description: Metal-Oxide-Semiconductor Field-Effect Transistors
+            _parameters:
+                - Rated Current
+                - Rated Voltage
+            N-Channel MOSFETs:
+                _aliases:
+                    - N channel transistors
+            P-Channel MOSFETs:
+                _aliases:
+                    - P channel transistors
+    Sensors:
+        Optical:
+            Phototransistors:
+                _parameters:
+                    - Mounting Type
+                    - Package Type
+        Current:
+            _aliases:
+                - Current Sensors
+        Temperature:
+        _aliases:
+            - Sensors and modules
+            - Reed Sensors
+        Gas:
+            _aliases:
+                - Gas Sensors
+    Modules:
+        _aliases:
+            - Charger Modules
+            - Ethernet modules
+            - Input devices
+            - Moduly pro paměťové karty a RTC
+            - Převodníky a Programátory
+            - Moduly 2.4GHz
+            - Ethernet moduly
+            - Pohybová čidla, senzory vzdálenosti a vibrací
+            - Proudové senzory a měření napětí
+            - Relé moduly a MOSFET
+            - Plug-in Power Supplies
+            - Raspberry Pi - Minicomputers
+            - Raspberry Pi - Acessories
+    Displays:
+    Power Sources:
+        Batteries:
+        Power Supplies:
+            _parameters:
+                - Output Voltage
+                - Output Current
+                - Rated Power
+                - Connector Type
+Mechanical:
+    Enclosures:
+        _parameters:
+            - Material
+            - Length
+            - Width
+            - Height
+            - IP Rating
+    Hardware:
+        Nuts:
+            _aliases:
+                - Nuts for Glands
+            _parameters:
+                - Material
+                - Thread
+                - Thread Pitch
+        Screws:
+            _aliases:
+                - Bolts
+            _parameters:
+                - Length
+                - Thread
+                - Thread Pitch
+                - Material
+                - Screw Head Type
+        Standoffs:
+            _aliases:
+                - Metal Spacers  # TME
+            _parameters:
+                - Length
+                - Thread
+                - Material
+        Washers:
+        Glands:
+            _parameters:
+                - Thread
+                - Thread Pitch
+                - Cable Diameter
+                - Material
+                - IP Rating
+        Seals:
+    Thermal:
+        Heatsink Compounds:
+            _aliases:
+                - Heat conductive compounds
+        _aliases:
+            - Heatsinks - equipment
+PCBs:
+    _description: Printed Circuit Boards
+    Copper Laminates:
+        _parameters:
+            - Length
+            - Width
+            - Thickness
+            - Material
+            - Copper Plating Thickness
+            - Variant
+CNC:
+    _ignore: true
+MISC:
+    _ignore: true
+Assemblies:
+    _ignore: true

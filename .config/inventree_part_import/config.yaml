@@ -1,0 +1,12 @@
+currency: CZK
+#language: CS
+# I set language: EN and added a custom hook to translate URLs
+language: EN
+location: CZE
+scraping: true
+datasheets: upload
+interactive: true
+interactive_part_matches: 10
+interactive_parameter_matches: 15
+request_timeout: 15.0
+retry_timeout: 3.0
