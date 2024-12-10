@@ -14,6 +14,8 @@ export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 export JUPYTER_PLATFORM_DIRS="1"
 export SQLITE_HISTORY="$XDG_STATE_HOME/sqlite_history"
 export OCTAVE_HISTFILE="$XDG_STATE_HOME/octave_hist"
+export GOPATH="$XDG_DATA_HOME/go"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 
 # already set in .profile, but does not work when connecting via SSH:
 export PATH="$HOME/bin:$PATH"
