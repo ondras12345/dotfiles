@@ -491,7 +491,7 @@ Mechanical:
                 - Screw Head Type
         Standoffs:
             _aliases:
-                - Metal Spacers  # TME
+                - Metal Spacers
             _parameters:
                 - Length
                 - Thread
@@ -521,6 +521,10 @@ PCBs:
             - Material
             - Copper Plating Thickness
             - Variant
+Soldering:
+    _description: Solders and soldering tools
+    _aliases:
+        - Solders
 CNC:
     _ignore: true
 MISC:
