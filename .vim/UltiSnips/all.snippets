@@ -1,4 +1,5 @@
 snippet gitignore:kicad
+## KiCad
 # https://github.com/github/gitignore/blob/main/KiCad.gitignore
 # For PCBs designed using KiCad: https://www.kicad.org/
 # Format documentation: https://kicad.org/help/file-formats/
@@ -35,6 +36,7 @@ endsnippet
 
 
 snippet gitignore:python
+## Python
 # https://github.com/github/gitignore/blob/main/Python.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -202,6 +204,7 @@ endsnippet
 
 
 snippet gitignore:TeX
+## LaTeX
 # https://github.com/github/gitignore/blob/main/TeX.gitignore
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -510,4 +513,75 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+endsnippet
+
+snippet gitignore:pcb2gcode
+# pcb2gcode
+*.ngc
+*.svg
+pcb2gcode*.log
+endsnippet
+
+snippet gitignore:CMake
+## CMake
+# https://github.com/github/gitignore/blob/main/CMake.gitignore
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+CMakeUserPresets.json
+endsnippet
+
+
+snippet gitignore:Modelica
+## Modelica - an object-oriented language for modeling of cyber-physical systems
+# https://github.com/github/gitignore/blob/main/Modelica.gitignore
+# https://modelica.org/
+# Ignore temporary files, build results, simulation files
+
+## Modelica-specific files
+*~
+*.bak
+*.bak-mo
+*.mof
+\#*\#
+*.moe
+*.mol
+
+## Build artefacts
+*.exe
+*.exp
+*.o
+*.pyc
+
+## Simulation files
+*.mat
+
+## Package files
+*.gz
+*.rar
+*.tar
+*.zip
+
+## Dymola-specific files
+buildlog.txt
+dsfinal.txt
+dsin.txt
+dslog.txt
+dsmodel*
+dsres.txt
+dymosim*
+request
+stat
+status
+stop
+success
+*.
 endsnippet
