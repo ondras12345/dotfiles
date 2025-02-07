@@ -1,0 +1,10 @@
+snippet latexmkrc
+$pdf_mode = 1;
+$pdflatex = 'pdflatex --shell-escape %O %S';
+
+# gnuplottex would make latexmk go into an infinite loop
+$hash_calc_ignore_pattern{'eps'} = '^%%CreationDate: |CreationDate \(';
+
+# gnuplottex
+$clean_ext = "$clean_ext %R.gnuploterrors %R-gnuplottex-*";
+endsnippet
