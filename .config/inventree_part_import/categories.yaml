@@ -201,8 +201,12 @@ Electronics:
                 - Characteristics
                 - Rated Current
                 - Rated Voltage
-        _aliases:
-            - Spínače, tlačítka, mikrospínače
+        Encoders:
+            _parameters:
+                - Mounting Type
+                - Output Type
+                - Pulses per Revolution
+                - Has Switch
     Integrated Circuits:
         _parameters:
             - Mounting Type
@@ -528,6 +532,7 @@ Soldering:
 CNC:
     _ignore: true
 MISC:
-    _ignore: true
+    _aliases:
+        - Adafruit Accessories
 Assemblies:
     _ignore: true

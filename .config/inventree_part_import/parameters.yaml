@@ -77,6 +77,8 @@ Output Polarity:
     _aliases:
         - Output Configuration
 Output Type:
+    _aliases:
+        - Output signal
 Output Voltage:
     _aliases:
         - Voltage - Output (Min/Fixed)
@@ -229,3 +231,6 @@ Cable Diameter:
     _aliases:
         - Cable external diameter
 IP Rating:
+Pulses per Revolution:
+    _aliases:
+        - Resolution
