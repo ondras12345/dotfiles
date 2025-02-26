@@ -18,6 +18,9 @@ export GOPATH="$XDG_DATA_HOME/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 
+# mv ~/.ipython ~/.config/ipython
+# Ipython checks if $XDG_CONFIG_HOME/ipython (or ~/.config/ipython if XDG_CONFIG_HOME is unset) exists, otherwise it uses ~/.ipython
+
 # already set in .profile, but does not work when connecting via SSH:
 export PATH="$HOME/bin:$PATH"
 
