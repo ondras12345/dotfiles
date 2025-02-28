@@ -44,6 +44,8 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     Plug 'preservim/vim-markdown'
     Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'
 
+    Plug 'Konfekt/FastFold'
+
     " plugins_programming plugins {{{2
     if (g:plugins_programming)
         Plug 'nvie/vim-flake8'
@@ -481,8 +483,6 @@ let g:startify_bookmarks = [
 nnoremap <leader>S :Startify<CR>
 
 " vim-markdown {{{2
-" folding was too slow in insert mode
-let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_level = 2
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
@@ -497,6 +497,7 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let g:vimtex_syntax_nospell_comments=1
 let g:tex_conceal='abdmg'
+let g:vimtex_fold_enabled=1
 
 " ultisnips {{{2
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
@@ -516,6 +517,15 @@ autocmd FileType markdown nmap <buffer><silent> <leader>ip :call mdip#MarkdownCl
 " Defaults are fine:
 "let g:mdip_imgdir = 'img'
 "let g:mdip_imgname = 'image'
+
+" fastfold {{{2
+" Enable fastfold even for 'expr' (vimtex)
+" This doesn't seem to work:
+"let g:fastfold_foldmethods = ['syntax', 'expr']
+" This does:
+let g:fastfold_force = 1
+" (Use 'zuz' to manually update folds.)
+
 " plugin config }}}1
 
 " Source the machine-specific vimrc (does not need to exist)
