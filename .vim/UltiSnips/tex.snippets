@@ -56,3 +56,23 @@ endsnippet
 snippet todo
 \todo[inline]{$0}
 endsnippet
+
+snippet gnuplot
+\begin{gnuplot}[terminal=epslatex, terminaloptions={color dashed size \convertlen{\textwidth},\convertlen{.4\textheight}}]
+    load "common.gpi"
+
+    #set format y '$\num[round-mode=places,round-precision=2]{%g}$'
+    set xlabel 'TODO $U\,[\unit{\volt}]$'
+    set ylabel 'TODO $P\,[\unit{\watt}]$'
+    #set xrange [0:1]
+    #set xtics .1
+    #set mxtics 5
+    #set yrange [0:1]
+    #set ytics .1
+    #set mytics 5
+    set key top left # width -5
+
+    plot \
+        $0
+\end{gnuplot}
+endsnippet
