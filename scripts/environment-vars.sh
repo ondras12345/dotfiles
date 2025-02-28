@@ -21,8 +21,9 @@ export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 # mv ~/.ipython ~/.config/ipython
 # Ipython checks if $XDG_CONFIG_HOME/ipython (or ~/.config/ipython if XDG_CONFIG_HOME is unset) exists, otherwise it uses ~/.ipython
 
-# already set in .profile, but does not work when connecting via SSH:
-export PATH="$HOME/bin:$PATH"
+# ~/bin is already set in .profile, but does not work when connecting via SSH.
+# ~/.local/bin is needed for pipx.
+export PATH="$HOME/bin:/home/ondra/.local/bin:$PATH"
 
 # set in /etc/locale.conf
 # but it does not seem to work
