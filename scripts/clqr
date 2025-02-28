@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Clipboard to QR code -- useful for moving links from firefox to mobile
+# phones. Just copy the URL to the "middle mouse button" X selections clipboard
+# and run this script.
+
+text="$(xclip -o)"
+echo "$text" | qrencode --size 10 -o - | display -title "clqr: $text" -geometry +200+200 -

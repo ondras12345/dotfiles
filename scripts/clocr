@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Clipboard to OCR
+# Use the standard screenshot feature in GNOME (ctrl+shift+printscreen) to take
+# a screenshot and save it in the clipboard. Then run this script. It will
+# replace your clipboard with OCR detected text from the image.
+# Bind this script to ctrl+alt+o
+
+language=$(echo "ces\neng" | dmenu)
+xclip -o -selection clipboard -t 'image/png' | tesseract -l "$language" - - | xclip -i -selection clipboard
