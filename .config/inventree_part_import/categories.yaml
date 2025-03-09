@@ -196,6 +196,7 @@ Electronics:
             _aliases:
                 - Microswitches TACT
                 - DIP Switches/SIP Switches
+                - Tactile Switches
         Circuit Breakers:
             _parameters:
                 - Characteristics
@@ -281,6 +282,7 @@ Electronics:
             _aliases:
                 - Microcontrollers and Microprocessors
                 - 8-bit Microcontrollers - MCU
+                - Raspberry Pi - Embedded
         Motor Drivers:
             _aliases:
                 - Motor Drivers, Controllers
@@ -444,6 +446,7 @@ Electronics:
         Gas:
             _aliases:
                 - Gas Sensors
+                - Air Quality Sensors
     Modules:
         _aliases:
             - Charger Modules
@@ -459,6 +462,7 @@ Electronics:
             - Plug-in Power Supplies
             - Raspberry Pi - Minicomputers
             - Raspberry Pi - Acessories
+            - Development kits - others
     Displays:
     Power Sources:
         Batteries:
@@ -509,6 +513,7 @@ Mechanical:
                 - Material
                 - IP Rating
         Seals:
+        Cable Ties:
     Thermal:
         Heatsink Compounds:
             _aliases:
@@ -534,5 +539,7 @@ CNC:
 MISC:
     _aliases:
         - Adafruit Accessories
+        - Crimping Tools - Others
+        - Bluetooth Modules - 802.15.1
 Assemblies:
     _ignore: true
