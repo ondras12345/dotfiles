@@ -275,6 +275,7 @@ Electronics:
                 - Serial FLASH memories - integrated circ.
                 - Memories - integrated circuits
                 - EEPROM
+                - NOR Flash
         Microcontrollers:
             _parameters:
                 - Frequency
