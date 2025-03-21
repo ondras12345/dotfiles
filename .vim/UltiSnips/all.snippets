@@ -520,6 +520,8 @@ snippet gitignore:pcb2gcode
 *.ngc
 *.svg
 pcb2gcode*.log
+stencil-pcb2gcode*.log
+stencil-back.ngc.orig
 endsnippet
 
 snippet gitignore:CMake
@@ -604,4 +606,16 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
+endsnippet
+
+snippet gitignore:FreeCAD
+# FreeCAD
+*.pyc
+*.fcstd1
+*.FCStd1
+*.fcstd2
+*.FCStd2
+*.FCBak
+Private
+*.bak
 endsnippet
