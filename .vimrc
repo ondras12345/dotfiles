@@ -307,6 +307,12 @@ augroup vimrcEx
   au FileType man
     \ setlocal nolist
 
+  " zephyr RTOS tab indentation {{{2
+  au BufRead ~/zephyrproject/zephyr/*
+    \ setlocal noexpandtab |
+    \ setlocal shiftwidth=8 |
+    \ setlocal softtabstop=0
+
   " fix todo.txt mappings conflicting with paste shortcut {{{2
   " (these are used for changing the due date; I have prefixed them with
   " <localleader>t
