@@ -252,7 +252,7 @@ augroup vimrcEx
   "  \ imap <buffer> """ “
 
   " spell in LaTeX {{{2
-  autocmd FileType tex
+  autocmd FileType tex,noweb
     \ setlocal spell |
     \ setlocal spelllang=cs
 
