@@ -510,6 +510,8 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 let g:UltiSnipsExpandTrigger="<C-l>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+" To refresh snipptes, run:
+" :call UltiSnips#RefreshSnippets()
 
 " noweb {{{2
 au BufRead,BufNewFile *.m.nw let noweb_language = "matlab"
