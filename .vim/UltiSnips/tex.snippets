@@ -202,29 +202,31 @@ endsnippet
 
 snippet zcutitlepage "titlepage pro semestralky" b
 % TODO move this to the preamble:
-\newcommand\plnypredmet[1]{\renewcommand\theplnypredmet{#1}  % plny nazev predmetu
+\makeatletter
+\newcommand\plnypredmet[1]{\renewcommand\theplnypredmet{#1}}  % plny nazev predmetu
 \newcommand\theplnypredmet{\@latex@error{No \noexpand\plnypredmet given}\@ehc}
-\newcommand\zkratkapredmetu[1]{\renewcommand\thezkratkapredmetu{#1}  % plny nazev predmetu
+\newcommand\zkratkapredmetu[1]{\renewcommand\thezkratkapredmetu{#1}}  % plny nazev predmetu
 \newcommand\thezkratkapredmetu{\@latex@error{No \noexpand\zkratkapredmetu given}\@ehc}
+\makeatother
 \plnypredmet{Stochastické systémy a procesy}  % TODO
 \zkratkapredmetu{KKY/STP}  % TODO
 
 \begin{titlepage}
 	% Titlepage bych klidne predelal, tohle je jen lehce upravena verze z KKY/MATL.
 	\begin{center}
-		{\LARGE{Západočeská univerzita v~Plzni}}\\[.7em]
-		{\LARGE{Fakulta aplikovaných věd}}\\[.7em]
-		{\LARGE{Katedra kybernetiky}} \\[8cm]
+		{\LARGE{Západočeská univerzita v~Plzni}}\\\\[.7em]
+		{\LARGE{Fakulta aplikovaných věd}}\\\\[.7em]
+		{\LARGE{Katedra kybernetiky}} \\\\[8cm]
 
-		{\Huge\textsc{\thetitle}}\\[.5em]
-		{\Large\textsc{\theplnypredmet}}\\
+		{\Huge\textsc{\thetitle}}\\\\[.5em]
+		{\Large\textsc{\theplnypredmet}}\\\\
 		{\textsc{\thezkratkapredmetu}}
 	\end{center}
 	\vfill
 
 	\begin{flushright}
 		\Large{\theauthor}
-		\\[.7em]
+		\\\\[.7em]
 		\Large{\thedate}
 	\end{flushright}
 \end{titlepage}
