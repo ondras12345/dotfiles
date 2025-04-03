@@ -30,11 +30,22 @@ snippet tab
 \end{table}
 endsnippet
 
+snippet booktab
+\begin{tabular}{$1}
+    \toprule
+    $2
+    \midrule
+    $0
+    \bottomrule
+\end{tabular}
+endsnippet
+
 snippet \includegraphics
 \includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{$0}
 endsnippet
 
 # either press backspace ^J for inkscapelatex=true
+# or ^J for inkscapelatex=false
 snippet \includesvg "svg graphics" b
 \includesvg[width=\textwidth, height=\textheight, keepaspectratio${1:, inkscapelatex=false}]{$0}
 endsnippet
@@ -57,6 +68,22 @@ snippet todo
 \todo[inline]{$0}
 endsnippet
 
+snippet subcaptionblock
+\begin{subcaptionblock}{\textwidth}
+    \centering
+    \missingfigure{$1}
+    \caption{$0}
+    \label{fig:$2}
+    \todo[inline]{odkaz z textu}
+\end{subcaptionblock}
+endsnippet
+
+snippet subcaptionbox
+\subcaptionbox{$0\label{fig:$2}}
+    {\missingfigure{$1}}
+\par\bigskip
+endsnippet
+
 snippet gnuplot
 \begin{gnuplot}[terminal=epslatex, terminaloptions={color dashed size \convertlen{\textwidth},\convertlen{.4\textheight}}]
     load "common.gpi"
@@ -75,4 +102,281 @@ snippet gnuplot
     plot \
         $0
 \end{gnuplot}
+endsnippet
+
+snippet preamble:basic
+\documentclass[a4paper,11pt]{article}
+\usepackage{cmap}  % jinak [T1]{fontenc} rozbije hledani a kopirovani z PDF
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[
+    a4paper,
+    %showframe,
+    includefoot,bottom=20mm
+]{geometry}
+\usepackage{titling}
+\usepackage{booktabs}
+%\usepackage{array}
+%\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{mathtools}
+%\usepackage{placeins}  % \FloatBarrier
+%\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{listings}
+%\usepackage{bm}
+\usepackage[hidelinks]{hyperref}
+%\usepackage[backend=biber,style=iso-numeric]{biblatex}
+%\addbibresource{main.bib}
+
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+%\usepackage{svg}
+%\svgpath{{figures/}}
+
+\usepackage{todonotes}  % [disable]
+
+% Page breaks in math mode
+\allowdisplaybreaks
+
+\author{Ondřej Sluka}
+\date{TODO}
+\title{TODO}
+
+\begin{document}
+
+%\maketitle
+
+%\tableofcontents
+
+\todo[inline]{pozor na datum}
+\listoftodos
+
+\end{document}
+endsnippet
+
+
+snippet zcutitlepage
+% TODO move this to the preamble:
+\newcommand\plnypredmet[1]{\renewcommand\theplnypredmet{#1}  % plny nazev predmetu
+\newcommand\theplnypredmet{\@latex@error{No \noexpand\plnypredmet given}\@ehc}
+\newcommand\zkratkapredmetu[1]{\renewcommand\thezkratkapredmetu{#1}  % plny nazev predmetu
+\newcommand\thezkratkapredmetu{\@latex@error{No \noexpand\zkratkapredmetu given}\@ehc}
+\plnypredmet{Stochastické systémy a procesy}  % TODO
+\zkratkapredmetu{KKY/STP}  % TODO
+
+\begin{titlepage}
+    % Titlepage bych klidne predelal, tohle je jen lehce upravena verze z KKY/MATL.
+    \begin{center}
+        {\LARGE{Západočeská univerzita v~Plzni}}\\[.7em]
+        {\LARGE{Fakulta aplikovaných věd}}\\[.7em]
+        {\LARGE{Katedra kybernetiky}} \\[8cm]
+
+        {\Huge\textsc{\thetitle}}\\[.5em]
+        {\Large\textsc{\theplnypredmet}}\\
+        {\textsc{\thezkratkapredmetu}}
+    \end{center}
+    \vfill
+
+    \begin{flushright}
+        \Large{\theauthor}
+        \\[.7em]
+        \Large{\thedate}
+    \end{flushright}
+\end{titlepage}
+endsnippet
+
+
+snippet preamble:noweb
+\usepackage{comment}
+\usepackage{noweb}
+\noweboptions{%
+    smallcode,longchunks%
+    %shift
+}
+% https://tex.stackexchange.com/questions/411906/paragraph-does-not-pagebreak-after-a-code-chunk-when-using-noweb?rq=1
+\usepackage{needspace}
+\let\oldnwbc\nwbegincode
+\def\nwbegincode{\needspace{5\baselineskip}\oldnwbc}
+\def\nwendcode{\endtrivlist \endgroup}
+endsnippet
+
+
+snippet sym:abs
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lvert\lvert}{\rvert\rvert}%
+endsnippet
+
+snippet sym:basic
+\newcommand{\eu}{\ensuremath{\mathrm{e}}}
+\newcommand{\iu}{\ensuremath{\mathrm{j}}}  % imaginarni jednotka
+endsnippet
+
+
+snippet sym:statfcn
+\DeclareMathOperator{\Expect}{\mathbb{E}}  % stredni hodnota
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+endsnippet
+
+snippet pdfzadani
+%\usepackage{pdfpages}  % TODO move me
+\includepdf[pagecommand={\section{Zadání}}, scale=.85, offset=0mm -15mm, pages=1]{zadani.pdf}
+endsnippet
+
+
+snippet preamble:siunitx
+\usepackage{siunitx}
+\sisetup{
+    output-decimal-marker = {,},
+    list-separator = {; },
+    list-final-separator = { a~},
+    list-pair-separator = { a~},
+    group-digits,
+    group-minimum-digits=4,
+    range-phrase=\text{--},
+    range-units=single,
+    exponent-product=\ensuremath{\cdot},
+    uncertainty-mode=separate,
+    output-complex-root=\iu,
+}
+endsnippet
+
+
+snippet preamble:fancyhdr
+% headers and footers
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt} % prevents a warning most likely caused by diacritics
+\pagestyle{fancy}
+\fancyhf{} % clears header and footer, otherwise "plain" will appear
+\lhead{\theauthor}
+\chead{\thetitle}
+\rhead{\thepage}
+\fancyhfoffset{0pt} % fixes width after \newgeometry
+endsnippet
+
+
+snippet lst:matlab
+\usepackage{color}
+\definecolor{mygreen}{RGB}{28,172,0}
+\definecolor{mylilas}{RGB}{170,55,241}
+\lstset{
+    language=Matlab,
+    %basicstyle=\color{red},
+    basicstyle={\fontfamily{lmtt}\selectfont},
+    columns=fullflexible,
+    showlines=true,
+    breaklines=true,
+    postbreak=\mbox{$\hookrightarrow$\space},
+    morekeywords={imread,imshow,assert,saveas,rgb2gray,clim},
+    keywordstyle=\color{blue},
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},
+    showstringspaces=false,
+    % Do not number listings that belong to different files
+    %firstnumber=last,  % TODO ugly hack, use named listings instead?
+    %xleftmargin=2em,
+    xleftmargin=1em,
+    %numbers=left,%
+    %numberstyle={\tiny \color{black}},% size of the numbers
+    %numbersep=9pt, % this defines how far the numbers are from the text
+    %emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},
+    literate=%
+      {---}{{\llap{\mdseries-{-}-}}}3
+      {>}{{\textgreater}}1
+      {>-}{{\textgreater-}}2
+      {|}{{\textbar}}1
+      {|-}{{\textbar-}}2
+      % make dashes shorter
+      {-}{{-}}1
+      {-\ }{{\mdseries-\ }}2
+      {°}{\textdegree}1
+      {á}{{\'a}}1
+      {í}{{\'i}}1
+      {é}{{\'e}}1
+      {ý}{{\'y}}1
+      {ú}{{\'u}}1
+      {ó}{{\'o}}1
+      {ě}{{\v{e}}}1
+      {š}{{\v{s}}}1
+      {č}{{\v{c}}}1
+      {ř}{{\v{r}}}1
+      {ž}{{\v{z}}}1
+      {ď}{{\v{d}}}1
+      {ť}{{\v{t}}}1
+      {ň}{{\v{n}}}1
+      {ů}{{\r{u}}}1
+      {Á}{{\'A}}1
+      {Í}{{\'I}}1
+      {É}{{\'E}}1
+      {Ý}{{\'Y}}1
+      {Ú}{{\'U}}1
+      {Ó}{{\'O}}1
+      {Ě}{{\v{E}}}1
+      {Š}{{\v{S}}}1
+      {Č}{{\v{C}}}1
+      {Ř}{{\v{R}}}1
+      {Ž}{{\v{Z}}}1
+      {Ď}{{\v{D}}}1
+      {Ť}{{\v{T}}}1
+      {Ň}{{\v{N}}}1
+      {Ů}{{\r{U}}}1,
+}
+endsnippet
+
+
+snippet lst:terminal
+\lstdefinestyle{terminal}{
+    %basicstyle=\ttfamily,
+    frame=single,
+    frameround=tttt,
+    columns=flexible,
+    literate=%
+      {---}{{\llap{\mdseries-{-}-}}}3
+      {>}{{\textgreater}}1
+      {>-}{{\textgreater-}}2
+      {|}{{\textbar}}1
+      {|-}{{\textbar-}}2
+      % make dashes shorter
+      {-}{{-}}1
+      {-\ }{{\mdseries-\ }}2
+      {°}{\textdegree}1
+      {×}{$\times$}1
+      {á}{{\'a}}1
+      {í}{{\'i}}1
+      {é}{{\'e}}1
+      {ý}{{\'y}}1
+      {ú}{{\'u}}1
+      {ó}{{\'o}}1
+      {ě}{{\v{e}}}1
+      {š}{{\v{s}}}1
+      {č}{{\v{c}}}1
+      {ř}{{\v{r}}}1
+      {ž}{{\v{z}}}1
+      {ď}{{\v{d}}}1
+      {ť}{{\v{t}}}1
+      {ň}{{\v{n}}}1
+      {ů}{{\r{u}}}1
+      {Á}{{\'A}}1
+      {Í}{{\'I}}1
+      {É}{{\'E}}1
+      {Ý}{{\'Y}}1
+      {Ú}{{\'U}}1
+      {Ó}{{\'O}}1
+      {Ě}{{\v{E}}}1
+      {Š}{{\v{S}}}1
+      {Č}{{\v{C}}}1
+      {Ř}{{\v{R}}}1
+      {Ž}{{\v{Z}}}1
+      {Ď}{{\v{D}}}1
+      {Ť}{{\v{T}}}1
+      {Ň}{{\v{N}}}1
+      {Ů}{{\r{U}}}1,
+}
 endsnippet
