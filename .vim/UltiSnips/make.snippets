@@ -1,0 +1,11 @@
+snippet m.nw "MATLAB noweb rules" b
+%.m: %.m.nw
+	notangle -R$@ $< > $@
+
+# some implicit rule was causing trouble
+lstfilter.awk:;
+
+# second noweave filter fixes underscores in filenames
+%.tex: %.m.nw lstfilter.awk
+	noweave -delay -filter './lstfilter.awk' -filter 'sed "/^@use /s/_/\\\\_/g;/^@defn /s/_/\\\\_/g"' $< > $@
+endsnippet

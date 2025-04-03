@@ -1,42 +1,42 @@
 snippet \beg "begin{} / end{}" b
 \begin{$1}
-    $0
+	$0
 \end{$1}
 endsnippet
 
 snippet \b "begin{} / end{}" b
 \begin{$1}
-    $0
+	$0
 \end{$1}
 endsnippet
 
 snippet fig
 \begin{figure}[htbp]
-    \centering
-    \missingfigure{$1}
-    \caption{$0}
-    \label{fig:$2}
-    \todo[inline]{odkaz z textu}
+	\centering
+	\missingfigure{$1}
+	\caption{$0}
+	\label{fig:$2}
+	\todo[inline]{odkaz z textu}
 \end{figure}
 endsnippet
 
-snippet tab
+snippet tab "table" b
 \begin{table}[htbp]
-    \centering
-    \caption{$2}
-    \label{tab:$1}
-    \todo[inline]{odkaz z textu}
-    $0
+	\centering
+	\caption{$2}
+	\label{tab:$1}
+	\todo[inline]{odkaz z textu}
+	$0
 \end{table}
 endsnippet
 
-snippet booktab
+snippet booktab "booktabs tabular" b
 \begin{tabular}{$1}
-    \toprule
-    $2
-    \midrule
-    $0
-    \bottomrule
+	\toprule
+	$2
+	\midrule
+	$0
+	\bottomrule
 \end{tabular}
 endsnippet
 
@@ -54,13 +54,13 @@ endsnippet
 # or ^J my_label ^J for specified label
 snippet eq "numbered equation" b
 \begin{equation}${1:\label{eq:${2:name}}}
-    $0
+	$0
 \end{equation}
 endsnippet
 
 snippet eq*
 \begin{equation*}
-    $0
+	$0
 \end{equation*}
 endsnippet
 
@@ -70,11 +70,11 @@ endsnippet
 
 snippet subcaptionblock
 \begin{subcaptionblock}{\textwidth}
-    \centering
-    \missingfigure{$1}
-    \caption{$0}
-    \label{fig:$2}
-    \todo[inline]{odkaz z textu}
+	\centering
+	\missingfigure{$1}
+	\caption{$0}
+	\label{fig:$2}
+	\todo[inline]{odkaz z textu}
 \end{subcaptionblock}
 endsnippet
 
@@ -84,7 +84,48 @@ snippet subcaptionbox
 \par\bigskip
 endsnippet
 
-snippet gnuplot
+snippet eqref
+\eqref{eq:$0}
+endsnippet
+
+snippet sec "section" b
+\section{$1}
+$0
+endsnippet
+
+snippet ssec "subsection" b
+\subsection{$1}
+$0
+endsnippet
+
+snippet sssec "subsubsection" b
+\subsubsection{$1}
+$0
+endsnippet
+
+# either press backspace ^J for big sep
+# or ^J my_label ^J for nosep
+snippet enum "Enumerate" b
+\begin{enumerate}${1:[nosep]}
+	\item $0
+\end{enumerate}
+endsnippet
+
+# either press backspace ^J for big sep
+# or ^J my_label ^J for nosep
+snippet item "Itemize" b
+\begin{itemize}${1:[nosep]}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet desc "Description" b
+\begin{description}
+	\item[$1] $0
+\end{description}
+endsnippet
+
+snippet gnuplot "gnuplot plot" b
 \begin{gnuplot}[terminal=epslatex, terminaloptions={color dashed size \convertlen{\textwidth},\convertlen{.4\textheight}}]
     load "common.gpi"
 
@@ -104,16 +145,16 @@ snippet gnuplot
 \end{gnuplot}
 endsnippet
 
-snippet preamble:basic
+snippet preamble:basic "basic document template" b
 \documentclass[a4paper,11pt]{article}
 \usepackage{cmap}  % jinak [T1]{fontenc} rozbije hledani a kopirovani z PDF
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
 \usepackage[
-    a4paper,
-    %showframe,
-    includefoot,bottom=20mm
+	a4paper,
+	%showframe,
+	includefoot,bottom=20mm
 ]{geometry}
 \usepackage{titling}
 \usepackage{booktabs}
@@ -159,7 +200,7 @@ snippet preamble:basic
 endsnippet
 
 
-snippet zcutitlepage
+snippet zcutitlepage "titlepage pro semestralky" b
 % TODO move this to the preamble:
 \newcommand\plnypredmet[1]{\renewcommand\theplnypredmet{#1}  % plny nazev predmetu
 \newcommand\theplnypredmet{\@latex@error{No \noexpand\plnypredmet given}\@ehc}
@@ -169,33 +210,33 @@ snippet zcutitlepage
 \zkratkapredmetu{KKY/STP}  % TODO
 
 \begin{titlepage}
-    % Titlepage bych klidne predelal, tohle je jen lehce upravena verze z KKY/MATL.
-    \begin{center}
-        {\LARGE{Západočeská univerzita v~Plzni}}\\[.7em]
-        {\LARGE{Fakulta aplikovaných věd}}\\[.7em]
-        {\LARGE{Katedra kybernetiky}} \\[8cm]
+	% Titlepage bych klidne predelal, tohle je jen lehce upravena verze z KKY/MATL.
+	\begin{center}
+		{\LARGE{Západočeská univerzita v~Plzni}}\\[.7em]
+		{\LARGE{Fakulta aplikovaných věd}}\\[.7em]
+		{\LARGE{Katedra kybernetiky}} \\[8cm]
 
-        {\Huge\textsc{\thetitle}}\\[.5em]
-        {\Large\textsc{\theplnypredmet}}\\
-        {\textsc{\thezkratkapredmetu}}
-    \end{center}
-    \vfill
+		{\Huge\textsc{\thetitle}}\\[.5em]
+		{\Large\textsc{\theplnypredmet}}\\
+		{\textsc{\thezkratkapredmetu}}
+	\end{center}
+	\vfill
 
-    \begin{flushright}
-        \Large{\theauthor}
-        \\[.7em]
-        \Large{\thedate}
-    \end{flushright}
+	\begin{flushright}
+		\Large{\theauthor}
+		\\[.7em]
+		\Large{\thedate}
+	\end{flushright}
 \end{titlepage}
 endsnippet
 
 
-snippet preamble:noweb
+snippet preamble:noweb "noweb config" b
 \usepackage{comment}
 \usepackage{noweb}
 \noweboptions{%
-    smallcode,longchunks%
-    %shift
+	smallcode,longchunks%
+	%shift
 }
 % https://tex.stackexchange.com/questions/411906/paragraph-does-not-pagebreak-after-a-code-chunk-when-using-noweb?rq=1
 \usepackage{needspace}
@@ -205,48 +246,48 @@ snippet preamble:noweb
 endsnippet
 
 
-snippet sym:abs
+snippet sym:abs "abs and norm symbols" b
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \DeclarePairedDelimiter\norm{\lvert\lvert}{\rvert\rvert}%
 endsnippet
 
-snippet sym:basic
+snippet sym:basic "basic symbols" b
 \newcommand{\eu}{\ensuremath{\mathrm{e}}}
 \newcommand{\iu}{\ensuremath{\mathrm{j}}}  % imaginarni jednotka
 endsnippet
 
 
-snippet sym:statfcn
+snippet sym:statfcn "symbols for statistics" b
 \DeclareMathOperator{\Expect}{\mathbb{E}}  % stredni hodnota
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\Cov}{Cov}
 endsnippet
 
-snippet pdfzadani
+snippet pdfzadani "include zadani.pdf" b
 %\usepackage{pdfpages}  % TODO move me
 \includepdf[pagecommand={\section{Zadání}}, scale=.85, offset=0mm -15mm, pages=1]{zadani.pdf}
 endsnippet
 
 
-snippet preamble:siunitx
+snippet preamble:siunitx "sinunitx config" b
 \usepackage{siunitx}
 \sisetup{
-    output-decimal-marker = {,},
-    list-separator = {; },
-    list-final-separator = { a~},
-    list-pair-separator = { a~},
-    group-digits,
-    group-minimum-digits=4,
-    range-phrase=\text{--},
-    range-units=single,
-    exponent-product=\ensuremath{\cdot},
-    uncertainty-mode=separate,
-    output-complex-root=\iu,
+	output-decimal-marker = {,},
+	list-separator = {; },
+	list-final-separator = { a~},
+	list-pair-separator = { a~},
+	group-digits,
+	group-minimum-digits=4,
+	range-phrase=\text{--},
+	range-units=single,
+	exponent-product=\ensuremath{\cdot},
+	uncertainty-mode=separate,
+	output-complex-root=\iu,
 }
 endsnippet
 
 
-snippet preamble:fancyhdr
+snippet preamble:fancyhdr "header config" b
 % headers and footers
 \usepackage{fancyhdr}
 \setlength{\headheight}{14pt} % prevents a warning most likely caused by diacritics
@@ -259,124 +300,124 @@ snippet preamble:fancyhdr
 endsnippet
 
 
-snippet lst:matlab
+snippet lst:matlab "set up listings for MATLAB" b
 \usepackage{color}
 \definecolor{mygreen}{RGB}{28,172,0}
 \definecolor{mylilas}{RGB}{170,55,241}
 \lstset{
-    language=Matlab,
-    %basicstyle=\color{red},
-    basicstyle={\fontfamily{lmtt}\selectfont},
-    columns=fullflexible,
-    showlines=true,
-    breaklines=true,
-    postbreak=\mbox{$\hookrightarrow$\space},
-    morekeywords={imread,imshow,assert,saveas,rgb2gray,clim},
-    keywordstyle=\color{blue},
-    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
-    identifierstyle=\color{black},
-    stringstyle=\color{mylilas},
-    commentstyle=\color{mygreen},
-    showstringspaces=false,
-    % Do not number listings that belong to different files
-    %firstnumber=last,  % TODO ugly hack, use named listings instead?
-    %xleftmargin=2em,
-    xleftmargin=1em,
-    %numbers=left,%
-    %numberstyle={\tiny \color{black}},% size of the numbers
-    %numbersep=9pt, % this defines how far the numbers are from the text
-    %emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
-    %emph=[2]{word1,word2}, emphstyle=[2]{style},
-    literate=%
-      {---}{{\llap{\mdseries-{-}-}}}3
-      {>}{{\textgreater}}1
-      {>-}{{\textgreater-}}2
-      {|}{{\textbar}}1
-      {|-}{{\textbar-}}2
-      % make dashes shorter
-      {-}{{-}}1
-      {-\ }{{\mdseries-\ }}2
-      {°}{\textdegree}1
-      {á}{{\'a}}1
-      {í}{{\'i}}1
-      {é}{{\'e}}1
-      {ý}{{\'y}}1
-      {ú}{{\'u}}1
-      {ó}{{\'o}}1
-      {ě}{{\v{e}}}1
-      {š}{{\v{s}}}1
-      {č}{{\v{c}}}1
-      {ř}{{\v{r}}}1
-      {ž}{{\v{z}}}1
-      {ď}{{\v{d}}}1
-      {ť}{{\v{t}}}1
-      {ň}{{\v{n}}}1
-      {ů}{{\r{u}}}1
-      {Á}{{\'A}}1
-      {Í}{{\'I}}1
-      {É}{{\'E}}1
-      {Ý}{{\'Y}}1
-      {Ú}{{\'U}}1
-      {Ó}{{\'O}}1
-      {Ě}{{\v{E}}}1
-      {Š}{{\v{S}}}1
-      {Č}{{\v{C}}}1
-      {Ř}{{\v{R}}}1
-      {Ž}{{\v{Z}}}1
-      {Ď}{{\v{D}}}1
-      {Ť}{{\v{T}}}1
-      {Ň}{{\v{N}}}1
-      {Ů}{{\r{U}}}1,
+	language=Matlab,
+	%basicstyle=\color{red},
+	basicstyle={\fontfamily{lmtt}\selectfont},
+	columns=fullflexible,
+	showlines=true,
+	breaklines=true,
+	postbreak=\mbox{$\hookrightarrow$\space},
+	morekeywords={imread,imshow,assert,saveas,rgb2gray,clim},
+	keywordstyle=\color{blue},
+	morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+	identifierstyle=\color{black},
+	stringstyle=\color{mylilas},
+	commentstyle=\color{mygreen},
+	showstringspaces=false,
+	% Do not number listings that belong to different files
+	%firstnumber=last,  % TODO ugly hack, use named listings instead?
+	%xleftmargin=2em,
+	xleftmargin=1em,
+	%numbers=left,%
+	%numberstyle={\tiny \color{black}},% size of the numbers
+	%numbersep=9pt, % this defines how far the numbers are from the text
+	%emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+	%emph=[2]{word1,word2}, emphstyle=[2]{style},
+	literate=%
+		{---}{{\llap{\mdseries-{-}-}}}3
+		{>}{{\textgreater}}1
+		{>-}{{\textgreater-}}2
+		{|}{{\textbar}}1
+		{|-}{{\textbar-}}2
+		% make dashes shorter
+		{-}{{-}}1
+		{-\ }{{\mdseries-\ }}2
+		{°}{\textdegree}1
+		{á}{{\'a}}1
+		{í}{{\'i}}1
+		{é}{{\'e}}1
+		{ý}{{\'y}}1
+		{ú}{{\'u}}1
+		{ó}{{\'o}}1
+		{ě}{{\v{e}}}1
+		{š}{{\v{s}}}1
+		{č}{{\v{c}}}1
+		{ř}{{\v{r}}}1
+		{ž}{{\v{z}}}1
+		{ď}{{\v{d}}}1
+		{ť}{{\v{t}}}1
+		{ň}{{\v{n}}}1
+		{ů}{{\r{u}}}1
+		{Á}{{\'A}}1
+		{Í}{{\'I}}1
+		{É}{{\'E}}1
+		{Ý}{{\'Y}}1
+		{Ú}{{\'U}}1
+		{Ó}{{\'O}}1
+		{Ě}{{\v{E}}}1
+		{Š}{{\v{S}}}1
+		{Č}{{\v{C}}}1
+		{Ř}{{\v{R}}}1
+		{Ž}{{\v{Z}}}1
+		{Ď}{{\v{D}}}1
+		{Ť}{{\v{T}}}1
+		{Ň}{{\v{N}}}1
+		{Ů}{{\r{U}}}1,
 }
 endsnippet
 
 
-snippet lst:terminal
+snippet lst:terminal "listings terminal style" b
 \lstdefinestyle{terminal}{
-    %basicstyle=\ttfamily,
-    frame=single,
-    frameround=tttt,
-    columns=flexible,
-    literate=%
-      {---}{{\llap{\mdseries-{-}-}}}3
-      {>}{{\textgreater}}1
-      {>-}{{\textgreater-}}2
-      {|}{{\textbar}}1
-      {|-}{{\textbar-}}2
-      % make dashes shorter
-      {-}{{-}}1
-      {-\ }{{\mdseries-\ }}2
-      {°}{\textdegree}1
-      {×}{$\times$}1
-      {á}{{\'a}}1
-      {í}{{\'i}}1
-      {é}{{\'e}}1
-      {ý}{{\'y}}1
-      {ú}{{\'u}}1
-      {ó}{{\'o}}1
-      {ě}{{\v{e}}}1
-      {š}{{\v{s}}}1
-      {č}{{\v{c}}}1
-      {ř}{{\v{r}}}1
-      {ž}{{\v{z}}}1
-      {ď}{{\v{d}}}1
-      {ť}{{\v{t}}}1
-      {ň}{{\v{n}}}1
-      {ů}{{\r{u}}}1
-      {Á}{{\'A}}1
-      {Í}{{\'I}}1
-      {É}{{\'E}}1
-      {Ý}{{\'Y}}1
-      {Ú}{{\'U}}1
-      {Ó}{{\'O}}1
-      {Ě}{{\v{E}}}1
-      {Š}{{\v{S}}}1
-      {Č}{{\v{C}}}1
-      {Ř}{{\v{R}}}1
-      {Ž}{{\v{Z}}}1
-      {Ď}{{\v{D}}}1
-      {Ť}{{\v{T}}}1
-      {Ň}{{\v{N}}}1
-      {Ů}{{\r{U}}}1,
+	%basicstyle=\ttfamily,
+	frame=single,
+	frameround=tttt,
+	columns=flexible,
+	literate=%
+		{---}{{\llap{\mdseries-{-}-}}}3
+		{>}{{\textgreater}}1
+		{>-}{{\textgreater-}}2
+		{|}{{\textbar}}1
+		{|-}{{\textbar-}}2
+		% make dashes shorter
+		{-}{{-}}1
+		{-\ }{{\mdseries-\ }}2
+		{°}{\textdegree}1
+		{×}{$\times$}1
+		{á}{{\'a}}1
+		{í}{{\'i}}1
+		{é}{{\'e}}1
+		{ý}{{\'y}}1
+		{ú}{{\'u}}1
+		{ó}{{\'o}}1
+		{ě}{{\v{e}}}1
+		{š}{{\v{s}}}1
+		{č}{{\v{c}}}1
+		{ř}{{\v{r}}}1
+		{ž}{{\v{z}}}1
+		{ď}{{\v{d}}}1
+		{ť}{{\v{t}}}1
+		{ň}{{\v{n}}}1
+		{ů}{{\r{u}}}1
+		{Á}{{\'A}}1
+		{Í}{{\'I}}1
+		{É}{{\'E}}1
+		{Ý}{{\'Y}}1
+		{Ú}{{\'U}}1
+		{Ó}{{\'O}}1
+		{Ě}{{\v{E}}}1
+		{Š}{{\v{S}}}1
+		{Č}{{\v{C}}}1
+		{Ř}{{\v{R}}}1
+		{Ž}{{\v{Z}}}1
+		{Ď}{{\v{D}}}1
+		{Ť}{{\v{T}}}1
+		{Ň}{{\v{N}}}1
+		{Ů}{{\r{U}}}1,
 }
 endsnippet
