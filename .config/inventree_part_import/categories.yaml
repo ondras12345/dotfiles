@@ -208,6 +208,9 @@ Electronics:
                 - Output Type
                 - Pulses per Revolution
                 - Has Switch
+        Speakers:
+            _aliases:
+                - Electromagnetic Sounders with Generator
     Integrated Circuits:
         _parameters:
             - Mounting Type
