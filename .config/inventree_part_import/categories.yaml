@@ -4,6 +4,7 @@ Electronics:
         _aliases:
             - Computer cables and adapters
             - Power Cords
+            - Magnet Wire
     Connectors:
         Battery Holders:
             _parameters:
@@ -27,6 +28,9 @@ Electronics:
                 - Connector Type
                 - Rated Current
                 - Rated Voltage
+        Coaxial Connectors:
+            _aliases:
+                - RF Connectors
         Barrel Connectors:
             _aliases:
                 - Power Connectors
@@ -69,6 +73,8 @@ Electronics:
                     - Connector Type
                     - Ethernet Category
                     - Number of Contacts
+                _aliases:
+                    - Interface Development Tools
             D-Sub Connectors:
                 _parameters:
                     - Number of Contacts
@@ -100,9 +106,12 @@ Electronics:
                 - Pitch
                 - Rated Current
                 - Rated Voltage
+            _aliases:
+                - DIN Rail Terminal Blocks
         Terminals:
             _aliases:
                 - Push-on connectors and cable terminals
+        Contacts:
     Crystals, Oscillators:
         _parameters:
             - Frequency
@@ -545,5 +554,6 @@ MISC:
         - Adafruit Accessories
         - Crimping Tools - Others
         - Bluetooth Modules - 802.15.1
+        - Development Boards & Kits - ARM
 Assemblies:
     _ignore: true
