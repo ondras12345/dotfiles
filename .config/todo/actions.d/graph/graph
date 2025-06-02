@@ -1,0 +1,19 @@
+#!/bin/bash
+# https://github.com/timpulver/todo.txt-graph/blob/master/graph
+
+action=$1
+flag=$2
+shift
+
+[ "$action" = "usage" ] && {
+  echo ""
+  echo "  Visualize done tasks:"
+  echo "    graph"
+  echo "      Draws bar graphs visualizing the number of completed task per day."
+  echo "      Optional argument (integer): number of days to visualize (default: 7)"
+  echo ""
+  exit
+}
+[ "$action" = "graph" ] && {
+  $(dirname $0)/graph.py "$TODO_FILE" "$DONE_FILE" $flag
+}
