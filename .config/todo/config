@@ -110,6 +110,8 @@ export TODO_NOTE_PAGER=less
 # TODO path setdue.
 #export TODOTXT_SETDUE_SAFECHECK=0
 
+export TODOTXT_GRAPH_THRESHOLD=3
+
 # Interesting add-ons:
 # - https://github.com/todotxt/todo.txt-cli/wiki/Todo.sh-Add-on-Directory#donow-activity-time-tracker
 #   - this is a bit dangerous. If todo.txt changes while the timer is running,
