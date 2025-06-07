@@ -11,6 +11,14 @@ Electronics:
                 - Battery Type
             _aliases:
                 - Batteries - Containers and Holders
+        Fuse Holders:
+            _parameters:
+                - Fuse Size
+                - Rated Current
+                - Rated Voltage
+                - Mounting Type
+            _aliases:
+                - PCB Fuseholders
         IC Sockets:
             _parameters:
                 - Mounting Type
