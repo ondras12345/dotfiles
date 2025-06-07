@@ -97,6 +97,7 @@ case $state in
     "clock:clock in or out of a task in hamster time tracker"
     "note:keep notes attached to tasks"
     "pushback:replace due:yesterday with due:today in tasks that are not done"
+    "graph:draws bar graphs visualizing the number of completed task per day"
   )
   _describe -t todo-commands "$TODO_SH command" cmdlist
   ;;
