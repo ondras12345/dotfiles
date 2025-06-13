@@ -428,6 +428,7 @@ let g:netrw_browsex_viewer= "setsid xdg-open"
 let g:ycm_auto_hover=""
 nmap <leader>K <plug>(YCMHover)
 nmap <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <silent> <leader>cw <cmd>execute 'YcmCompleter RefactorRename' input( 'Rename to: ' )<CR>
 
 " vimspector {{{2
 let g:vimspector_base_dir=$HOME.'/.vim/bundle/vimspector'
