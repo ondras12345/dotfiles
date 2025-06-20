@@ -468,6 +468,9 @@ Electronics:
             _aliases:
                 - Gas Sensors
                 - Air Quality Sensors
+        Motion and Position:
+            _aliases:
+                - Position Sensors
     Modules:
         _aliases:
             - Charger Modules
@@ -526,6 +529,12 @@ Mechanical:
                 - Thread
                 - Material
         Washers:
+            _parameters:
+                - Thread
+                - Material
+                - Height
+                - Outside Diameter
+                - Internal Diameter
         Glands:
             _parameters:
                 - Thread

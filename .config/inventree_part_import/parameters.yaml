@@ -237,3 +237,7 @@ Pulses per Revolution:
         - Resolution
 Has Switch:
 Fuse Size:
+Outside Diameter:
+    _unit: mm
+Internal Diameter:
+    _unit: mm
