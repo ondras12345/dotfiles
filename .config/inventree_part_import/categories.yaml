@@ -5,6 +5,7 @@ Electronics:
             - Computer cables and adapters
             - Power Cords
             - Magnet Wire
+            - USB cables and adapters
     Connectors:
         Battery Holders:
             _parameters:
@@ -62,6 +63,7 @@ Electronics:
         Connector Housings:
             _aliases:
                 - Rectangular Connector Housings
+                - Headers & Wire Housings
             _parameters:
                 - Connector Type
                 - Number of Contacts
@@ -350,6 +352,7 @@ Electronics:
             Voltage References:
                 _aliases:
                     - Voltage Reference
+                    - Reference voltage sources - circuits
                 _parameters:
                     - Input Voltage
                     - Output Voltage
@@ -375,6 +378,7 @@ Electronics:
                 _description: Aluminum Electrolytic Capacitors
                 _parameters:
                     - ESR
+                    - Pitch
             Ceramic:
                 _aliases:
                     - Ceramic Capacitors
@@ -418,6 +422,10 @@ Electronics:
                 - Resistance
                 - Tolerance
                 - Rated Power
+        Varistors:
+            _description: Metal Oxide Varistors (MOVs)
+            _parameters:
+                - Rated Voltage
     Transistors:
         _parameters:
             - Mounting Type
@@ -431,8 +439,14 @@ Electronics:
                 - Rated Power
             NPN:
                 _description: Bipolar NPN Transistors
+                _aliases:
+                    - NPN SMD transistors
+                    - NPN THT transistors
             PNP:
                 _description: Bipolar PNP Transistors
+                _aliases:
+                    - PNP SMD transistors
+                    - PNP THT transistors
         JFETs:
             _description: Junction-Gate Field-Effect Transistors
             _parameters:
@@ -451,6 +465,8 @@ Electronics:
             P-Channel MOSFETs:
                 _aliases:
                     - P channel transistors
+        IGBTs:
+            _description: Insulated-Gate Bipolar Transistors
     Sensors:
         Optical:
             Phototransistors:
@@ -487,6 +503,7 @@ Electronics:
             - Raspberry Pi - Minicomputers
             - Raspberry Pi - Acessories
             - Development kits - others
+            - Single Board Computers
     Displays:
     Power Sources:
         Batteries:
@@ -572,5 +589,7 @@ MISC:
         - Crimping Tools - Others
         - Bluetooth Modules - 802.15.1
         - Development Boards & Kits - ARM
+        - Memory IC Development Tools
+        - Strippers for wire & cable
 Assemblies:
     _ignore: true

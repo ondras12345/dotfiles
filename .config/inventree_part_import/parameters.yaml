@@ -62,6 +62,7 @@ Number of Contacts:
         - Number of contacts points
         - Number of pins
         - Number of ways
+        - Connector
 Number of Rows:
     _aliases:
         - Connector pinout layout
