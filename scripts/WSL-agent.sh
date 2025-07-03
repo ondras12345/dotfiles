@@ -5,12 +5,13 @@
 
 # https://www.scivision.dev/ssh-agent-windows-linux/
 # https://unix.stackexchange.com/questions/321193/windows-subsystem-for-linux-share-ssh-agent/378588#378588
-if [ -z "$(pgrep ssh-agent)" ]; then
-    rm -rf /tmp/ssh-*
+ssh_agent_pid="$(pgrep ssh-agent | head -n 1)"
+if [ -z "$ssh_agent_pid" ] ; then
+    rm -rf /tmp/ssh-*(N)
     eval $(ssh-agent -s) > /dev/null
 else
-    export SSH_AGENT_PID=$(pgrep ssh-agent)
-    export SSH_AUTH_SOCK=$(find /tmp/ssh-* -name agent.*)
+    export SSH_AGENT_PID="$ssh_agent_pid"
+    export SSH_AUTH_SOCK=$(find /tmp/ssh-*(N) -name agent.* | head -n 1)
 fi
 
 # optional... potentially annoying
