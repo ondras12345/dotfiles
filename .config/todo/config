@@ -96,6 +96,7 @@ export PRI_W=$LIGHT_GREY      # waiting
 
 export TODOTXT_AUTO_ARCHIVE=0
 export TODOTXT_PRESERVE_LINE_NUMBERS=1
+export TODOTXT_DATE_ON_ADD=1
 
 export TODO_TXT_DUE_HIDECOMPLETED=1
 
@@ -111,6 +112,8 @@ export TODO_NOTE_PAGER=less
 #export TODOTXT_SETDUE_SAFECHECK=0
 
 export TODOTXT_GRAPH_THRESHOLD=3
+
+export TODOTXT_BUMP_MARKER="bump"
 
 # Interesting add-ons:
 # - https://github.com/todotxt/todo.txt-cli/wiki/Todo.sh-Add-on-Directory#donow-activity-time-tracker

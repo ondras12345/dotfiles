@@ -98,13 +98,18 @@ case $state in
     "note:keep notes attached to tasks"
     "pushback:replace due:yesterday with due:today in tasks that are not done"
     "graph:draws bar graphs visualizing the number of completed task per day"
+    "bump:increment a bump counter"
+    "inout:show tasks added or done today"
+    "lsdone:list all done (and archived) tasks"
+    "sh:start an interactive todo.sh shell"
+    "undo:un-mark a done task"
   )
   _describe -t todo-commands "$TODO_SH command" cmdlist
   ;;
 
   (arguments)
   case $words[NORMARG] in
-    (append|command|del|move|mv|prepend|pri|replace|rm)
+    (append|command|del|move|mv|prepend|pri|replace|rm|bump|undo)
     if (( NORMARG == CURRENT - 1 )); then
       nextstate=item
     else
