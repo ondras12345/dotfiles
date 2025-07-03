@@ -303,6 +303,13 @@ augroup vimrcEx
     \ setlocal softtabstop=2 |
     \ setlocal shiftwidth=2
 
+  " dart {{{2
+  au FileType dart
+    \ setlocal tabstop=2 |
+    \ setlocal softtabstop=2 |
+    \ setlocal shiftwidth=2 |
+    \ setlocal smartindent
+
   " manpages {{{2
   au FileType man
     \ setlocal nolist
@@ -428,6 +435,8 @@ let g:netrw_browsex_viewer= "setsid xdg-open"
 let g:ycm_auto_hover=""
 nmap <leader>K <plug>(YCMHover)
 nmap <leader>gd :YcmCompleter GoTo<CR>
+nmap <leader>f :YcmCompleter FixIt<CR>
+nmap <leader>= :YcmCompleter Format<CR>
 nnoremap <silent> <leader>cw <cmd>execute 'YcmCompleter RefactorRename' input( 'Rename to: ' )<CR>
 
 " vimspector {{{2
