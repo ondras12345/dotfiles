@@ -561,6 +561,13 @@ Mechanical:
                 - IP Rating
         Seals:
         Cable Ties:
+        Threaded Inserts:
+            _parameters:
+                - Thread
+                - Thread Pitch
+                - Material
+            _aliases:
+                - Threaded Insertions
     Thermal:
         Heatsink Compounds:
             _aliases:
