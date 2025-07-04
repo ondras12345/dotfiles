@@ -54,8 +54,8 @@ errorusage() {
 
 # strip priority, due date, threshold, note, recur,
 # context (would interfere with hamster category),
-# URLs, and trailing whitespace
-TASK_SUBSTITUTIONS='s/^([A-Z]) //;s/\(due\|t\|bump\):[0-9-]\+//g;s/note:[^ ]*//g;s/rec:[^ ]*//g;s/@[^ ]*//g;s/https\?:[^ ]*//g;s/[[:blank:]]*$//;s/^[[:blank:]]*//'
+# URLs, date added, and trailing whitespace
+TASK_SUBSTITUTIONS='s/^[0-9-]\+ //;s/^([A-Z]) //;s/\(due\|t\|bump\):[0-9-]\+//g;s/note:[^ ]*//g;s/rec:[^ ]*//g;s/@[^ ]*//g;s/https\?:[^ ]*//g;s/[[:blank:]]*$//;s/^[[:blank:]]*//'
 
 parseitem() {
     if ! [[ "$ITEM" =~ ^[0-9]+$ ]]; then
@@ -75,7 +75,7 @@ convert_hamster_task() {
 current_taskno() {
     hamster_current="$(hamster current)"
     hamster_task=$(convert_hamster_task "$hamster_current")
-    taskno=$(sed "$TASK_SUBSTITUTIONS" "$TODO_FILE" | grep -Fnx "${hamster_task}" | cut -d: -f1)
+    taskno=$(sed "$TASK_SUBSTITUTIONS" "$TODO_FILE" | grep -Fnx -- "${hamster_task}" | cut -d: -f1)
 }
 
 case "$SECONDARY_CMD" in
