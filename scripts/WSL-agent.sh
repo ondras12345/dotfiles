@@ -11,7 +11,7 @@ if [ -z "$ssh_agent_pid" ] ; then
     eval $(ssh-agent -s) > /dev/null
 else
     export SSH_AGENT_PID="$ssh_agent_pid"
-    export SSH_AUTH_SOCK=$(find /tmp/ssh-*(N) -name agent.* | head -n 1)
+    export SSH_AUTH_SOCK=$(find /tmp/ssh-*(N) -name 'agent.*' | head -n 1)
 fi
 
 # optional... potentially annoying
