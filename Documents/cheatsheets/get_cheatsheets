@@ -1,0 +1,3 @@
+#!/bin/sh
+wget "http://www.cheat-sheets.org/saved-copy/thunderbirdcheatsheet-1.pdf"
+wget "https://www.kiv.zcu.cz/studies/predmety/pc/data/docs/crefcard.pdf"
