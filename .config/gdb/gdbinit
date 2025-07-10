@@ -1,0 +1,4 @@
+set history save on
+set history size 10240
+set history remove-duplicates 1
+set history filename ~/.local/state/gdb_history
