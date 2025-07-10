@@ -115,6 +115,7 @@ Rated Current:
         - Maximum current
         - Max. forward impulse current
         - Drain current
+        - Collector current
     _unit: A
 Rated Power:
     _aliases:
@@ -145,6 +146,7 @@ Rated Voltage:
         - Operating voltage
         - Drain-source voltage
         - Switched voltage
+        - Collector-emitter voltage
 Resistance:
     _aliases:
         - Resistance (Ohms)
