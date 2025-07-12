@@ -9,6 +9,11 @@
 #
 # Modified by Ondřej Sluka
 
+
+# I don't want the TZ trick I did in ~/.config/todo/config to compensate for my
+# sleep schedule to also affect `hamster`
+unset TZ
+
 action=$1
 shift
 
