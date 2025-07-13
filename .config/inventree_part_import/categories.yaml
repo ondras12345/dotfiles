@@ -309,6 +309,7 @@ Electronics:
         Motor Drivers:
             _aliases:
                 - Motor Drivers, Controllers
+                - Motor and PWM drivers
             _parameters:
                 - Output Current
                 - Supply Voltage
@@ -363,6 +364,10 @@ Electronics:
         _parameters:
             - Mounting Type
             - Package Type
+        Antennas:
+            _omit_parameters:
+                - Mounting Type
+                - Package Type
         Capacitors:
             _parameters:
                 - Capacitance
@@ -561,6 +566,14 @@ Mechanical:
                 - IP Rating
         Seals:
         Cable Ties:
+            _parameters:
+                - Length
+                - Width
+                - Material
+                - Tie Strength
+        Holders:
+            _aliases:
+                - Cable Ties - Holders
         Threaded Inserts:
             _parameters:
                 - Thread

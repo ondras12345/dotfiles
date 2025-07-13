@@ -147,6 +147,7 @@ Rated Voltage:
         - Drain-source voltage
         - Switched voltage
         - Collector-emitter voltage
+        - Supply voltage
 Resistance:
     _aliases:
         - Resistance (Ohms)
@@ -191,6 +192,7 @@ Width:
     _unit: mm
     _aliases:
         - Dimension X
+        - Tie width
 Length:
     _aliases:
         - Spacer length
@@ -208,6 +210,7 @@ Material:
     _aliases:
         - Body material
         - Enclosure material
+        - Tie material
 Copper Plating Thickness:
     _unit: μm
 Variant:
@@ -244,3 +247,5 @@ Outside Diameter:
     _unit: mm
 Internal Diameter:
     _unit: mm
+Tie Strength:
+    _unit: N
