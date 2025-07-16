@@ -21,7 +21,7 @@ function get_firefox_window {
             startswith("firefox") or endswith("firefox")
           )
         )
-      ] | first | .id'
+      ] | sort_by(.last_focused_time) | reverse | first | .id'
 }
 
 function raise_window {
