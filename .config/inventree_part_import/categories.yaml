@@ -579,6 +579,8 @@ Mechanical:
                 - Thread
                 - Thread Pitch
                 - Material
+                - Hole Diameter
+                - Length
             _aliases:
                 - Threaded Insertions
     Thermal:

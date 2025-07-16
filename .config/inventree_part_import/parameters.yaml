@@ -247,5 +247,7 @@ Outside Diameter:
     _unit: mm
 Internal Diameter:
     _unit: mm
+Hole Diameter:
+    _unit: mm
 Tie Strength:
     _unit: N
