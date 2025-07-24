@@ -320,6 +320,10 @@ augroup vimrcEx
     \ setlocal shiftwidth=8 |
     \ setlocal softtabstop=0
 
+  " no line numbers in terminal {{{2
+  au TerminalOpen *
+    \ setlocal nonumber norelativenumber
+
   " fix todo.txt mappings conflicting with paste shortcut {{{2
   " (these are used for changing the due date; I have prefixed them with
   " <localleader>t
