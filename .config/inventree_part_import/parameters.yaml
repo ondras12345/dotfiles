@@ -99,6 +99,7 @@ Pitch:
     _aliases:
         - Pitch - Mating
         - Contacts pitch
+        - Terminal pitch
 Rated Current:
     _aliases:
         - Current Rating
@@ -251,3 +252,16 @@ Hole Diameter:
     _unit: mm
 Tie Strength:
     _unit: N
+Number of Resistors:
+Number of Channels:
+Isolation Voltage:
+    _unit: V
+    _aliases:
+        - Insulation voltage
+Characteristic Impedance:
+    _unit: ohm
+    _aliases:
+        - Wave impedance
+Kind of Cable:
+    _aliases:
+        - Kind of wire

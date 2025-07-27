@@ -40,6 +40,10 @@ Electronics:
         Coaxial Connectors:
             _aliases:
                 - RF Connectors
+                - RF Coaxial connectors
+            _parameters:
+                - Characteristic Impedance
+                - Kind of Cable
         Barrel Connectors:
             _aliases:
                 - Power Connectors
@@ -306,6 +310,7 @@ Electronics:
                 - Microcontrollers and Microprocessors
                 - 8-bit Microcontrollers - MCU
                 - Raspberry Pi - Embedded
+                - IoT (WiFi/Bluetooth) modules
         Motor Drivers:
             _aliases:
                 - Motor Drivers, Controllers
@@ -318,6 +323,9 @@ Electronics:
             _aliases:
                 - Optocouplers - analog output
                 - Optocouplers - digital output
+            _parameters:
+                - Number of Channels
+                - Isolation Voltage
         Power:
             _description: Power ICs
             Low Dropout Regulators:
@@ -427,6 +435,9 @@ Electronics:
                 - Resistance
                 - Tolerance
                 - Rated Power
+            Resistor Networks:
+                _parameters:
+                    - Number of Resistors
         Varistors:
             _description: Metal Oxide Varistors (MOVs)
             _parameters:
@@ -583,6 +594,11 @@ Mechanical:
                 - Length
             _aliases:
                 - Threaded Insertions
+        Bearings:
+            _parameters:
+                - Outside Diameter
+                - Internal Diameter
+                - Width
     Thermal:
         Heatsink Compounds:
             _aliases:
@@ -613,5 +629,6 @@ MISC:
         - Development Boards & Kits - ARM
         - Memory IC Development Tools
         - Strippers for wire & cable
+        - General Purpose Tools - Others
 Assemblies:
     _ignore: true
