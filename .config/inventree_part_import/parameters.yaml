@@ -117,6 +117,7 @@ Rated Current:
         - Max. forward impulse current
         - Drain current
         - Collector current
+        - Max. load current
     _unit: A
 Rated Power:
     _aliases:
@@ -149,6 +150,7 @@ Rated Voltage:
         - Switched voltage
         - Collector-emitter voltage
         - Supply voltage
+        - Max. off-state voltage
 Resistance:
     _aliases:
         - Resistance (Ohms)
@@ -165,6 +167,7 @@ Size:
         - Size / Dimension
         - Lens Size
         - Body dimensions
+        - Fan dimensions
 Supply Voltage:
     _aliases:
         - Voltage - Supply
@@ -265,3 +268,8 @@ Characteristic Impedance:
 Kind of Cable:
     _aliases:
         - Kind of wire
+Airflow:
+    _aliases:
+        - Fan efficiency
+Rated Consumption:
+    _unit: W

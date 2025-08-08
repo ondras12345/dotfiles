@@ -483,6 +483,21 @@ Electronics:
                     - P channel transistors
         IGBTs:
             _description: Insulated-Gate Bipolar Transistors
+    Triacs:
+        _parameters:
+            - Rated Voltage
+            - Rated Current
+            - Mounting Type
+            - Package Type
+    SSRs:
+        _description: Solid State Relays
+        _aliases:
+            - Solid State Relays
+        _parameters:
+            - Mounting Type
+            - Package Type
+            - Rated Current
+            - Rated Voltage
     Sensors:
         Optical:
             Phototransistors:
@@ -603,6 +618,15 @@ Mechanical:
         Heatsink Compounds:
             _aliases:
                 - Heat conductive compounds
+        Fans:
+            _parameters:
+                - Power Consumption
+                - Rated Current
+                - Supply Voltage
+                - Size
+                - Airflow
+            _aliases:
+                - DC Fans
         _aliases:
             - Heatsinks - equipment
 PCBs:
