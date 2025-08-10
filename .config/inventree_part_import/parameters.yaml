@@ -271,5 +271,5 @@ Kind of Cable:
 Airflow:
     _aliases:
         - Fan efficiency
-Rated Consumption:
+Power Consumption:
     _unit: W
