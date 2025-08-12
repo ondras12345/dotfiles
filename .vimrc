@@ -19,6 +19,7 @@ silent! source $HOME/.vim/vimrc-local-pre
 
 " Set plugins_programming to 1 in vimrc-local-pre where needed.
 let g:plugins_programming = get(g:, 'plugins_programming', 0)
+let g:plugins_yocto = get(g:, 'plugins_yocto', 0)
 
 " Plugins {{{1
 
@@ -66,6 +67,10 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
             Plug 'puremourning/vimspector'
             " :VimspectorInstall!
             " put config in ~/.vim/ftplubin/java.vim
+        endif
+
+        if (g:plugins_yocto)
+            Plug 'https://git.yoctoproject.org/git/poky', { 'rtp': 'bitbake/contrib/vim' }
         endif
     endif
 
