@@ -6,6 +6,7 @@ Electronics:
             - Power Cords
             - Magnet Wire
             - USB cables and adapters
+            - Multicore Cables - Unshielded
     Connectors:
         Battery Holders:
             _parameters:
@@ -125,6 +126,15 @@ Electronics:
         Terminals:
             _aliases:
                 - Push-on connectors and cable terminals
+        Ferrules:
+            _aliases:
+                - Bootlace ferrule and butt splice
+            _parameters:
+                - Variant
+                - Material
+                - Contact Plating
+                - Wire Cross Section
+                - Length
         Contacts:
     Crystals, Oscillators:
         _parameters:
@@ -590,6 +600,17 @@ Mechanical:
                 - Cable Diameter
                 - Material
                 - IP Rating
+        Grommets:
+            _parameters:
+                - Material
+                - Hole Diameter
+                - Outside Diameter
+                - Panel Cutout Diameter
+            Grommet Kits:
+                _omit_parameters:
+                    - Hole Diameter
+                    - Outside Diameter
+                    - Panel Cutout Diameter
         Seals:
         Cable Ties:
             _parameters:
@@ -643,8 +664,6 @@ Soldering:
     _description: Solders and soldering tools
     _aliases:
         - Solders
-CNC:
-    _ignore: true
 MISC:
     _aliases:
         - Adafruit Accessories
@@ -654,5 +673,21 @@ MISC:
         - Memory IC Development Tools
         - Strippers for wire & cable
         - General Purpose Tools - Others
+Chemicals:
+    _aliases:
+        - Cleaning & maintaining products
+CNC:
+    _ignore: true
 Assemblies:
     _ignore: true
+3D Printing Filament:
+    _parameters:
+        - Material
+        - Mass
+        - Diameter
+3D Printer Accessories:
+    Nozzles:
+    Print Sheets:
+    Filament:
+    Spare Parts:
+        _description: 3D printer spare parts

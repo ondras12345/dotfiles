@@ -201,6 +201,7 @@ Length:
     _aliases:
         - Spacer length
         - Dimension Y
+        - Bit length
     _unit: mm
 Height:
     _unit: mm
@@ -215,11 +216,13 @@ Material:
         - Body material
         - Enclosure material
         - Tie material
+        - Contact Material
 Copper Plating Thickness:
     _unit: μm
 Variant:
     _aliases:
         - Board variant
+        - Ferrule variant
 Standoff Voltage:
     _unit: V
     _aliases:
@@ -273,3 +276,13 @@ Airflow:
         - Fan efficiency
 Power Consumption:
     _unit: W
+Mass:
+    _unit: kg
+Diameter:
+    _unit: mm
+Panel Cutout Diameter:
+    _unit: mm
+Wire Cross Section:
+    _aliases:
+        - Wire cross-section
+Contact Plating:
