@@ -23,7 +23,7 @@ export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 
 # ~/bin is already set in .profile, but does not work when connecting via SSH.
 # ~/.local/bin is needed for pipx.
-export PATH="$HOME/bin:/home/ondra/.local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # set in /etc/locale.conf
 # but it does not seem to work
