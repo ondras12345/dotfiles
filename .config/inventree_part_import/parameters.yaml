@@ -7,6 +7,7 @@ Color:
         - Luminous Color
         - Emitted Color
         - LED colour
+        - Insulation colour
 Connector Type:
     _aliases:
         - Product Type
@@ -286,3 +287,6 @@ Wire Cross Section:
     _aliases:
         - Wire cross-section
 Contact Plating:
+Cable Structure:
+Kind of Core:
+Shield Structure:

@@ -7,6 +7,14 @@ Electronics:
             - Magnet Wire
             - USB cables and adapters
             - Multicore Cables - Unshielded
+        _parameters:
+            - Color
+            - Cable Diameter
+            - Cable Structure
+            - Kind of Cable
+            - Rated Voltage
+            - Shield Structure
+            - Kind of Core
     Connectors:
         Battery Holders:
             _parameters:
