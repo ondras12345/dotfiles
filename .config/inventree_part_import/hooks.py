@@ -37,6 +37,8 @@ def translate_laskakit_mpn(api_part: ApiPartMock):
 
 
 def map_tme_parameters(api_part: ApiPartMock):
+    if api_part.parameters is None:
+        return
     if ( "DC contacts rating @R" in api_part.parameters
             and "Rated Voltage" not in api_part.parameters
             and "Rated Current" not in api_part.parameters):
