@@ -234,6 +234,8 @@ Leakage Current:
     _unit: A
 Semiconductor Structure:
 Characteristics:
+    _aliases:
+        - Fuse characteristics
 Thread:
     _aliases:
         - Internal thread
@@ -250,6 +252,7 @@ Pulses per Revolution:
     _aliases:
         - Resolution
 Has Switch:
+# for fuse holders
 Fuse Size:
 Outside Diameter:
     _unit: mm
@@ -290,3 +293,7 @@ Contact Plating:
 Cable Structure:
 Kind of Core:
 Shield Structure:
+Breaking Capacity:
+    _unit: A
+Max Voltage Drop:
+    _unit: V

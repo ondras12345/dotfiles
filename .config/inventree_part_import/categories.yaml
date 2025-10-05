@@ -164,6 +164,11 @@ Electronics:
         LEDs:
             _parameters:
                 - Color
+            LED Strips:
+                _omit_parameters:
+                    - Mounting Type
+                    - Package Type
+                    - Forward Voltage
         Schottky:
             _description: Schottky Diodes
             _parameters:
@@ -460,6 +465,19 @@ Electronics:
             _description: Metal Oxide Varistors (MOVs)
             _parameters:
                 - Rated Voltage
+        Fuses:
+            _parameters:
+                - Rated Voltage
+                - Rated Current
+                - Characteristics
+                - Breaking Capacity
+                - Max Voltage Drop
+                - Fuse Size
+            _omit_parameters:
+                - Mounting Type
+                - Package Type
+            _aliases:
+                - Fuses 5x20mm
     Transistors:
         _parameters:
             - Mounting Type
