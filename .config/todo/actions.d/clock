@@ -104,6 +104,7 @@ case "$SECONDARY_CMD" in
         ITEM="$1"
         parseitem
         echo "Clocking in $TASK @ $PROJECT ..."
+        [ -z "$TASK"] && error "invalid task"
         hamster add "$TASK@$PROJECT -0"
         ;;
 
