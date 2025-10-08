@@ -243,6 +243,7 @@ Electronics:
                 - Microswitches TACT
                 - DIP Switches/SIP Switches
                 - Tactile Switches
+                - Toggle Switches
         Circuit Breakers:
             _parameters:
                 - Characteristics

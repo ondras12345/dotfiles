@@ -47,3 +47,12 @@ def map_tme_parameters(api_part: ApiPartMock):
         if m := re.match(r'(?P<current>[0-9.]+ ?A) ?/ ?(?P<voltage>[0-9.]+ ?V)( DC)?', contacts_rating):
             api_part.parameters["Rated Voltage"] = m.group('voltage')
             api_part.parameters["Rated Current"] = m.group('current')
+
+    if ( "AC contacts rating @R" in api_part.parameters
+            and "Rated Voltage" not in api_part.parameters
+            and "Rated Current" not in api_part.parameters):
+        contacts_rating = api_part.parameters["AC contacts rating @R"]
+
+        if m := re.match(r'(?P<current>[0-9.]+ ?A) ?/ ?(?P<voltage>[0-9.]+ ?V)( AC)?', contacts_rating):
+            api_part.parameters["Rated Voltage"] = m.group('voltage')
+            api_part.parameters["Rated Current"] = m.group('current')
