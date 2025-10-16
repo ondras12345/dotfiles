@@ -3,9 +3,11 @@ set editing-mode vi
 # https://wiki.archlinux.org/index.php/Octave
 $if mode=vi
 $if Octave
-    set show-mode-in-prompt on
-    set vi-ins-mode-string "+ "
-    set vi-cmd-mode-string ": "
+    set show-mode-in-prompt off
+    # This breaks octave_kernel jupyter kernel:
+    #set show-mode-in-prompt on
+    #set vi-ins-mode-string "+ "
+    #set vi-cmd-mode-string ": "
 $else
 
 # Cursor types
