@@ -8,6 +8,7 @@ Color:
         - Emitted Color
         - LED colour
         - Insulation colour
+        - Colour
 Connector Type:
     _aliases:
         - Product Type
@@ -289,6 +290,7 @@ Panel Cutout Diameter:
 Wire Cross Section:
     _aliases:
         - Wire cross-section
+        - Max cable section
 Contact Plating:
 Cable Structure:
 Kind of Core:
@@ -297,3 +299,10 @@ Breaking Capacity:
     _unit: A
 Max Voltage Drop:
     _unit: V
+Shrinking Ratio:
+Diameter Before Shrinking:
+    _unit: mm
+    _aliases:
+        - Min. diameter before shrinking
+Diameter After Shrinking:
+    _unit: mm

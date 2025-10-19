@@ -144,6 +144,12 @@ Electronics:
                 - Wire Cross Section
                 - Length
         Contacts:
+        4mm Banana Plugs:
+            _parameters:
+                - Color
+                - Rated Current
+                - Rated Voltage
+                - Wire Cross Section
     Crystals, Oscillators:
         _parameters:
             - Frequency
@@ -677,6 +683,13 @@ Mechanical:
                 - DC Fans
         _aliases:
             - Heatsinks - equipment
+    Heat Shrink Tubes:
+        _parameters:
+            - Color
+            - Shrinking Ratio
+            - Material
+            - Diameter Before Shrinking
+            - Diameter After Shrinking
 PCBs:
     _description: Printed Circuit Boards
     Copper Laminates:
