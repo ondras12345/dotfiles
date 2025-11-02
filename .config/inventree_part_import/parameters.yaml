@@ -164,6 +164,7 @@ Reverse Breakdown Voltage:
         - Voltage - Zener (Nom) (Vz)
         - Zener Voltage (Nom)
         - Max. off-state voltage
+        - Zener voltage
 Size:
     _aliases:
         - Size / Dimension
