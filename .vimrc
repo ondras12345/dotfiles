@@ -523,6 +523,9 @@ let g:vimtex_quickfix_mode=0
 let g:vimtex_syntax_nospell_comments=1
 let g:tex_conceal='abdmg'
 let g:vimtex_fold_enabled=1
+let g:vimtex_syntax_custom_cmds = [
+    \ {'name': 'sisetup', 'argspell': 0},
+    \]
 
 " ultisnips {{{2
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
