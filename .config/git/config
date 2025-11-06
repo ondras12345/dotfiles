@@ -14,3 +14,10 @@
 	bak = !git remote | grep backup- | xargs --no-run-if-empty -L1 git push
 [core]
 	excludesfile = /home/ondra/.config/git/gitignore_global
+
+# Use `git difftool --tool eps_diff --staged filename
+# to diff eps (or pdf) files.
+# Tabbed will open with two zathura instances. Use ctrl+shift+h / l to switch
+# between tabs.
+[difftool "eps_diff"]
+	cmd = GDK_BACKEND=x11 tabbed -c zathura $LOCAL $REMOTE -e
