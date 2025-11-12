@@ -9,3 +9,11 @@ lstfilter.awk:;
 %.tex: %.m.nw lstfilter.awk
 	noweave -delay -filter './lstfilter.awk' -filter 'sed "/^@use /s/_/\\\\_/g;/^@defn /s/_/\\\\_/g"' $< > $@
 endsnippet
+
+snippet xournalpdf "Xournal++ pdf export" b
+.PHONY: xournalpdf
+xournalpdf: $(patsubst %.xopp,%_annotated.pdf,$(wildcard *.xopp))
+
+%_annotated.pdf: %.xopp
+	xournalpp -p $@ $<
+endsnippet
