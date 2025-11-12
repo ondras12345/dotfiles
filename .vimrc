@@ -143,6 +143,8 @@ endif
 " better tab completion {{{2
 set wildmode=longest,list,full
 set wildmenu
+" hide vim backup files
+set wildignore+=*~
 
 " Search {{{2
 " Smart case search
