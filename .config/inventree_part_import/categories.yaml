@@ -717,6 +717,7 @@ MISC:
 Chemicals:
     _aliases:
         - Cleaning & maintaining products
+        - Lubricants
 CNC:
     _ignore: true
 Assemblies:
