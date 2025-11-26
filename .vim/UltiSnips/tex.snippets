@@ -194,6 +194,7 @@ snippet preamble:basic "basic document template" b
 %\tableofcontents
 
 \todo[inline]{pozor na datum}
+\todo[inline]{vlna}
 \listoftodos
 
 \end{document}
@@ -422,4 +423,38 @@ snippet lst:terminal "listings terminal style" b
 		{Ň}{{\v{N}}}1
 		{Ů}{{\r{U}}}1,
 }
+endsnippet
+
+snippet preamble:gnuplot "gnuplottex package import and config" b
+\usepackage[subfolder]{gnuplottex}
+
+% https://tex.stackexchange.com/questions/133709/how-do-i-change-the-aspect-ratio-of-gnuplot-output/133726#133726
+\ExplSyntaxOn
+\DeclareExpandableDocumentCommand{\convertlen}{ O{cm} m }
+ {
+  \dim_to_decimal_in_unit:nn { #2 } { 1 #1 } cm
+ }
+\ExplSyntaxOff
+
+% http://www.gnuplotting.org/labels-with-white-background-in-latex-terminals/
+\newcommand{\hl}[1]{\setlength{\fboxsep}{0.75pt}\colorbox{white}{#1}}
+
+\begin{filecontents*}[nosearch,overwrite]{common.gpi}
+set encoding utf8
+set decimalsign '.'
+set format xy '$\num{%g}$'
+
+set grid lt -1 lc rgb 'gray70' lw 1.5, lt 0 lc rgb 'gray60' lw 2.0
+set pointsize 1.75
+
+set style line 1 lw 3 pointtype 1 lc rgb "black" # "blue"
+set style line 2 lw 3 dt 2 lc rgb "black" # "red"
+set style line 3 lw 3 dt 3 lc rgb "black" # "green"
+set style line 4 lw 3 dt 4 lc rgb "black" # "cyan"
+set style line 5 lw 3 dt 5 lc rgb "black" # "magenta"
+
+set datafile separator ","
+
+set grid xtics ytics mxtics mytics
+\end{filecontents*}
 endsnippet
