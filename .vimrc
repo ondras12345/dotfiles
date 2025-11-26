@@ -207,6 +207,9 @@ runtime ftplugin/man.vim
 silent! au! vimHints
 " GENERAL CONFIG }}}1
 
+" Longer command history {{{2
+set history=10000
+
 " Workarounds {{{1
 " dracula {{{2
 " listchars were pink. This needs to be done before setting colorscheme.
