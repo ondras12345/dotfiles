@@ -7,6 +7,7 @@ Electronics:
             - Magnet Wire
             - USB cables and adapters
             - Multicore Cables - Unshielded
+            - Single Core Cable - Solid
         _parameters:
             - Color
             - Cable Diameter
@@ -250,6 +251,7 @@ Electronics:
                 - DIP Switches/SIP Switches
                 - Tactile Switches
                 - Toggle Switches
+                - Standard Switches
         Circuit Breakers:
             _parameters:
                 - Characteristics
