@@ -183,6 +183,8 @@ Supply Voltage:
 Tolerance:
     _unit: '%'
 Type:
+    _aliases:
+        - Type of connection cable
 Ethernet Category:
 Battery Type:
     _aliases:
@@ -205,6 +207,7 @@ Length:
         - Spacer length
         - Dimension Y
         - Bit length
+        - Cable length
     _unit: mm
 Height:
     _unit: mm

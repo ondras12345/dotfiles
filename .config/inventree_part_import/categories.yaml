@@ -16,6 +16,10 @@ Electronics:
             - Rated Voltage
             - Shield Structure
             - Kind of Core
+    Cable Assemblies:
+        _parameters:
+            - Length
+            - Type
     Connectors:
         Battery Holders:
             _parameters:
