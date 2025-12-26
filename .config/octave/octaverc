@@ -1,0 +1,2 @@
+EDITOR("gvim")
+history_control("ignoredups")
