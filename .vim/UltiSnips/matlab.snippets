@@ -3,3 +3,22 @@ if exist('OCTAVE_VERSION', 'builtin') ~= 0
 	$0
 end
 endsnippet
+
+snippet fig "figure" b
+figure($1)
+clf
+$0
+grid on
+legend
+xlabel('$2')
+ylabel('$3')
+endsnippet
+
+snippet cl "init: clc + clear" b
+clc
+clear all
+close all
+
+%%
+
+endsnippet

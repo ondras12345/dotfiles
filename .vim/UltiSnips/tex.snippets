@@ -251,7 +251,7 @@ endsnippet
 
 snippet sym:abs "abs and norm symbols" b
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
-\DeclarePairedDelimiter\norm{\lvert\lvert}{\rvert\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
 endsnippet
 
 snippet sym:basic "basic symbols" b
@@ -457,4 +457,10 @@ set datafile separator ","
 
 set grid xtics ytics mxtics mytics
 \end{filecontents*}
+endsnippet
+
+snippet minipage "minipage" b
+\begin{minipage}${2:[t]}{${1:\textwidth}}
+	$0
+\end{minipage}
 endsnippet
