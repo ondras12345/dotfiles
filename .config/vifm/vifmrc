@@ -191,7 +191,9 @@ filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus},
        \ {Play using MPlayer}
        \ mplayer %f,
 fileviewer {*.mp3},<audio/mpeg> mp3info
-fileviewer {*.flac},<audio/flac> soxi
+"fileviewer {*.flac},<audio/flac> soxi
+" ondra:
+fileviewer {*.flac},<audio/flac> metaflac --show-all-tags %c
 
 " Video
 filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
