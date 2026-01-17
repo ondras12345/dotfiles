@@ -50,7 +50,6 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     " plugins_programming plugins {{{2
     if (g:plugins_programming)
         Plug 'nvie/vim-flake8'
-        Plug 'ericcurtin/CurtineIncSw.vim'
         Plug 'mattn/emmet-vim'
         Plug 'SirVer/ultisnips'
         Plug 'ap/vim-css-color'
@@ -293,11 +292,25 @@ augroup vimrcEx
 
   " Arduino & cpp - switch to header / cpp file {{{2
   " https://vim.fandom.com/wiki/Easily_switch_between_source_and_header_file
+  function! SwitchSourceHeader()
+      if (expand('%:e') == "c" || expand('%:e') == "cpp")
+          return "%<.h"
+      else
+          let l:basename = expand("%<")
+          if filereadable(basename..".cpp")
+              return "%<.cpp"
+          elseif filereadable(basename..".c")
+              return "%<.c"
+          else
+              throw "Failed to find c/cpp file"
+          endif
+      endif
+  endfunction
+  "
   au FileType arduino,cpp,c
-    \ nnoremap <buffer> <Leader>oo :if expand('%:e') == "h" \| e %<.cpp \| else \| e %<.h \| endif<CR> |
-    \ nnoremap <buffer> <Leader>oO :if expand('%:e') == "h" \| vs %<.cpp \| else \| vs %<.h \| endif<CR> |
+    \ nnoremap <buffer> <Leader>oo :execute 'edit' SwitchSourceHeader()<CR> |
+    \ nnoremap <buffer> <Leader>oO :execute 'vsplit' SwitchSourceHeader()<CR> |
     \ nmap <buffer> <Leader>OO <Leader>oO
-    "\ nnoremap <buffer> <Leader>oo :call CurtineIncSw()<CR> |
 
 
   " html, php & markdown {{{2
