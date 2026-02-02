@@ -34,6 +34,7 @@ Electronics:
                 - Mounting Type
             _aliases:
                 - PCB Fuseholders
+                - Panel Mount Fuseholders
         IC Sockets:
             _parameters:
                 - Mounting Type
@@ -347,6 +348,7 @@ Electronics:
                 - 8-bit Microcontrollers - MCU
                 - Raspberry Pi - Embedded
                 - IoT (WiFi/Bluetooth) modules
+                - Development Boards & Kits - Other Processors
         Motor Drivers:
             _aliases:
                 - Motor Drivers, Controllers
@@ -621,6 +623,7 @@ Mechanical:
         Standoffs:
             _aliases:
                 - Metal Spacers
+                - Plastic Standoffs
             _parameters:
                 - Length
                 - Thread

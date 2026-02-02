@@ -41,6 +41,7 @@ Gain (hFE):
     _aliases:
         - DC Current Gain (hFE) (Min) @ Ic, Vce
         - DC Current Gain (hFE@Ic,Vce)
+        - Current gain
 Impedance:
     _aliases:
         - Impedance @ Frequency
@@ -64,7 +65,6 @@ Number of Contacts:
         - Number of contacts points
         - Number of pins
         - Number of ways
-        - Connector
 Number of Rows:
     _aliases:
         - Connector pinout layout
