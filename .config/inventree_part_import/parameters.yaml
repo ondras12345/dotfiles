@@ -17,6 +17,7 @@ Connector Type:
         - Connector
         - Type of splice terminal
         - Kind of output connector
+        - Electrical connection
 ESR:
     _aliases:
         - ESR (Equivalent Series Resistance)
