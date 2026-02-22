@@ -257,6 +257,7 @@ Electronics:
                 - Tactile Switches
                 - Toggle Switches
                 - Standard Switches
+                - Rocker Switches
         Circuit Breakers:
             _parameters:
                 - Characteristics
