@@ -47,6 +47,8 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
 
     Plug 'Konfekt/FastFold'
 
+    Plug 'junegunn/vim-easy-align'
+
     " plugins_programming plugins {{{2
     if (g:plugins_programming)
         Plug 'nvie/vim-flake8'
@@ -83,8 +85,6 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     Plug 'cormacrelf/vim-colors-github'
 
     " TODO take a look at these plugins {{{2
-    " TODO https://github.com/godlygeek/tabular
-
     " This plugin causes problems when I open a python file from vim in Git
     " bash on Windows
     "Plug 'dbeniamine/cheat.sh-vim'
@@ -573,6 +573,11 @@ autocmd FileType markdown nmap <buffer><silent> <leader>ip :call mdip#MarkdownCl
 " This does:
 let g:fastfold_force = 1
 " (Use 'zuz' to manually update folds.)
+
+" vim-easy-align {{{2
+xmap gA <Plug>(EasyAlign)
+nmap gA <Plug>(EasyAlign)
+" e.g. gAip*| for aligning markdown tables
 
 " plugin config }}}1
 
