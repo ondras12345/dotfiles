@@ -8,6 +8,7 @@ Electronics:
             - USB cables and adapters
             - Multicore Cables - Unshielded
             - Single Core Cable - Solid
+            - Single Core Cable - Strand
         _parameters:
             - Color
             - Cable Diameter
@@ -556,6 +557,7 @@ Electronics:
                 _parameters:
                     - Mounting Type
                     - Package Type
+                    - Wavelength
         Current:
             _aliases:
                 - Current Sensors
@@ -691,6 +693,7 @@ Mechanical:
                 - Airflow
             _aliases:
                 - DC Fans
+                - AC230V Fans
         _aliases:
             - Heatsinks - equipment
     Heat Shrink Tubes:
