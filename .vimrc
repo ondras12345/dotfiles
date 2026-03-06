@@ -525,6 +525,8 @@ let g:startify_bookmarks = [
 
 nnoremap <leader>S :Startify<CR>
 
+let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
+
 " vim-markdown {{{2
 let g:vim_markdown_folding_level = 2
 let g:vim_markdown_folding_style_pythonic = 1
