@@ -439,6 +439,12 @@ command PioMake
     \ nunmap <lt>leader>m
 " MISC mappings }}}1
 
+" Hardcopy print options {{{1
+" The best way to do this is :ha > file.eps and print that manually
+set printencoding=iso-8859-2
+set printoptions=paper:A4,header:0
+" }}}
+
 " PLUGIN CONFIG {{{1
 " airline {{{2
 set laststatus=2
