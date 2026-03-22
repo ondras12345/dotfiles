@@ -206,6 +206,7 @@ Electronics:
                 - Standoff Voltage
                 - Breakdown Voltage
                 - Semiconductor Structure
+                - Clamping Voltage
             Unidirectional:
                 _aliases:
                     - Unidirectional TVS SMD diodes
@@ -240,6 +241,15 @@ Electronics:
                 - Rated Voltage
                 - Coil Voltage
                 - Switch Type
+            Relay Accessories:
+                _aliases:
+                    - Electromagnetic Relays - Accessories
+                _omit_parameters:
+                    - Mounting Type
+                    - Rated Current
+                    - Rated Voltage
+                    - Coil Voltage
+                    - Switch Type
         Contactors:
             _parameters:
                 - Mounting Type
@@ -536,6 +546,14 @@ Electronics:
                     - P channel transistors
         IGBTs:
             _description: Insulated-Gate Bipolar Transistors
+    Thyristors:
+        _parameters:
+            - Rated Voltage
+            - Rated Current
+            - Mounting Type
+            - Package Type
+        _aliases:
+            - Single thyristores
     Triacs:
         _parameters:
             - Rated Voltage
@@ -599,6 +617,11 @@ Electronics:
                 - Rated Power
                 - Connector Type
 Mechanical:
+    DIN Rail:
+        _parameters:
+            - Length
+        _aliases:
+            - Enclosures - DIN Rails
     Enclosures:
         _parameters:
             - Material

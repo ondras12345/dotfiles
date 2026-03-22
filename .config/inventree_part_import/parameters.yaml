@@ -236,6 +236,8 @@ Standoff Voltage:
         - Max. off-state voltage
 Breakdown Voltage:
     _unit: V
+Clamping Voltage:
+    _unit: V
 Leakage Current:
     _unit: A
 Semiconductor Structure:
