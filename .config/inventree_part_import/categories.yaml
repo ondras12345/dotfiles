@@ -283,6 +283,7 @@ Electronics:
         Speakers:
             _aliases:
                 - Electromagnetic Sounders with Generator
+                - Piezo Transducers without Generator
     Integrated Circuits:
         _parameters:
             - Mounting Type
