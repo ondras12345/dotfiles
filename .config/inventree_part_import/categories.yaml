@@ -720,6 +720,7 @@ Mechanical:
                 - AC230V Fans
         _aliases:
             - Heatsinks - equipment
+        Heatsinks:
     Heat Shrink Tubes:
         _parameters:
             - Color
