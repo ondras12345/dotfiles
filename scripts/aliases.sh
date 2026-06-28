@@ -86,4 +86,10 @@ vicd()
     cd "$dst"
 }
 
+zephyrenv()
+{
+    . ~/zephyrproject/zephyr/zephyr-env.sh
+    . ~/zephyrproject/.venv/bin/activate
+}
+
 test -f ~/scripts/aliases-local.sh && . ~/scripts/aliases-local.sh
