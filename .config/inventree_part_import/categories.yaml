@@ -756,6 +756,7 @@ Chemicals:
     _aliases:
         - Cleaning & maintaining products
         - Lubricants
+        - Encapsulating materials
 CNC:
     _ignore: true
 Assemblies:
