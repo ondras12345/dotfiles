@@ -740,8 +740,8 @@ PCBs:
             - Variant
 Soldering:
     _description: Solders and soldering tools
-    _aliases:
-        - Solders
+    Solders:
+    Fluxes:
 MISC:
     _aliases:
         - Adafruit Accessories
