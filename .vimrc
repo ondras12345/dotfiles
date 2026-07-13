@@ -200,6 +200,7 @@ endif
 
 " Man pages {{{2
 runtime ftplugin/man.vim
+set keywordprg=:Man
 
 " Disable vimHints {{{2
 " You discovered the command-line window! You can close it with ":q".
