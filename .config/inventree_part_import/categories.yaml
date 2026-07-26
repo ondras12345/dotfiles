@@ -742,6 +742,8 @@ Soldering:
     _description: Solders and soldering tools
     Solders:
     Fluxes:
+    _aliases:
+        - Soldering accessories others
 MISC:
     _aliases:
         - Adafruit Accessories
