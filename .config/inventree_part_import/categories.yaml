@@ -577,6 +577,13 @@ Electronics:
                     - Mounting Type
                     - Package Type
                     - Wavelength
+            Photodiodes:
+                _parameters:
+                    - Mounting Type
+                    - Package Type
+                    - Wavelength
+                    - Viewing Angle
+                    - Rated Voltage
         Current:
             _aliases:
                 - Current Sensors

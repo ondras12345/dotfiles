@@ -314,3 +314,5 @@ Diameter After Shrinking:
     _unit: mm
 Wavelength:
     _unit: nm
+Viewing Angle:
+    _unit: °
