@@ -284,6 +284,7 @@ Electronics:
             _aliases:
                 - Electromagnetic Sounders with Generator
                 - Piezo Transducers without Generator
+        Microphones:
     Integrated Circuits:
         _parameters:
             - Mounting Type
