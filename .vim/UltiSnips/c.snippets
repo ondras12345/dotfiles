@@ -19,6 +19,6 @@ while ($1)
 }
 endsnippet
 
-snippet kaboom "print sizeof at compile time" b
-char (*__kaboom)[sizeof( $0 )] = 1;
+snippet kaboom "print compile time constant" b
+char (*__kaboom)[ $0 ] = 1;
 endsnippet
