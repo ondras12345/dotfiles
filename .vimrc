@@ -472,6 +472,7 @@ nmap <leader>gd :YcmCompleter GoTo<CR>
 nmap <leader>f :YcmCompleter FixIt<CR>
 nmap <leader>= :YcmCompleter Format<CR>
 nnoremap <silent> <leader>cw <cmd>execute 'YcmCompleter RefactorRename' input( 'Rename to: ' )<CR>
+" use ctrl+space to trigger semantic completion e.g. in C files
 
 " vimspector {{{2
 let g:vimspector_base_dir=$HOME.'/.vim/bundle/vimspector'
@@ -587,6 +588,10 @@ let g:fastfold_force = 1
 xmap gA <Plug>(EasyAlign)
 nmap gA <Plug>(EasyAlign)
 " e.g. gAip*| for aligning markdown tables
+
+" showmultibase: HEX2BIN, etc {{{2
+let g:ShowMultiBase_General_UseDefaultMappings=0
+nnoremap <leader>H :call ShowMultiBase()<CR>
 
 " plugin config }}}1
 
