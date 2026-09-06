@@ -414,6 +414,10 @@ command Czmap :source ~/scripts/cz-mappings-local.vim
 
 command Gterm :call system('x-terminal-emulator >/dev/null 2>&1 &')
 
+" Change current directory for current window to the directory containing the
+" current file.
+command Lcd :lcd %:p:h
+
 command Gittab :tabnew | :G | :only | :vert term
 
 " Leader y and p system clipboard {{{2
