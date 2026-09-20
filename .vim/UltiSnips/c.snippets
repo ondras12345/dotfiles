@@ -19,6 +19,14 @@ while ($1)
 }
 endsnippet
 
+snippet main
+int main(int argc, char *argv[])
+{
+    $0
+    return 0;
+}
+endsnippet
+
 snippet kaboom "print compile time constant" b
 char (*__kaboom)[ $0 ] = 1;
 endsnippet
