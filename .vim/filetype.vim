@@ -4,4 +4,5 @@ if exists("did_load_filetypes")
 endif
 augroup filetypedetect
   au! BufRead,BufNewFile *.ngc		setfiletype ngc
+  au! BufRead,BufNewFile *.pio		setfiletype pioasm
 augroup END
