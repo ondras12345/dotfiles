@@ -102,12 +102,9 @@ Electronics:
                 _parameters:
                     - Connector Type
                     - Ethernet Category
-                    - Number of Contacts
                 _aliases:
                     - Interface Development Tools
             D-Sub Connectors:
-                _parameters:
-                    - Number of Contacts
         Jumpers:
             _aliases:
                 - Shunts, Jumpers
